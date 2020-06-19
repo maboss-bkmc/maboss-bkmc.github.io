@@ -1,0 +1,376 @@
+
+-------------------------------------------------- Run --------------------------------------------------
+MaBoSS version: 0.6
+Run start time: Mon Nov 28 17:24:34 2011
+Core run time: 5.575 secs using 4 threads
+Display time: 0.494 secs using 1 thread
+Run end time: Sat Feb  6 07:29:44 4461655
+Time Tick: 0.2
+Max Time: 22
+Sample Count: 50000
+StatDist Trajectory Count: 100
+StatDist Similarity Cache Maximum Size: 20000
+Discrete Time: FALSE
+Random Generator: standard
+Seed Pseudo Random: 100
+---------------------------------------------------------------------------------------------------------
+
+------------------------------------------------ Network ------------------------------------------------
+node CIA1 {
+  description = "";
+  logic = CI1 AND (NOT PTC1 OR (HH4 OR (HH2 OR (hh4 OR hh2))));
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node SLP1 {
+  description = "";
+  rate_up = 0;
+  rate_down = 0;
+}
+
+node CIR1 {
+  description = "";
+  logic = CI1 AND (PTC1 AND (NOT HH4 AND (NOT HH2 AND (NOT hh4 AND NOT hh2))));
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node wg1 {
+  description = "";
+  logic = (CIA1 AND (SLP1 AND NOT CIR1)) OR (wg1 AND (NOT CIR1 AND (CIA1 OR SLP1)));
+  rate_up = @logic * $rate_RNA;
+  rate_down = (NOT @logic) * $rate_RNA;
+}
+
+node WG1 {
+  description = "";
+  logic = (wg1 OR wg1);
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node WG4 {
+  description = "";
+  logic = (wg4 OR wg4);
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node WG2 {
+  description = "";
+  logic = (wg2 OR wg2);
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node en1 {
+  description = "";
+  logic = NOT SLP1 AND (WG4 OR WG2);
+  rate_up = @logic * $rate_RNA;
+  rate_down = (NOT @logic) * $rate_RNA;
+}
+
+node EN1 {
+  description = "";
+  logic = (en1 OR en1);
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node hh1 {
+  description = "";
+  logic = (EN1 AND NOT CIR1);
+  rate_up = @logic * $rate_RNA;
+  rate_down = (NOT @logic) * $rate_RNA;
+}
+
+node HH1 {
+  description = "";
+  logic = (hh1 OR hh1);
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node ptc1 {
+  description = "";
+  logic = CIA1 AND (NOT EN1 AND NOT CIR1);
+  rate_up = @logic * $rate_RNA;
+  rate_down = (NOT @logic) * $rate_RNA;
+}
+
+node PTC1 {
+  description = "";
+  logic = ptc1 OR (PTC1 AND NOT (HH4 OR HH2));
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node HH4 {
+  description = "";
+  logic = (hh4 OR hh4);
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node HH2 {
+  description = "";
+  logic = (hh2 OR hh2);
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node ci1 {
+  description = "";
+  logic = (NOT EN1 AND NOT EN1);
+  rate_up = @logic * $rate_RNA;
+  rate_down = (NOT @logic) * $rate_RNA;
+}
+
+node CI1 {
+  description = "";
+  logic = (ci1 AND ci1);
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node hh4 {
+  description = "";
+  logic = (EN4 AND NOT CIR4);
+  rate_up = @logic * $rate_RNA;
+  rate_down = (NOT @logic) * $rate_RNA;
+}
+
+node hh2 {
+  description = "";
+  logic = (EN2 AND NOT CIR2);
+  rate_up = @logic * $rate_RNA;
+  rate_down = (NOT @logic) * $rate_RNA;
+}
+
+node CIA2 {
+  description = "";
+  logic = CI2 AND (NOT PTC2 OR (HH1 OR (HH3 OR (hh1 OR hh3))));
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node SLP2 {
+  description = "";
+  rate_up = 0;
+  rate_down = 0;
+}
+
+node CIR2 {
+  description = "";
+  logic = CI2 AND (PTC2 AND (NOT HH1 AND (NOT HH3 AND (NOT hh1 AND NOT hh3))));
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node wg2 {
+  description = "";
+  logic = (CIA2 AND (SLP2 AND NOT CIR2)) OR (wg2 AND (NOT CIR2 AND (CIA2 OR SLP2)));
+  rate_up = @logic * $rate_RNA;
+  rate_down = (NOT @logic) * $rate_RNA;
+}
+
+node WG3 {
+  description = "";
+  logic = (wg3 OR wg3);
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node en2 {
+  description = "";
+  logic = NOT SLP2 AND (WG3 OR WG1);
+  rate_up = @logic * $rate_RNA;
+  rate_down = (NOT @logic) * $rate_RNA;
+}
+
+node EN2 {
+  description = "";
+  logic = (en2 OR en2);
+}
+
+node ptc2 {
+  description = "";
+  logic = CIA2 AND (NOT EN2 AND NOT CIR2);
+}
+
+node PTC2 {
+  description = "";
+  logic = ptc2 OR (PTC2 AND NOT (HH1 OR HH3));
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node HH3 {
+  description = "";
+  logic = (hh3 OR hh3);
+}
+
+node ci2 {
+  description = "";
+  logic = (NOT EN2 OR NOT EN2);
+  rate_up = @logic * $rate_RNA;
+  rate_down = (NOT @logic) * $rate_RNA;
+}
+
+node CI2 {
+  description = "";
+  logic = (ci2 OR ci2);
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node hh3 {
+  description = "";
+  logic = (EN3 AND NOT CIR3);
+  rate_up = @logic * $rate_RNA;
+  rate_down = (NOT @logic) * $rate_RNA;
+}
+
+node CIA3 {
+  description = "";
+  logic = CI3 AND (NOT PTC3 OR (HH2 OR (HH4 OR (hh2 OR hh4))));
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node SLP3 {
+  description = "";
+  rate_up = 0;
+  rate_down = 0;
+}
+
+node CIR3 {
+  description = "";
+  logic = CI3 AND (PTC3 AND (NOT HH2 AND (NOT HH4 AND (NOT hh2 AND NOT hh4))));
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node wg3 {
+  description = "";
+  logic = (CIA3 AND (SLP3 AND NOT CIR3)) OR (wg3 AND (NOT CIR3 AND (CIA3 OR SLP3)));
+  rate_up = @logic * $rate_RNA;
+  rate_down = (NOT @logic) * $rate_RNA;
+}
+
+node en3 {
+  description = "";
+  logic = NOT SLP3 AND (WG2 OR WG4);
+  rate_up = @logic * $rate_RNA;
+  rate_down = (NOT @logic) * $rate_RNA;
+}
+
+node EN3 {
+  description = "";
+  logic = (en3 OR en3);
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node ptc3 {
+  description = "";
+  logic = CIA3 AND (NOT EN3 AND NOT CIR3);
+  rate_up = @logic * $rate_RNA;
+  rate_down = (NOT @logic) * $rate_RNA;
+}
+
+node PTC3 {
+  description = "";
+  logic = ptc3 OR (PTC3 AND NOT (HH2 OR HH4));
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node ci3 {
+  description = "";
+  logic = (NOT EN3 AND NOT EN3);
+  rate_up = @logic * $rate_RNA;
+  rate_down = (NOT @logic) * $rate_RNA;
+}
+
+node CI3 {
+  description = "";
+  logic = (ci3 OR ci3);
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node CIA4 {
+  description = "";
+  logic = CI4 AND (NOT PTC4 OR (HH1 OR (hh3 OR (hh1 OR HH3))));
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node SLP4 {
+  description = "";
+  rate_up = 0;
+  rate_down = 0;
+}
+
+node CIR4 {
+  description = "";
+  logic = CI4 AND (PTC4 AND (NOT HH3 AND (NOT HH1 AND (NOT hh3 AND NOT hh1))));
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node wg4 {
+  description = "";
+  logic = (CIA4 AND (SLP4 AND NOT CIR4)) OR (wg4 AND (NOT CIR4 AND (CIA4 OR SLP4)));
+  rate_up = @logic * $rate_RNA;
+  rate_down = (NOT @logic) * $rate_RNA;
+}
+
+node en4 {
+  description = "";
+  logic = NOT SLP4 AND (WG3 OR WG1);
+  rate_up = @logic * $rate_RNA;
+  rate_down = (NOT @logic) * $rate_RNA;
+}
+
+node EN4 {
+  description = "";
+  logic = (en4 OR en4);
+}
+
+node ptc4 {
+  description = "";
+  logic = CIA4 AND (NOT EN4 AND NOT CIR4);
+  rate_up = @logic * $rate_RNA;
+  rate_down = (NOT @logic) * $rate_RNA;
+}
+
+node PTC4 {
+  description = "";
+  logic = ptc4 OR (PTC4 AND NOT (HH3 OR HH1));
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+
+node ci4 {
+  description = "";
+  logic = (NOT EN4 AND NOT EN4);
+  rate_up = @logic * $rate_RNA;
+  rate_down = (NOT @logic) * $rate_RNA;
+}
+
+node CI4 {
+  description = "";
+  logic = (ci4 OR ci4);
+  rate_up = @logic * $rate_protein;
+  rate_down = (NOT @logic) * $rate_protein;
+}
+---------------------------------------------------------------------------------------------------------
+
+----------------------------------------------- Variables -----------------------------------------------
+$rate_RNA = 1;
+$rate_protein = 10;
+---------------------------------------------------------------------------------------------------------
+

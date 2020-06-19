@@ -1,0 +1,62 @@
+digraph D {
+// segment 1
+wg1  [logic="(CIA1 AND (SLP1 AND NOT CIR1)) OR (wg1 AND (NOT CIR1 AND (CIA1 OR SLP1)))"];//1
+WG1  [logic="(wg1 OR wg1)"];//2
+en1  [logic="NOT SLP1 AND (WG4 OR WG2)"];//3
+EN1  [logic="(en1 OR en1)"];//4
+hh1  [logic="(EN1 AND NOT CIR1)"];//5
+HH1  [logic="(hh1 OR hh1)"];//6
+ptc1 [logic="CIA1 AND (NOT EN1 AND NOT CIR1)"];//7
+PTC1 [logic="ptc1 OR (PTC1 AND NOT (HH4 OR HH2))"];//8
+ci1  [logic="(NOT EN1 AND NOT EN1)"];//9
+CI1  [logic="(ci1 AND ci1)"];//10
+CIA1 [logic="CI1 AND (NOT PTC1 OR (HH4 OR (HH2 OR (hh4 OR hh2))))"];//11
+CIR1 [logic="CI1 AND (PTC1 AND (NOT HH4 AND (NOT HH2 AND (NOT hh4 AND NOT hh2))))"]//12
+//
+// segment 2
+wg2  [logic="(CIA2 AND (SLP2 AND NOT CIR2)) OR (wg2 AND (NOT CIR2 AND (CIA2 OR SLP2)))"];//13
+WG2  [logic="(wg2 OR wg2)"];//14
+en2  [logic="NOT SLP2 AND (WG3 OR WG1)"];//15
+EN2  [logic="(en2 OR en2)"];//16
+hh2  [logic="(EN2 AND NOT CIR2)"];//17
+HH2  [logic="(hh2 OR hh2)"];//18
+ptc2 [logic="CIA2 AND (NOT EN2 AND NOT CIR2)"];//19
+PTC2 [logic="ptc2 OR (PTC2 AND NOT (HH1 OR HH3))"];//20
+ci2  [logic="(NOT EN2 OR NOT EN2)"];//21
+CI2  [logic="(ci2 OR ci2)"];//22
+CIA2 [logic="CI2 AND (NOT PTC2 OR (HH1 OR (HH3 OR (hh1 OR hh3))))"];//23
+CIR2 [logic="CI2 AND (PTC2 AND (NOT HH1 AND (NOT HH3 AND (NOT hh1 AND NOT hh3))))"]//24
+//
+// segment 3
+wg3  [logic="(CIA3 AND (SLP3 AND NOT CIR3)) OR (wg3 AND (NOT CIR3 AND (CIA3 OR SLP3)))"];//25
+WG3  [logic="(wg3 OR wg3)"];//26
+en3  [logic="NOT SLP3 AND (WG2 OR WG4)"];//27
+EN3  [logic="(en3 OR en3)"];//28
+hh3  [logic="(EN3 AND NOT CIR3)"];//29
+HH3  [logic="(hh3 OR hh3)"];//30
+ptc3 [logic="CIA3 AND (NOT EN3 AND NOT CIR3)"];//31
+PTC3 [logic="ptc3 OR (PTC3 AND NOT (HH2 OR HH4))"];//32
+ci3  [logic="(NOT EN3 AND NOT EN3)"];//33
+CI3  [logic="(ci3 OR ci3)"];//34
+CIA3 [logic="CI3 AND (NOT PTC3 OR (HH2 OR (HH4 OR (hh2 OR hh4))))"];//35
+CIR3 [logic="CI3 AND (PTC3 AND (NOT HH2 AND (NOT HH4 AND (NOT hh2 AND NOT hh4))))"]//36
+//
+// segment 4
+wg4  [logic="(CIA4 AND (SLP4 AND NOT CIR4)) OR (wg4 AND (NOT CIR4 AND (CIA4 OR SLP4)))"];//37
+WG4  [logic="(wg4 OR wg4)"];//38
+en4  [logic="NOT SLP4 AND (WG3 OR WG1)"];//39
+EN4  [logic="(en4 OR en4)"];//40
+hh4  [logic="(EN4 AND NOT CIR4)"];//41
+HH4  [logic="(hh4 OR hh4)"];//42
+ptc4 [logic="CIA4 AND (NOT EN4 AND NOT CIR4)"];//43
+PTC4 [logic="ptc4 OR (PTC4 AND NOT (HH3 OR HH1))"];//44
+ci4  [logic="(NOT EN4 AND NOT EN4)"];//45
+CI4  [logic="(ci4 OR ci4)"];//46
+CIA4 [logic="CI4 AND (NOT PTC4 OR (HH1 OR (hh3 OR (hh1 OR HH3 ))))"];//47
+CIR4 [logic="CI4 AND (PTC4 AND (NOT HH3 AND (NOT HH1 AND (NOT hh3 AND NOT hh1))))"]//48
+//
+SLP1 ;//49
+SLP2 ;//50
+SLP3 ;//51
+SLP4 ;//52
+}
