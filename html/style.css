@@ -528,3 +528,34 @@ figcaption {
     background: var(--orange);
     color: #ffffff;
 }
+
+/* ---------- Dataframes ---------- */
+
+.df_wrapper {
+    overflow-x: auto;
+}
+
+.df_table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-family: var(--mono);
+    font-size: 12px;
+}
+
+.df_table th, .df_table td {
+    padding: 4px 10px;
+    text-align: right;
+    border-bottom: 1px solid var(--border);
+}
+
+.df_table tr:first-child th {
+    border-bottom: 2px solid var(--text-muted);
+}
+
+.df_table th {
+    font-weight: 600;
+}
+
+.df_table tr:nth-child(even) td {
+    background: var(--bg-soft);
+}

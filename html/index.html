@@ -43,8 +43,17 @@
 	  <li><a href="#" id="mi_model_drosophila" class="menu_item" onclick="show('model_drosophila');return false;">Drosophila Patterning</a></li>
 	  <li><a href="#" id="mi_model_egftnf" class="menu_item" onclick="show('model_egftnf');return false;">EGF-TNF Signaling</a></li>
 	  <li><a href="#" id="mi_model_prostate" class="menu_item" onclick="show('model_prostate');return false;">Prostate Cancer</a></li>
+	  <li><a href="#" id="mi_model_sizek" class="menu_item" onclick="show('model_sizek');return false;">Sizek Cell Cycle</a></li>
 	  <li><a href="#" id="mi_upmaboss" class="menu_item" onclick="show('upmaboss');return false;">UPMaBoSS Cell Fate</a></li>
 	  <!-- <li><a href="#" id="mi_ensemblemaboss" class="menu_item" onclick="show('ensemblemaboss');return false;">EnsembleMaBoSS</a></li> -->
+    </ul>
+    <span class="menu_section">MaBoSS ecosystem</span>
+    <ul class="menu">
+	  <li><a href="#" id="mi_eco_profile" class="menu_item" onclick="show('eco_profile');return false;">PROFILE</a></li>
+	  <li><a href="#" id="mi_eco_physiboss" class="menu_item" onclick="show('eco_physiboss');return false;">PhysiBoSS</a></li>
+	  <li><a href="#" id="mi_eco_upmaboss" class="menu_item" onclick="show('eco_upmaboss');return false;">UPMaBoSS</a></li>
+	  <li><a href="#" id="mi_eco_ensemble" class="menu_item" onclick="show('eco_ensemble');return false;">EnsembleMaBoSS</a></li>
+	  <li><a href="#" id="mi_eco_exastolog" class="menu_item" onclick="show('eco_exastolog');return false;">ExaStoLog</a></li>
     </ul>
     <span class="menu_section">About</span>
     <ul class="menu">
@@ -79,10 +88,13 @@
 	  <li class="vspace"><b>MaBoSS</b> (the original command-line tool): the C++ simulation engine itself, run from a terminal on <span class="tt">.bnd</span> and <span class="tt">.cfg</span> files. It gives direct access to all options and is suited to automated pipelines and computing clusters. See <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'maboss');return false;">how to install it</a>.</li>
 	</ul>
 
-	<h4>Extensions</h4>
+	<h4>MaBoSS ecosystem</h4>
 	<ul>
-	  <li><a href="#" class="clean-link" onclick="show('upmaboss');return false;">UPMaBoSS</a>: an extension to model dynamic populations of interacting cells, including cell division, death and communication;</li>
-	  <li><a href="https://physiboss.github.io/" class="clean-link">PhysiBoSS</a>: the integration of MaBoSS into the agent-based modelling framework PhysiCell, for multiscale simulations of cell populations in their physical environment;</li>
+	  <li><a href="#" class="clean-link" onclick="show('eco_profile');return false;">PROFILE</a>: personalization of logical models with the omics data of patients or cell lines;</li>
+	  <li><a href="#" class="clean-link" onclick="show('eco_physiboss');return false;">PhysiBoSS</a>: multiscale simulations of cell populations in their physical environment, integrating MaBoSS into PhysiCell;</li>
+	  <li><a href="#" class="clean-link" onclick="show('eco_upmaboss');return false;">UPMaBoSS</a>: dynamics of populations of interacting cells, including cell division, death and communication;</li>
+	  <li><a href="#" class="clean-link" onclick="show('eco_ensemble');return false;">EnsembleMaBoSS</a>: simulation of ensembles of logical models;</li>
+	  <li><a href="#" class="clean-link" onclick="show('eco_exastolog');return false;">ExaStoLog</a>: exact computation of the stationary probabilities of small stochastic logical models;</li>
 	  <li>MaBoSS.MPI and MaBoSS.GPU: high-performance implementations for large CPU clusters and GPU accelerators.</li>
 	</ul>
 	<p>
@@ -106,7 +118,7 @@
 	<!-- INSTALLATION pyMaBoSS -->
 	<div id="installation_panel_pymaboss" class="tab_panel">
 	  <h4>With conda (recommended)</h4>
-	  <p>The conda package installs pyMaBoSS together with the MaBoSS binaries, on Linux and MacOS:</p>
+	  <p>The conda package installs pyMaBoSS together with the MaBoSS binaries, on Linux, MacOS and Windows:</p>
 	  <pre>conda install -c colomoto pymaboss</pre>
 	  <h4>With pip</h4>
 	  <p>The pip package does not include the MaBoSS binaries. After installing it, run the setup script to download them:</p>
@@ -137,7 +149,7 @@ python -m maboss_setup</pre>
 	  <h4>With conda (recommended)</h4>
 	  <pre>conda install -c colomoto maboss</pre>
 	  <p>
-	    The conda package is available for Linux and MacOS, and provides the <span class="tt">MaBoSS</span> executable as well as executables supporting larger networks, such as <span class="tt">MaBoSS_256n</span>.
+	    The conda package is available for Linux, MacOS and Windows, and provides the <span class="tt">MaBoSS</span> executable as well as executables supporting larger networks, such as <span class="tt">MaBoSS_256n</span>.
 	  </p>
 	  <h4>Binaries</h4>
 	  <p>
@@ -145,29 +157,50 @@ python -m maboss_setup</pre>
 	  </p>
 	  <h4>From source</h4>
 	  <p>
-	    Compiling MaBoSS requires a C++ compiler, flex and bison. On Windows, it can be compiled with <a href="https://www.cygwin.com" class="clean-link">Cygwin</a>.
+	    MaBoSS is compiled with <a href="https://cmake.org" class="clean-link">CMake</a> (3.10 or later), and requires a C++ compiler, flex and bison.
+	  </p>
+	  <h5>Linux and MacOS</h5>
+	  <p>
+	    Install the requirements, for instance on Ubuntu with <span class="tt">sudo apt-get install g++ cmake flex bison</span>, or on MacOS with Homebrew: <span class="tt">brew install cmake flex bison</span>. Then:
 	  </p>
 <pre>git clone https://github.com/sysbio-curie/MaBoSS
-cd MaBoSS/engine/src
-make install</pre>
+cd MaBoSS
+cmake -B build -S . -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_INSTALL_PREFIX=$HOME/.local
+cmake --build build --parallel
+cmake --install build --component executables</pre>
 	  <p>
-	    The executable is placed in <span class="tt">MaBoSS/engine/pub</span>. To add it to your PATH, along with the MaBoSS environment tools, run <span class="tt">source MaBoSS.env</span> from the root of the repository.
+	    The executables (<span class="tt">MaBoSS</span> and <span class="tt">PopMaBoSS</span>) are installed in the <span class="tt">bin</span> folder of the installation prefix, here <span class="tt">$HOME/.local/bin</span>, which should be in your PATH.
 	  </p>
-	  <p>Several options can be added to the <span class="tt">make</span> command:</p>
+	  <h5>Windows</h5>
+	  <p>
+	    MaBoSS can be compiled with the Microsoft C++ compiler (MSVC), from a <i>Developer PowerShell for Visual Studio</i>. Flex and bison are provided by <a href="https://github.com/lexxmark/winflexbison" class="clean-link">WinFlexBison</a> (for instance with <a href="https://chocolatey.org" class="clean-link">Chocolatey</a>: <span class="tt">choco install winflexbison3</span>), and the other libraries can be installed with <a href="https://vcpkg.io" class="clean-link">vcpkg</a>. Then:
+	  </p>
+<pre>git clone https://github.com/sysbio-curie/MaBoSS
+cd MaBoSS
+cmake -B build -S . -G Ninja -DCMAKE_BUILD_TYPE=Release -DSTD_THREAD=1 `
+  -DCMAKE_INSTALL_PREFIX=C:/MaBoSS
+cmake --build build --parallel
+cmake --install build --component executables</pre>
+	  <p>
+	    The executables are installed in <span class="tt">C:/MaBoSS/bin</span>, which you can add to your PATH.
+	  </p>
+	  <h5>Options</h5>
+	  <p>Several options can be added to the first <span class="tt">cmake</span> command:</p>
 	  <ul>
-	    <li class="vspace"><span class="tt">MAXNODES=256</span>: by default, MaBoSS supports networks of up to 64 nodes. This option produces an executable supporting larger networks (here <span class="tt">MaBoSS_256n</span>);</li>
-	    <li class="vspace"><span class="tt">SBML_COMPAT=1</span>: enables the SBML-qual format (requires libSBML);</li>
-	    <li class="vspace"><span class="tt">MPI_COMPAT=1 CXX=mpic++</span>: enables MPI, to distribute simulations on CPU clusters (produces for instance <span class="tt">MaBoSS_256n.MPI</span>).</li>
+	    <li class="vspace"><span class="tt">-DMAXNODES=256</span>: by default, MaBoSS supports networks of up to 64 nodes. This option produces executables supporting larger networks (here <span class="tt">MaBoSS_256n</span>). Build MaBoSS once for each value you need: the executables are installed side by side;</li>
+	    <li class="vspace"><span class="tt">-DSBML=ON</span>: enables the SBML-qual format (requires <a href="https://sbml.org/software/libsbml/" class="clean-link">libSBML</a>);</li>
+	    <li class="vspace"><span class="tt">-DMPI=ON</span>: enables MPI, to distribute simulations on CPU clusters (requires an MPI library, and produces for instance <span class="tt">MaBoSS_256n.MPI</span>).</li>
 	  </ul>
-	  <pre>make MAXNODES=256 SBML_COMPAT=1 install</pre>
-	  <p>See the README file of the repository for the full list of requirements.</p>
-
-	  <h4>Older versions</h4>
+<pre>cmake -B build -S . -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_INSTALL_PREFIX=$HOME/.local -DMAXNODES=256 -DSBML=ON
+cmake --build build --parallel
+cmake --install build --component executables</pre>
 	  <p>
-	    MaBoSS 2.0 environment (engine and tools): <a href="pub/MaBoSS-env-2.0.tgz" class="clean-link">MaBoSS-env-2.0.tgz</a>. After extracting it, run <span class="tt">./check-requirements.sh</span>, then compile with <span class="tt">cd engine/src; make install</span>, and run <span class="tt">source ./MaBoSS.env</span> to use the tools.
+	    The <a href="https://github.com/sysbio-curie/MaBoSS/tree/master/.github/workflows" class="clean-link">GitHub workflows</a> of MaBoSS show complete builds on Linux, MacOS and Windows, including the compilation of libSBML.
 	  </p>
-	  <p>
-	    MaBoSS engine only: <a href="pub/MaBoSS-2.0.tgz" class="clean-link">MaBoSS-2.0.tgz</a>, <a href="pub/MaBoSS-1.3.8.tgz" class="clean-link">MaBoSS-1.3.8.tgz</a>, <a href="pub/MaBoSS-1.2.2.tgz" class="clean-link">MaBoSS-1.2.2.tgz</a>.
+	  <p class="small_note">
+	    The <a href="pub/TutorialMaBoSS_2_0.pdf" class="clean-link">tutorial</a> of the MaBoSS 2.0 article uses the MaBoSS 2.0 environment, available here: <a href="pub/MaBoSS-env-2.0.tgz" class="clean-link">MaBoSS-env-2.0.tgz</a>.
 	  </p>
 	</div>
       </div>
@@ -230,8 +263,16 @@ res = sim.run()</pre>
 	    <figcaption>Distribution of the final states.</figcaption>
 	  </figure>
 	  <p>All these results can also be obtained as <a href="https://pandas.pydata.org/" class="clean-link">pandas</a> dataframes, for further analysis:</p>
-<pre>res.get_nodes_probtraj()
-res.get_states_probtraj()</pre>
+<pre>res.get_nodes_probtraj()</pre>
+	  <figure class="figure">
+	    <div class="df_wrapper"><table class="df_table"><tr><th>Time</th><th>p53_b1</th><th>p53_b2</th><th>Mdm2cyt</th><th>Mdm2nuc</th><th>DNAdam</th></tr><tr><th>0.0</th><td>0.0482</td><td>0.0019</td><td>0.0000</td><td>0.0196</td><td>0.6020</td></tr><tr><th>0.1</th><td>0.1369</td><td>0.0108</td><td>0.0006</td><td>0.0515</td><td>0.5978</td></tr><tr><th>0.2</th><td>0.2150</td><td>0.0251</td><td>0.0021</td><td>0.0774</td><td>0.5877</td></tr><tr><th>0.3</th><td>0.2796</td><td>0.0438</td><td>0.0047</td><td>0.0995</td><td>0.5740</td></tr><tr><th>0.4</th><td>0.3385</td><td>0.0674</td><td>0.0096</td><td>0.1189</td><td>0.5563</td></tr></table></div>
+	    <figcaption>First lines of the dataframe of node probabilities: one row per time point, one column per node.</figcaption>
+	  </figure>
+<pre>res.get_states_probtraj()</pre>
+	  <figure class="figure">
+	    <div class="df_wrapper"><table class="df_table"><tr><th>Time</th><th>&lt;nil&gt;</th><th>DNAdam</th><th>Mdm2nuc</th><th>Mdm2nuc -- DNAdam</th><th>&hellip;</th></tr><tr><th>0.0</th><td>0.3579</td><td>0.5743</td><td>0.0196</td><td>0.0000</td><td>&hellip;</td></tr><tr><th>0.1</th><td>0.2927</td><td>0.5190</td><td>0.0515</td><td>0.0000</td><td>&hellip;</td></tr><tr><th>0.2</th><td>0.2403</td><td>0.4675</td><td>0.0772</td><td>0.0000</td><td>&hellip;</td></tr><tr><th>0.3</th><td>0.1981</td><td>0.4234</td><td>0.0989</td><td>0.0000</td><td>&hellip;</td></tr><tr><th>0.4</th><td>0.1595</td><td>0.3843</td><td>0.1177</td><td>0.0000</td><td>&hellip;</td></tr></table></div>
+	    <figcaption>First lines and columns of the dataframe of state probabilities: one column per network state (here 18 states; &lt;nil&gt; is the state where all nodes are inactive).</figcaption>
+	  </figure>
 	  <p>Mutants are simulated by copying the simulation and forcing a node ON or OFF. Here, when nuclear Mdm2 is always active, p53 is no longer activated:</p>
 <pre>mutant = maboss.copy_and_mutate(sim, ["Mdm2nuc"], "ON")
 mutant_res = mutant.run()
@@ -316,42 +357,10 @@ mutant_res.plot_piechart()</pre>
 	    <li class="vspace"><span class="tt">myfile_out_run.txt</span>: a summary of the MaBoSS run.</li>
 	  </ul>
 	  <p>
-	    See the <a href="pub/DescriptionOutputFile.pdf" class="clean-link">description of MaBoSS output files</a>. These files can be analysed with your own scripts (in Python, R...), or with the MaBoSS environment tools below.
+	    See the <a href="pub/DescriptionOutputFile.pdf" class="clean-link">description of MaBoSS output files</a>. These files can be analysed with <a href="#" class="clean-link" onclick="show_tab('howto', 'pymaboss');return false;">pyMaBoSS</a>, or with your own scripts (in Python, R...).
 	  </p>
-
-	  <h4>MaBoSS environment tools</h4>
-	  <p>
-	    MaBoSS 2.0 came with a set of Perl and Python scripts to prepare simulations and analyse their results. They are included in the <span class="tt">tools</span> folder of the MaBoSS repository, and are made available by running <span class="tt">source MaBoSS.env</span> from the root of the repository (see <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'maboss');return false;">Installation</a>).
-	  </p>
-	  <div class="para">
-	    <span class="tt">MBSS_FormatTable.pl</span>: <a href="pub/Description_FormatTable.pdf" class="list">Description</a> and <a href="pub/README_FormatTable.txt" class="list">README</a>.
-	  </div>
-	  <div class="para">
-	    <span class="tt">MBSS_TrajectoryFig.py</span>: <a href="pub/Description_TrajectoryFig.pdf" class="list">Description</a> and <a href="pub/README_TrajectoryFig.txt" class="list">README</a>.
-	  </div>
-	  <div class="para">
-	    <span class="tt">MBSS_PieChart.py</span>: <a href="pub/Description_PieChart.pdf" class="list">Description</a> and <a href="pub/README_PieChart.txt" class="list">README</a>.
-	  </div>
-	  <div class="para">
-	    <span class="tt">MBSS_MutBnd.pl</span> and <span class="tt">MBSS_MutBndCfg.pl</span>: <a href="pub/Description_MutBndCfg.pdf" class="list">Description</a> and <a href="pub/README_MutBndCfg.txt" class="list">README</a>.
-	  </div>
-	  <div class="para">
-	    <span class="tt">MBSS_SensitivityAnalysis.pl</span>: <a href="pub/Description_SensitivityAnalysis.pdf" class="list">Description</a> and <a href="pub/README_SensitivityAnalysis.txt" class="list">README</a>.
-	  </div>
-	  <div class="para">
-	    <span class="tt">MBSS_DrugSim.py</span>: <a href="pub/Description_DrugSim.pdf" class="list">Description</a> and <a href="pub/README_DrugSim.txt" class="list">README</a>.
-	  </div>
-	  <div class="para">
-	    <span class="tt">MBSS_InitCondFromTrajectory.pl</span>: <a href="pub/Description_InitCondFromTrajectory.pdf" class="list">Description</a> and <a href="pub/README_InitCondFromTrajectory.txt" class="list">README</a>.
-	  </div>
-	  <div class="para">
-	    <span class="tt">MBSS_MultipleSim.py</span>: <a href="pub/Description_MultipleSim.pdf" class="list">Description</a> and <a href="pub/README_MultipleSim.txt" class="list">README</a>.
-	  </div>
-	  <div class="para">
-	    <span class="tt">MBSS_PrepareProjectFile.sh</span>: <a href="pub/Description_PrepareProjectFile.pdf" class="list">Description</a> and <a href="pub/README_PrepareProjectFile.txt" class="list">README</a>.
-	  </div>
-	  <p>
-	    The <a href="pub/TutorialMaBoSS_2_0.pdf" class="clean-link">MaBoSS 2.0 tutorial</a> illustrates all these tools on the p53/Mdm2 example (see <a href="#" class="clean-link" onclick="show('tutorials');return false;">Tutorials</a> for the necessary files).
+	  <p class="small_note">
+	    Files of the <a href="pub/TutorialMaBoSS_2_0.pdf" class="clean-link">tutorial</a> of the MaBoSS 2.0 article: <a href="pub/example.zginml" class="clean-link">example.zginml</a>, <a href="pub/Example_DrugSim.txt" class="clean-link">Example_DrugSim.txt</a>, <a href="pub/ExampleProfile.txt" class="clean-link">ExampleProfile.txt</a>, <a href="pub/Example.pmbss" class="clean-link">Example.pmbss</a>.
 	  </p>
 	</div>
 
@@ -736,6 +745,77 @@ MaBoSS -c D_Pattern_ContT_noIntNode_noise_4statdist.cfg -o D_Pattern_ContT_noInt
       </div>
       <!-- PROSTATE CANCER : END -->
 
+      <!-- SIZEK CELL CYCLE : BEGIN -->
+      <div id="maboss_model_sizek" class="hidden">
+	<h3>Sizek Cell Cycle</h3>
+	<h4>Model description</h4>
+	<p>
+	  This model, published by <a href="https://doi.org/10.1371/journal.pcbi.1006402" class="clean-link">Sizek et al. (PLoS Comput Biol, 2019)</a>, integrates growth signaling, the regulatory network controlling the mammalian cell cycle, and apoptosis. With 87 nodes, it describes how a generic human cell regulates proliferation and apoptosis.
+	</p>
+	<p>
+	  The simulations below are adapted from the tutorial of the CoLoMoTo software suite (<a href="https://doi.org/10.1098/rsfs.2025.0002" class="clean-link">No&euml;l et al., Interface Focus, 2025</a>). Its <a href="https://github.com/colomoto/colomoto-tutorial-sizek" class="clean-link">complete notebook</a> also analyses this model with other tools of the suite (GINsim, bioLQM, BNS...).
+	</p>
+	<h4>Influence graph</h4>
+	<figure class="figure">
+	  <a href="files/SizekCellCycle/sizek_network.png"><img src="files/SizekCellCycle/sizek_network.png" alt="Sizek model regulatory graph"/></a>
+	  <figcaption>Regulatory graph of the model in GINsim, colored by module.</figcaption>
+	</figure>
+	<h4>Model</h4>
+	<p>
+	  The model is available in the <a href="https://ginsim.github.io/models/2019-mammal-cell-cycle-control/" class="clean-link">GINsim model repository</a>. The MaBoSS files were obtained by converting it with bioLQM. As the model has 87 nodes, it requires an executable of MaBoSS supporting more than 64 nodes, such as <span class="tt">MaBoSS_128n</span> (see <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'maboss');return false;">Installation</a>).
+	</p>
+	<ul>
+	  <li><a href="files/SizekCellCycle/CellCycleControl_Sizek_PCB_2019.bnd" class="clean-link">BND file</a></li>
+	  <li><a href="files/SizekCellCycle/CellCycleControl_Sizek_PCB_2019.cfg" class="clean-link">Configuration file</a> (all initial values set to 0)</li>
+	  <li><a href="files/SizekCellCycle/CellCycleControl_Sizek_PCB_2019.sbml" class="clean-link">SBML-qual file</a> and <a href="files/SizekCellCycle/CellCycleControl_Sizek_PCB_2019.zginml" class="clean-link">GINsim file</a></li>
+	</ul>
+	<div class="notebook_box">
+	  <div class="notebook_title">Jupyter notebook</div>
+	  <p>All the simulations and figures of this page are reproduced in a Jupyter notebook, using <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'pymaboss');return false;">pyMaBoSS</a>. Download the notebook alone, or an archive with the notebook and all the files needed to run it.</p>
+	  <a href="files/SizekCellCycle/SizekCellCycle.ipynb" class="notebook_button" download>Notebook (SizekCellCycle.ipynb)</a> <a href="files/SizekCellCycle/SizekCellCycle.zip" class="notebook_button notebook_button_alt" download>Notebook + model files (zip)</a>
+	</div>
+	<h4>Results</h4>
+	<p>
+	  The simulations start from the initial state defined by Sizek et al. (their figure 6), with 5000 trajectories up to time 200. In the wild type, a transient cyclic-like behaviour is eventually lost due to the spontaneous activation of Casp3: the apoptotic stable state progressively dominates. The entropy rises abruptly then slowly decreases, while the transition entropy stays close to zero after a small peak, suggesting a transient periodic behaviour.
+	</p>
+	<figure class="figure">
+	  <a href="files/SizekCellCycle/figures/sizek_wt.png"><img src="files/SizekCellCycle/figures/sizek_wt.png" alt="Wild type simulation"/></a>
+	</figure>
+	<p>With the death signal TRAIL active at the initial state, Casp3, and thus apoptosis, rise much faster, and the system reaches a stable state:</p>
+	<figure class="figure">
+	  <a href="files/SizekCellCycle/figures/sizek_trail.png"><img src="files/SizekCellCycle/figures/sizek_trail.png" alt="Simulation with TRAIL"/></a>
+	</figure>
+	<p>The ectopic activity of Casp8 drives the cells into apoptosis faster. When Casp8 is knocked down, Casp3 is still ultimately activated, as in the wild type: in this model, apoptosis can occur even without Casp8.</p>
+	<figure class="figure">
+	  <a href="files/SizekCellCycle/figures/sizek_casp8.png"><img src="files/SizekCellCycle/figures/sizek_casp8.png" alt="Casp8 mutants"/></a>
+	</figure>
+	<p>Screening the loss-of-function and ectopic activation of five nodes, we look for mutants blocking apoptosis (Casp3 below 1%) while keeping the cell cycle active (CyclinE above 15%):</p>
+	<figure class="figure">
+	  <a href="files/SizekCellCycle/figures/sizek_mutants.png"><img src="files/SizekCellCycle/figures/sizek_mutants.png" alt="Final states of the mutants"/></a>
+	</figure>
+	<p>Both the sustained activations of p110 and FoxO3 turn off Casp3 while maintaining the cell cycle:</p>
+	<figure class="figure">
+	  <a href="files/SizekCellCycle/figures/sizek_mutants_selected.png"><img src="files/SizekCellCycle/figures/sizek_mutants_selected.png" alt="Selected mutants"/></a>
+	</figure>
+	<p>In the wild type, the cyclins show the expected sequence of peaks: CyclinE, then CyclinA, then CyclinB. As MaBoSS reports mean probabilities over many trajectories, these oscillations are rapidly damped.</p>
+	<figure class="figure">
+	  <a href="files/SizekCellCycle/figures/sizek_cyclins.png"><img src="files/SizekCellCycle/figures/sizek_cyclins.png" alt="Cyclins, wild type"/></a>
+	</figure>
+	<p>MaBoSS can also estimate the frequencies of the transitions between the activity patterns of selected nodes, over all the individual trajectories: a compressed state transition graph, where darker arrows are more probable transitions. Starting from the state without active cyclin (G0), the most probable sequence activates CyclinE, then CyclinA, inactivates CyclinE, activates CyclinB, then inactivates CyclinA and finally CyclinB, completing the cycle.</p>
+	<figure class="figure">
+	  <a href="files/SizekCellCycle/figures/sizek_cyclins_graph.png"><img src="files/SizekCellCycle/figures/sizek_cyclins_graph.png" alt="Compressed state transition graph of the cyclins"/></a>
+	</figure>
+	<p>Adding Casp3 to the observed nodes shows two main ways to trigger apoptosis: from the state without active cyclin (G0), and from the state where only CyclinB is active (G2/M).</p>
+	<figure class="figure">
+	  <a href="files/SizekCellCycle/figures/sizek_casp3_graph.png"><img src="files/SizekCellCycle/figures/sizek_casp3_graph.png" alt="Cyclins and Casp3, wild type"/></a>
+	</figure>
+	<p>The ectopic activity of p110_H completely disables the activation of apoptosis, and maintains the oscillatory behaviour:</p>
+	<figure class="figure">
+	  <a href="files/SizekCellCycle/figures/sizek_p110_graph.png"><img src="files/SizekCellCycle/figures/sizek_p110_graph.png" alt="Cyclins and Casp3, p110_H ectopic activity"/></a>
+	</figure>
+      </div>
+      <!-- SIZEK CELL CYCLE : END -->
+
       <!-- UPMABOSS CELL FATE : BEGIN -->
       <div id="maboss_upmaboss" class="hidden">
 	<h3>UPMaBoSS Cell Fate</h3>
@@ -791,6 +871,170 @@ steps = 48;</pre>
 	</figure>
       </div>
       <!-- UPMABOSS CELL FATE : END -->
+
+      <!-- MABOSS ECOSYSTEM : BEGIN -->
+      <div id="maboss_eco_profile" class="hidden">
+	<h3>PROFILE</h3>
+	<p>
+	  PROFILE is a methodology to personalize logical models with the omics data of patients or cell lines (mutations, copy number alterations, RNA and protein levels), and to simulate the personalized models with MaBoSS. The data are mapped on the nodes of a generic model, which is then personalized either by fixing the activity of nodes (for instance for mutations), or by tuning their initial states and transition rates according to continuous data. The simulations of the personalized models can then be compared to the clinical features of the patients, or to the response of cell lines to drugs.
+	</p>
+	<p>
+	  PROFILE was used to stratify breast cancer patients (<a href="https://doi.org/10.3389/fphys.2018.01965" class="clean-link">B&eacute;al et al., 2019</a>), to study the response of melanoma and colorectal cancer cell lines to BRAF inhibitors (<a href="https://doi.org/10.1371/journal.pcbi.1007900" class="clean-link">B&eacute;al et al., 2021</a>), and to build patient-specific models of prostate cancer that guide personalized treatments (<a href="https://doi.org/10.7554/eLife.72626" class="clean-link">Montagud et al., 2022</a>). Some of these personalized models are simulated in the <a href="#" class="clean-link" onclick="show('model_prostate');return false;">prostate cancer</a> example of the repository of models.
+	</p>
+	<div class="doc_cards">
+	  <div class="doc_card">
+	    <div class="doc_card_title">Articles</div>
+	    <p>Methodology and applications</p>
+	    <ul>
+	    <li><a href="https://doi.org/10.3389/fphys.2018.01965" class="clean-link">B&eacute;al et al., Front Physiol, 2019</a></li>
+	    <li><a href="https://doi.org/10.1371/journal.pcbi.1007900" class="clean-link">B&eacute;al et al., PLOS Comput Biol, 2021</a></li>
+	    <li><a href="https://doi.org/10.7554/eLife.72626" class="clean-link">Montagud et al., eLife, 2022</a></li>
+	    </ul>
+	  </div>
+	  <div class="doc_card">
+	    <div class="doc_card_title">Code and tutorial</div>
+	    <p>Data, scripts and analyses</p>
+	    <ul>
+	    <li><a href="https://github.com/sysbio-curie/PROFILE" class="clean-link">PROFILE repository</a></li>
+	    <li><a href="https://github.com/sysbio-curie/PROFILE/blob/master/Tutorial_PROFILE.pdf" class="clean-link">Step-by-step tutorial (PDF)</a></li>
+	    <li><a href="https://github.com/ArnauMontagud/PROFILE_v2" class="clean-link">PROFILE_v2 repository</a> (prostate cancer)</li>
+	    </ul>
+	  </div>
+	</div>
+      </div>
+      <div id="maboss_eco_physiboss" class="hidden">
+	<h3>PhysiBoSS</h3>
+	<p>
+	  PhysiBoSS is a multiscale modelling framework, which integrates the intracellular Boolean models simulated by MaBoSS into the agent-based framework <a href="https://physicell.org" class="clean-link">PhysiCell</a>. Each cell of the simulation is an agent with its own MaBoSS model, whose nodes are connected to the behaviour of the cell (division, death, migration, secretion...) and to its environment (substrates, contacts with other cells). PhysiBoSS thus allows to study how intracellular signaling shapes the behaviour of a whole population of cells in its physical environment.
+	</p>
+	<p>
+	  PhysiBoSS 2.0 is a redesign of the original PhysiBoSS as an add-on of PhysiCell, keeping a decoupled, maintainable and model-agnostic design. It is developed by Institut Curie and the Barcelona Supercomputing Center, and is open source (BSD 3-Clause license). A step-by-step tutorial shows how to build multiscale models with PhysiBoSS.
+	</p>
+	<div class="doc_cards">
+	  <div class="doc_card">
+	    <div class="doc_card_title">Website</div>
+	    <p>Documentation and tutorial</p>
+	    <ul>
+	    <li><a href="https://physiboss.github.io/" class="clean-link">PhysiBoSS website</a></li>
+	    <li><a href="https://physiboss.github.io/tutorial" class="clean-link">Step-by-step tutorial</a></li>
+	    <li><a href="https://github.com/PhysiBoSS/PhysiBoSS" class="clean-link">Source code</a></li>
+	    </ul>
+	  </div>
+	  <div class="doc_card">
+	    <div class="doc_card_title">Articles</div>
+	    <p>PhysiBoSS and its applications</p>
+	    <ul>
+	    <li><a href="https://doi.org/10.1093/bioinformatics/bty766" class="clean-link">Letort et al., Bioinformatics, 2019</a> (PhysiBoSS)</li>
+	    <li><a href="https://doi.org/10.1038/s41540-023-00314-4" class="clean-link">Ponce-de-Leon et al., npj Syst Biol Appl, 2023</a> (PhysiBoSS 2.0)</li>
+	    <li><a href="https://doi.org/10.1093/bib/bbae509" class="clean-link">Ruscone et al., Brief Bioinform, 2024</a> (tutorial)</li>
+	    <li><a href="https://doi.org/10.1093/bioinformatics/btad374" class="clean-link">Ruscone et al., Bioinformatics, 2023</a> (cancer cell invasion)</li>
+	    </ul>
+	  </div>
+	</div>
+      </div>
+      <div id="maboss_eco_upmaboss" class="hidden">
+	<h3>UPMaBoSS</h3>
+	<p>
+	  UPMaBoSS (Update Population MaBoSS) simulates the dynamics of a population of interacting cells. The behaviour of each cell is described by a MaBoSS model. At regular intervals, the simulation is stopped, and the population is updated according to the nodes representing cell death and cell division, and to the nodes accounting for signals coming from other cells. The simulation then continues with the updated conditions. UPMaBoSS requires only moderate computational power, and is easy to use with an existing MaBoSS model.
+	</p>
+	<p>
+	  UPMaBoSS is part of <a href="#" class="clean-link" onclick="show('howto');show_tab('howto', 'pymaboss');return false;">pyMaBoSS</a>. Besides the model (bnd) and configuration (cfg) files, it uses an update file (upp), which describes the population updates:
+	</p>
+<pre>import maboss
+
+model = maboss.load("model.bnd", "model.cfg")
+upp = maboss.UpdatePopulation(model, "model.upp")
+result = upp.run("results")
+result.get_population_ratios()</pre>
+	<p>
+	  The <a href="#" class="clean-link" onclick="show('upmaboss');return false;">UPMaBoSS cell fate</a> example of the repository of models reproduces the analyses of the UPMaBoSS article, with downloadable notebooks.
+	</p>
+	<div class="doc_cards">
+	  <div class="doc_card">
+	    <div class="doc_card_title">Article</div>
+	    <p>Description of UPMaBoSS</p>
+	    <ul>
+	    <li><a href="https://doi.org/10.3389/fmolb.2022.800152" class="clean-link">Stoll et al., Front Mol Biosci, 2022</a></li>
+	    <li><a href="https://doi.org/10.1016/j.csbj.2022.10.003" class="clean-link">Calzone et al., Comput Struct Biotechnol J, 2022</a> (review)</li>
+	    </ul>
+	  </div>
+	  <div class="doc_card">
+	    <div class="doc_card_title">Documentation</div>
+	    <p>In pyMaBoSS</p>
+	    <ul>
+	    <li><a href="https://pymaboss.readthedocs.io/en/latest/api/uppmaboss-api.html" class="clean-link">UPMaBoSS API</a></li>
+	    <li><a href="https://pymaboss.readthedocs.io/en/latest/notebooks/CellFateModel_uppmaboss.html" class="clean-link">Cell fate notebook</a></li>
+	    <li><a href="#" onclick="show('upmaboss');return false;" class="clean-link">UPMaBoSS cell fate example</a></li>
+	    </ul>
+	  </div>
+	</div>
+      </div>
+      <div id="maboss_eco_ensemble" class="hidden">
+	<h3>EnsembleMaBoSS</h3>
+	<p>
+	  The available data are often not sufficient to determine a single logical model: tools such as <a href="https://bnediction.github.io/bonesis/" class="clean-link">BoNesis</a> can instead synthesize an ensemble of models, all compatible with the data. EnsembleMaBoSS simulates such ensembles of models with MaBoSS: it computes the probability trajectories over the whole ensemble, and can also keep the results of each individual model, to compare them or to cluster the models according to their behaviour.
+	</p>
+	<p>With the MaBoSS command line, the models of the ensemble are simulated with a common configuration file:</p>
+<pre>MaBoSS --ensemble -c ensemble.cfg -o results model_1.bnet model_2.bnet ...</pre>
+	<p>
+	  The option <span class="tt">--save-individual</span> also writes the results of each model, and <span class="tt">--random-sampling</span> randomly selects the model simulated for each trajectory. With pyMaBoSS, an ensemble is loaded from a folder (or a zip archive) of models in BoolNet format:
+	</p>
+<pre>import maboss
+
+ensemble = maboss.Ensemble("models", sample_count=10000, max_time=50)
+result = ensemble.run()
+result.plot_piechart()</pre>
+	<p class="small_note">The BoolNet files must not contain the optional header line <span class="tt">targets, factors</span>.</p>
+	<p>
+	  <a href="https://github.com/sysbio-curie/AstroLogics" class="clean-link">AstroLogics</a> builds on these simulations to cluster the models of an ensemble according to their dynamics, and to identify the logical rules that differentiate them.
+	</p>
+	<div class="doc_cards">
+	  <div class="doc_card">
+	    <div class="doc_card_title">Articles</div>
+	    <p>Ensembles of Boolean models</p>
+	    <ul>
+	    <li><a href="https://doi.org/10.1007/978-3-030-60327-4_11" class="clean-link">Chevalier et al., CMSB, 2020</a></li>
+	    <li><a href="https://doi.org/10.1093/bioinformatics/btag555" class="clean-link">Pankaew et al., Bioinformatics, 2026</a> (AstroLogics)</li>
+	    </ul>
+	  </div>
+	  <div class="doc_card">
+	    <div class="doc_card_title">Documentation</div>
+	    <p>In pyMaBoSS</p>
+	    <ul>
+	    <li><a href="https://pymaboss.readthedocs.io/en/latest/api/ensemblemaboss-api.html" class="clean-link">EnsembleMaBoSS API</a></li>
+	    <li><a href="https://pymaboss.readthedocs.io/en/latest/notebooks/Ensemble_MaBoSS_simulations.html" class="clean-link">Ensemble simulations notebook</a></li>
+	    <li><a href="#" onclick="show('documentation');return false;" class="clean-link">Command line options</a></li>
+	    </ul>
+	  </div>
+	</div>
+      </div>
+      <div id="maboss_eco_exastolog" class="hidden">
+	<h3>ExaStoLog</h3>
+	<p>
+	  MaBoSS estimates the probabilities of the states of a model by simulating many stochastic trajectories. For small models, ExaStoLog (EXAct solving of STOchastic LOGical models) computes instead the exact stationary probabilities of the continuous-time Markov chain defined by the model, without sampling. Being fast and exact, it allows to perform parameter sensitivity analyses, and to fit the transition rates of a model to data.
+	</p>
+	<p>
+	  ExaStoLog is a MATLAB toolbox (MATLAB 2015b or later), developed in the Computational Systems Biology of Cancer group at Institut Curie. Models are given in the BoolNet format, or as logical formulas written in MATLAB. As the exact method requires exploring the state space, it is currently limited to models of up to about twenty nodes.
+	</p>
+	<div class="doc_cards">
+	  <div class="doc_card">
+	    <div class="doc_card_title">Article</div>
+	    <p>Method and applications</p>
+	    <ul>
+	    <li><a href="https://doi.org/10.1186/s12859-020-03548-9" class="clean-link">Koltai et al., BMC Bioinformatics, 2020</a></li>
+	    </ul>
+	  </div>
+	  <div class="doc_card">
+	    <div class="doc_card_title">Code and tutorial</div>
+	    <p>MATLAB toolbox</p>
+	    <ul>
+	    <li><a href="https://github.com/mbkoltai/ExaStoLog" class="clean-link">ExaStoLog repository</a></li>
+	    <li><a href="https://github.com/mbkoltai/exact-stoch-log-mod/tree/master/doc" class="clean-link">Tutorial</a></li>
+	    </ul>
+	  </div>
+	</div>
+      </div>
+      <!-- MABOSS ECOSYSTEM : END -->
 
       <!-- PUBLICATION : BEGIN -->
       <div id="maboss_publication" class="hidden">
@@ -1078,7 +1322,7 @@ thread_count = 4;</pre>
 	  <tr><td><span class="tt">PREFIX_finalprob.csv</span></td><td>final probabilities of the states, with the <span class="tt">--final</span> option (written instead of the other result files)</td></tr>
 	</table>
 	<p>
-	  These files can be analysed with pyMaBoSS, with your own scripts, or with the MaBoSS environment tools (see <a href="#" class="clean-link" onclick="show('howto');show_tab('howto', 'maboss');return false;">How To</a>).
+	  These files can be analysed with <a href="#" class="clean-link" onclick="show('howto');show_tab('howto', 'pymaboss');return false;">pyMaBoSS</a>, or with your own scripts.
 	</p>
 
 	<h4>Reference cards</h4>
@@ -1193,7 +1437,7 @@ model = maboss.load("Montagud2022_Prostate_Cancer.bnd", "Montagud2022_Prostate_C
 	<!-- TUTORIAL MaBoSS command line -->
 	<div id="tutorials_panel_maboss" class="tab_panel hidden_panel">
 	  <p>
-	    First, <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'maboss');return false;">install MaBoSS</a>. As the model has 133 nodes, we need an executable supporting at least 133 nodes, such as <span class="tt">MaBoSS_256n</span>, provided by the conda package or compiled from source with <span class="tt">make MAXNODES=256 install</span>.
+	    First, <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'maboss');return false;">install MaBoSS</a>. As the model has 133 nodes, we need an executable supporting at least 133 nodes, such as <span class="tt">MaBoSS_256n</span>, provided by the conda package, or compiled from source with the CMake option <span class="tt">-DMAXNODES=256</span>.
 	  </p>
 	  <p>Then, simulate the model:</p>
 <pre>MaBoSS_256n -c Montagud2022_Prostate_Cancer.cfg -o results Montagud2022_Prostate_Cancer.bnd</pre>
