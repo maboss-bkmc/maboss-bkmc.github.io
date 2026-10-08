@@ -2,731 +2,841 @@
   MaBoSS web page
   2012-03-23 Eric Viara
 -->
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>MaBoSS</title>
 <link rel="stylesheet" type="text/css" href="style.css"/>
 <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
 
-<table cellpadding="10" cellspacing="0" border="0">
-  <tr>
-    <td class="logo"><a href="#" onclick="show('home');return false;"><img src="images/maboss_logo.jpg" alt="MaBoSS Logo" class="logo"/></a></td>
-    <td><span class="title">Markovian&nbsp;Boolean&nbsp;Stochastic&nbsp;Simulator</span></td>
-    <td class="logo"><a href="http://www.curie.fr/en"><img src="images/curie.png" alt="Institut Curie" class="logo"/></a></td>
-  </tr>
-</table>
-<table cellpadding="0" cellspacing="0" border="0">
-  <tr>
-    <td valign="top">
-      <div id="menu">
-	<a href="#" id="mi_hidden" class="menu_item_hidden"></a>
-	<table cellpadding="0" cellspacing="0" border="0">
-	  <tr><td>
-	      <a href="#" id="mi_home" class="menu_item_default" onclick="show('home');return false;">Home</a>
-	  </td></tr>
-	  <tr><td class="hsep">&nbsp;</td></tr>
-	  <tr><td>
-	      <a href="#" id="mi_installation" class="menu_item" onclick="show('installation');return false;">Installation</a>
-	  </td></tr>
-	  <tr><td>
-	      <a href="#" id="mi_howto" class="menu_item" onclick="show('howto');return false;">How To</a>
-	  </td></tr>
-	 
-	  <tr><td>
-	      <a href="#" id="mi_publication" class="menu_item" onclick="show('publication');return false;">Publications</a>
-	  </td></tr>
-	  <tr><td>
-	      <a href="#" id="mi_documentation" class="menu_item" onclick="show('documentation');return false;">Documentation</a>
-	  </td></tr>
-	  
-	  <tr><td class="hsep">&nbsp;</td></tr>
-	  <tr><td>
-	      <span class="menu_item">Repository of models</span>
-	      <table cellpadding="0" cellspacing="0" border="0">
-		<tr>
-		  <td class="model_sep">&nbsp;</td>
-		  <td><a href="#" id="mi_model_toy" class="menu_item" onclick="show('model_toy');return false;">- Toy Model</a></td>
-		</tr>
-		<tr>
-		  <td>&nbsp;</td>
-		  <td><a href="#" id="mi_model_cell_cycle" class="menu_item" onclick="show('model_cell_cycle');return false;">- Cell Cycle</a></td>
-		</tr>
-		<tr>
-		  <td>&nbsp;</td>
-		  <td><a href="#" id="mi_model_cell_fate" class="menu_item" onclick="show('model_cell_fate');return false;">- Cell Fate</a></td>
-		</tr>
-		<tr>
-		  <td>&nbsp;</td>
-		  <td><a href="#" id="mi_model_p53" class="menu_item" onclick="show('model_p53');return false;">- p53&nbsp;/&nbsp;MDM2</a></td>
-		</tr>
-		<tr>
-		  <td>&nbsp;</td>
-		  <td><a href="#" id="mi_model_drosophila" class="menu_item" onclick="show('model_drosophila');return false;">- Drosophila<br>Patterning</a></td>
-		</tr>
-		<tr>
-		  <td>&nbsp;</td>
-		  <td><a href="#" id="mi_model_egftnf" class="menu_item" onclick="show('model_egftnf');return false;">- EGF-TNF<br>Signaling</a></td>
-		</tr>
-		<tr>
-		  <td>&nbsp;</td>
-		  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-		</tr>
-	      </table>
-	  </td></tr>
-	  <!-- <tr><td class="hsep">&nbsp;</td></tr> -->
-	  
-	  <!-- <tr><td class="hsep">&nbsp;</td></tr> -->
-	 
-	  <tr><td>
-	      <a href="#" id="mi_tutorials" class="menu_item" onclick="show('tutorials');return false;">Tutorials</a>
-	  </td></tr>
-	  <tr><td class="hsep">&nbsp;</td></tr>
-	  <tr><td>
-	      <span class="menu_item">Extensions</span>
-	      <table cellpadding="0" cellspacing="0" border="0">
-		<tr>
-		  <td class="model_sep">&nbsp;</td>
-		  <td><a href="#" id="mi_upmaboss" class="menu_item" onclick="show('upmaboss');return false;">- UPMaBoSS</a></td>
-		</tr>
-		<!-- <tr>
-		  <td>&nbsp;</td>
-		  <td><a href="#" id="mi_ensemblemaboss" class="menu_item" onclick="show('ensemblemaboss');return false;">- EnsembleMaBoSS</a></td>
-		</tr> -->
-	      </table>
-	  </td></tr>
-	  <tr><td class="hsep">&nbsp;</td></tr>
-	  <tr><td>
-		<a href="#" id="mi_pymaboss" class="menu_item" onclick="show('pymaboss');return false;">pyMaBoSS</a>
-	</td></tr>
-	<tr><td class="hsep">&nbsp;</td></tr>
+<header class="site_header">
+  <a href="#" class="header_logo" onclick="show('home');return false;"><img src="images/maboss_logo.jpg" alt="MaBoSS logo"/></a>
+  <div class="header_title">
+    <span class="title">MaBoSS</span>
+    <span class="subtitle">Markovian Boolean Stochastic Simulator</span>
+  </div>
+  <a href="https://curie.fr/en" class="header_curie"><img src="images/curie-logo.svg" alt="Institut Curie"/></a>
+</header>
 
-	  <tr><td>
-	      <a href="#" id="mi_team" class="menu_item" onclick="show('team');return false;">The Team</a>
-	  </td></tr>
-	  <tr><td class="hsep">&nbsp;</td></tr>
-	  <tr><td>
-	      <a href="#" id="mi_contact" class="menu_item" onclick="show('contact');return false;">Contact</a>
-	  </td></tr>
-	</table>
-      </div>
-    </td>
-    <td class="sep1">&nbsp;</td>
-    <td valign="top">
+<div class="layout">
+  <nav id="menu">
+    <ul class="menu">
+	  <li><a href="#" id="mi_home" class="menu_item active" onclick="show('home');return false;">Home</a></li>
+    </ul>
+    <span class="menu_section">Getting started</span>
+    <ul class="menu">
+	  <li><a href="#" id="mi_installation" class="menu_item" onclick="show('installation');return false;">Installation</a></li>
+	  <li><a href="#" id="mi_howto" class="menu_item" onclick="show('howto');return false;">How To</a></li>
+	  <li><a href="#" id="mi_tutorials" class="menu_item" onclick="show('tutorials');return false;">Tutorials</a></li>
+	  <li><a href="#" id="mi_documentation" class="menu_item" onclick="show('documentation');return false;">Documentation</a></li>
+    </ul>
+    <span class="menu_section">Repository of models</span>
+    <ul class="menu">
+	  <li><a href="#" id="mi_model_toy" class="menu_item" onclick="show('model_toy');return false;">Toy Model</a></li>
+	  <li><a href="#" id="mi_model_cell_cycle" class="menu_item" onclick="show('model_cell_cycle');return false;">Cell Cycle</a></li>
+	  <li><a href="#" id="mi_model_cell_fate" class="menu_item" onclick="show('model_cell_fate');return false;">Cell Fate</a></li>
+	  <li><a href="#" id="mi_model_p53" class="menu_item" onclick="show('model_p53');return false;">p53 / MDM2</a></li>
+	  <li><a href="#" id="mi_model_drosophila" class="menu_item" onclick="show('model_drosophila');return false;">Drosophila Patterning</a></li>
+	  <li><a href="#" id="mi_model_egftnf" class="menu_item" onclick="show('model_egftnf');return false;">EGF-TNF Signaling</a></li>
+	  <li><a href="#" id="mi_model_prostate" class="menu_item" onclick="show('model_prostate');return false;">Prostate Cancer</a></li>
+	  <li><a href="#" id="mi_upmaboss" class="menu_item" onclick="show('upmaboss');return false;">UPMaBoSS Cell Fate</a></li>
+	  <!-- <li><a href="#" id="mi_ensemblemaboss" class="menu_item" onclick="show('ensemblemaboss');return false;">EnsembleMaBoSS</a></li> -->
+    </ul>
+    <span class="menu_section">About</span>
+    <ul class="menu">
+	  <li><a href="#" id="mi_publication" class="menu_item" onclick="show('publication');return false;">Publications</a></li>
+	  <li><a href="#" id="mi_team" class="menu_item" onclick="show('team');return false;">The Team</a></li>
+	  <li><a href="#" id="mi_contact" class="menu_item" onclick="show('contact');return false;">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main id="content">
 	  <!-- HOME : BEGIN -->
       <div id="maboss_home" class="contents">
 	<h3>MaBoSS Project</h3>
 	<p>
-	MaBoSS is a C++ software for simulating continuous/discrete time Markov processes, applied on a Boolean network.
+	MaBoSS (Markovian Boolean Stochastic Simulator) is a C++ software for simulating continuous/discrete time Markov processes applied on Boolean networks. It bridges the gap between purely logical models and quantitative, stochastic descriptions of biological systems.
 	</p>
 	<p>
-	MaBoSS uses a specific language for associating transition rates to each node. Given some initial conditions, MaBoSS applies Monte-Carlo kinetic algorithm (or Gillespie algorithm) to the network to produce time trajectories. Time evolution of probabilities are estimated.
-	In addition, global and semi-global characterizations of the whole system are computed.
+	MaBoSS uses a dedicated language to associate activation and inactivation rates to each node of the network. Given some initial conditions, it applies a Monte-Carlo kinetic algorithm (Gillespie algorithm) to produce stochastic time trajectories, from which it estimates the time evolution of the probabilities of the network states and of individual nodes. It also computes global and semi-global characterizations of the whole system, such as the probabilities of fixed points and the stationary distribution, and makes it easy to simulate mutants and drug treatments by modifying node rates or initial conditions.
 	</p>
-	<p>A new version is available (2.0): it is an environment made of a core C++ script and a set of tools. In the core script, the initial condition grammar has been extended, probabilities of fixed points are estimated and export in Boolean logic is available.
-	</p> 
+	<p>
+	Models are written in MaBoSS's own format (a <span class="tt">.bnd</span> file for the network and a <span class="tt">.cfg</span> file for the simulation parameters). Since version 2.4, MaBoSS can also read models in the standard SBML-qual format. Simulations can be run on large CPU clusters (MPI) and GPU accelerators.
+	</p>
+	<p>
+	MaBoSS is open source (BSD 3-Clause license) and developed on <a href="https://github.com/sysbio-curie/MaBoSS" class="clean-link">GitHub</a>.
+	</p>
+
+	<h4>Three ways of using MaBoSS</h4>
+	<ul>
+	  <li class="vspace"><b><a href="#" class="clean-link" onclick="show('howto');show_tab('howto', 'pymaboss');return false;">pyMaBoSS</a></b> (most common): a Python interface to load, modify, run and analyse MaBoSS models from scripts or Jupyter notebooks. It is the recommended way of using MaBoSS today, and it integrates with the other logical modelling tools of the <a href="https://colomoto.github.io/colomoto-docker/" class="clean-link">CoLoMoTo Interactive Notebook</a>. See <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'pymaboss');return false;">how to install it</a>.
+	  </li>
+	  <li class="vspace"><b><a href="https://webmaboss.vincent-noel.fr/" class="clean-link">WebMaBoSS</a></b> (for beginners): a web interface to import, simulate and analyse Boolean models directly in the browser, without any installation or programming. It is the best way to discover MaBoSS.</li>
+	  <li class="vspace"><b>MaBoSS</b> (the original command-line tool): the C++ simulation engine itself, run from a terminal on <span class="tt">.bnd</span> and <span class="tt">.cfg</span> files. It gives direct access to all options and is suited to automated pipelines and computing clusters. See <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'maboss');return false;">how to install it</a>.</li>
+	</ul>
+
+	<h4>Extensions</h4>
+	<ul>
+	  <li><a href="#" class="clean-link" onclick="show('upmaboss');return false;">UPMaBoSS</a>: an extension to model dynamic populations of interacting cells, including cell division, death and communication;</li>
+	  <li><a href="https://physiboss.github.io/" class="clean-link">PhysiBoSS</a>: the integration of MaBoSS into the agent-based modelling framework PhysiCell, for multiscale simulations of cell populations in their physical environment;</li>
+	  <li>MaBoSS.MPI and MaBoSS.GPU: high-performance implementations for large CPU clusters and GPU accelerators.</li>
+	</ul>
+	<p>
+	MaBoSS is developed by the <a href="https://institut-curie.org/team/barillot" class="clean-link">Computational Systems Biology of Cancer</a> team at Institut Curie. See the <a href="#" class="clean-link" onclick="show('publication');return false;">Publications</a> page for the articles describing these tools and their applications.
+	</p>
       </div>
       <!-- HOME : END -->
 
       <!-- INSTALLATION : BEGIN -->
       <div id="maboss_installation" class="hidden">
-	<!-- TO BE FILLED BY RATOUNET : BEGIN -->
-	<p>MaBoSS should be intalled in an unix-based OS (Linux, MacOSX). The core C++ script can be also installed on Windows through <a href="https://www.cygwin.com">Cygwin</a> 
-	<p>The standard version of MaBoSS supports up to 64 nodes per network. If you need more nodes per network, you have to add an extra hint to the compilation command (see README file of MaBoSS package).</p>
-	
-<h3>Installation of full MaBoSS environment</h3>
-	<ol>
-	  <li class="vspace">Download the archive file <a href="pub/MaBoSS-env-2.0.tgz" class="clean-link">MaBoSS-env-2.0.tgz</a></li>
-	  <li class="vspace">Untar the archive file as follows:<pre>tar xvfz MaBoSS-env-2.0.tgz</pre>  
-	    <p>The <span class="tt">MaBoSS-env-2.0</span>
-	    subdirectory will be created.</p>
-	    
-	    <p>The source code is in <span class="tt">MaBoSS-env-2.0/engine/src/</span>
-	    and the perl/python scripts are in <span class="tt">MaBoSS-env-2.0/Tools/</span></p>
-	  </li>
-	  <li class="vspace">Check your configuration:
-	    <pre>cd MaBoSS-env-2.0/
-./check-requirements.sh</pre>
-	    <p>This task checks if your OS is compatible with C++ core
-	    script compilation and with perl/python scripts. See also
-	    README file for configuration requirements.
-	    </p>
-	  </li>
-	  <li class="vspace">Compile MaBoSS:
-	    <pre>cd engine/src
-make install</pre>
-	    The executable file will be located in <span class="tt">MaBoSS-env-2.0/engine/pub</span> and is named <span class="tt">MaBoSS</span>.
-	    <p>Note that if your OS is compatible with one of the
-	    binary files available
-	    in <span class="tt">MaBoSS-env-2.0/binaries</span>
-	    subdirectory, you can simply copy it
-	    to <span class="tt">MaBoSS-env-2.0/engine/pub</span>
-	      without compilation.</p>
-	    <p>If you want an executable version that supports more
-	    than 64 nodes, you can produce another
-	    executable, by specifying the maximum number of nodes within
-	    the <span class="tt">MAXNODES</span> option in the
-	      compilation.
+	<h3>Installation</h3>
+	<p>
+	  MaBoSS can be used in three ways (see <a href="#" class="clean-link" onclick="show('howto');return false;">How To</a>). The installation depends on which one you choose.
+	</p>
+	<div class="tabs">
+	  <a href="#" id="installation_tab_pymaboss" class="tab tab_active" onclick="show_tab('installation', 'pymaboss');return false;">pyMaBoSS</a>
+	  <a href="#" id="installation_tab_webmaboss" class="tab" onclick="show_tab('installation', 'webmaboss');return false;">WebMaBoSS</a>
+	  <a href="#" id="installation_tab_maboss" class="tab" onclick="show_tab('installation', 'maboss');return false;">MaBoSS (command line)</a>
+	</div>
 
-	      For instance, if you run
-	      <pre>make MAXNODES=99 install</pre>
-	      another executable (<span class="tt">MaBoSS_99n</span>) will be put in
-	      <span class="tt">MaBoSS-env-2.0/engine/pub</span>. 
-	    </p>
-	  </li>
-	  <li class="vspace">For using MaBoSS environment in a terminal session, go in the <span class="tt">MaBoSS-env-2.0</tt> directory and run
-<pre>
-  source ./MaBoSS.env
-</pre>
-</li>
-</ol>
-<h3>Installation of only MaBoSS core C++</h3>
-  <p> This procedure is not necessary if MaBoSS environment (above) is installed.</p> 
-<ol>
-  <li class="vspace">Download the archive file <a href="pub/MaBoSS-2.0.tgz" class="clean-link">MaBoSS-2.0.tgz</a>
-  <li class="vspace">Untar the archive file as follows:<pre>tar xvfz MaBoSS-2.0.tgz</pre>  
-    note that the <span class="tt">MaBoSS-2.0</span> subdirectory will be created.
-  </li>
-  <li class="vspace">Compile MaBoSS (see README file for configuration requirements)  :
-<pre>cd MaBoSS-2.0/src
+	<!-- INSTALLATION pyMaBoSS -->
+	<div id="installation_panel_pymaboss" class="tab_panel">
+	  <h4>With conda (recommended)</h4>
+	  <p>The conda package installs pyMaBoSS together with the MaBoSS binaries, on Linux and MacOS:</p>
+	  <pre>conda install -c colomoto pymaboss</pre>
+	  <h4>With pip</h4>
+	  <p>The pip package does not include the MaBoSS binaries. After installing it, run the setup script to download them:</p>
+<pre>pip install maboss
+python -m maboss_setup</pre>
+	  <p>
+	    <span class="tt">maboss_setup</span> works on Linux and MacOS when conda is available. On Windows, or if it fails, use <span class="tt">python -m maboss_setup_experimental</span> instead. The binaries can also be downloaded manually from the <a href="https://github.com/sysbio-curie/MaBoSS/releases" class="clean-link">GitHub releases page</a> and placed in a folder of your PATH.
+	  </p>
+	  <h4>With Docker</h4>
+	  <p>
+	    pyMaBoSS is also included in the <a href="https://colomoto.github.io/colomoto-docker/" class="clean-link">CoLoMoTo Interactive Notebook</a>, a Docker image providing Jupyter and many logical modelling tools.
+	  </p>
+	  <p>See the <a href="https://pymaboss.readthedocs.io/" class="clean-link">pyMaBoSS documentation</a> for more details.</p>
+	</div>
+
+	<!-- INSTALLATION WebMaBoSS -->
+	<div id="installation_panel_webmaboss" class="tab_panel hidden_panel">
+	  <p>
+	    WebMaBoSS does not require any installation: simply open <a href="https://webmaboss.vincent-noel.fr/" class="clean-link">WebMaBoSS</a> in your web browser.
+	  </p>
+	  <p>
+	    To run your own instance, the source code is available on <a href="https://github.com/sysbio-curie/WebMaBoSS" class="clean-link">GitHub</a>.
+	  </p>
+	</div>
+
+	<!-- INSTALLATION MaBoSS command line -->
+	<div id="installation_panel_maboss" class="tab_panel hidden_panel">
+	  <h4>With conda (recommended)</h4>
+	  <pre>conda install -c colomoto maboss</pre>
+	  <p>
+	    The conda package is available for Linux and MacOS, and provides the <span class="tt">MaBoSS</span> executable as well as executables supporting larger networks, such as <span class="tt">MaBoSS_256n</span>.
+	  </p>
+	  <h4>Binaries</h4>
+	  <p>
+	    Pre-compiled binaries for Linux, MacOS and Windows are available on the <a href="https://github.com/sysbio-curie/MaBoSS/releases" class="clean-link">GitHub releases page</a>. Extract them and place them in a folder of your PATH.
+	  </p>
+	  <h4>From source</h4>
+	  <p>
+	    Compiling MaBoSS requires a C++ compiler, flex and bison. On Windows, it can be compiled with <a href="https://www.cygwin.com" class="clean-link">Cygwin</a>.
+	  </p>
+<pre>git clone https://github.com/sysbio-curie/MaBoSS
+cd MaBoSS/engine/src
 make install</pre>
-The executable file will be located in <span class="tt">MaBoSS-2.0/pub</span> and is named MaBoSS.
-<p>
-Note that if your OS is compatible with one of the binary files available in <span class="tt">MaBoSS-2.0/binaries</span> subdirectory, you can simply copy it to <span class="tt">MaBoSS-2.0/pub</span> without compilation. </p>
-<pre>
-usage: ./MaBoSS [-version] -c CONF_FILES... -o OUTPUT BOOLEAN_NETWORK_FILE 
-./MaBoSS -version
-MaBoSS version 2.0
-    </pre>
-  </li>
-  <li>You may now add the directory <span class="tt">MaBoSS-2.0/pub</tt> to your PATH (or copy the executable file).
-</ol>
-<p>MaBoSS can be used in windows, through <a href="https://www.cygwin.com">Cygwin</a> (see README file).</p>
-<p>The old versions of MaBoSS are available here:</p>
-<p>
- <a href="pub/MaBoSS-1.3.8.tgz" class="clean-link">MaBoSS-1.3.8.tgz</a> </p>
-<p><a href="pub/MaBoSS-1.2.2.tgz" class="clean-link">MaBoSS-1.2.2.tgz</a> .</p>
-	<!-- TO BE FILLED BY RATOUNET : END -->
+	  <p>
+	    The executable is placed in <span class="tt">MaBoSS/engine/pub</span>. To add it to your PATH, along with the MaBoSS environment tools, run <span class="tt">source MaBoSS.env</span> from the root of the repository.
+	  </p>
+	  <p>Several options can be added to the <span class="tt">make</span> command:</p>
+	  <ul>
+	    <li class="vspace"><span class="tt">MAXNODES=256</span>: by default, MaBoSS supports networks of up to 64 nodes. This option produces an executable supporting larger networks (here <span class="tt">MaBoSS_256n</span>);</li>
+	    <li class="vspace"><span class="tt">SBML_COMPAT=1</span>: enables the SBML-qual format (requires libSBML);</li>
+	    <li class="vspace"><span class="tt">MPI_COMPAT=1 CXX=mpic++</span>: enables MPI, to distribute simulations on CPU clusters (produces for instance <span class="tt">MaBoSS_256n.MPI</span>).</li>
+	  </ul>
+	  <pre>make MAXNODES=256 SBML_COMPAT=1 install</pre>
+	  <p>See the README file of the repository for the full list of requirements.</p>
+
+	  <h4>Older versions</h4>
+	  <p>
+	    MaBoSS 2.0 environment (engine and tools): <a href="pub/MaBoSS-env-2.0.tgz" class="clean-link">MaBoSS-env-2.0.tgz</a>. After extracting it, run <span class="tt">./check-requirements.sh</span>, then compile with <span class="tt">cd engine/src; make install</span>, and run <span class="tt">source ./MaBoSS.env</span> to use the tools.
+	  </p>
+	  <p>
+	    MaBoSS engine only: <a href="pub/MaBoSS-2.0.tgz" class="clean-link">MaBoSS-2.0.tgz</a>, <a href="pub/MaBoSS-1.3.8.tgz" class="clean-link">MaBoSS-1.3.8.tgz</a>, <a href="pub/MaBoSS-1.2.2.tgz" class="clean-link">MaBoSS-1.2.2.tgz</a>.
+	  </p>
+	</div>
       </div>
       <!-- INSTALLATION : END -->
 
       <!-- HOWTO : BEGIN -->
       <div id="maboss_howto" class="hidden">
-	<h3>How to use MaBoSS environment</h3>
-	<ol>
-	  <li class="vspace">Install MaBoSS environment as described in the <a href="#" class="clean-link" onclick="show('installation');return false;">installation page</a>.</li>
-	  <li class="vspace">Open a terminal session, go in the <span class="tt">MaBoSS-env-2.0</span> directory and run
-<pre>source ./MaBoSS.env
-</pre>
-</li>
-</ol>
-Your environment variables have been modified.
-From now on, from this terminal, you can access all scripts of MaBoSS by a command line, even if your working folder is different:
-	<div class="para">
-	  <span class="tt">MaBoSS</tt> (and <span class="tt">MaBoSS_##n</span> for higher
-	  maximum number of nodes): <a href="pub/MaBoSS-RefCard.pdf"
-	  class="list">Reference Card for version 2.0</a> 
-	</div>
-	
-	<div class="para">
-	  <span class="tt">MBSS_FormatTable.pl</tt>: <a href="pub/Description_FormatTable.pdf"
-	  class="list">Description</a>
-	  and <a href="pub/README_FormatTable.txt"
-		 class="list">README</a>. <br>Compatible with
-	  MaBoSS_##n, by specifying the executable name
-	  with <span class="tt">-mb</span> option.
-	</div>
-	
-	<div class="para">
-	  <span class="tt">MBSS_TrajectoryFig.py</span>: <a href="pub/Description_TrajectoryFig.pdf" class="list">Description</a> and <a href="pub/README_TrajectoryFig.txt" class="list">README</a>. <br>Compatible with <span class="tt">MaBoSS_##n</span>.
+	<h3>How to use MaBoSS</h3>
+	<p>
+	  There are three main ways of using MaBoSS. All of them rely on the same simulation engine and the same model format (a <span class="tt">.bnd</span> file describing the network and a <span class="tt">.cfg</span> file describing the simulation parameters).
+	</p>
+	<div class="tabs">
+	  <a href="#" id="howto_tab_pymaboss" class="tab tab_active" onclick="show_tab('howto', 'pymaboss');return false;">pyMaBoSS</a>
+	  <a href="#" id="howto_tab_webmaboss" class="tab" onclick="show_tab('howto', 'webmaboss');return false;">WebMaBoSS</a>
+	  <a href="#" id="howto_tab_maboss" class="tab" onclick="show_tab('howto', 'maboss');return false;">MaBoSS (command line)</a>
 	</div>
 
-	<div class="para">
-	  <span class="tt">MBSS_PieChart.py</span>: <a href="pub/Description_PieChart.pdf"
-	  class="list">Description</a>
-	  and <a href="pub/README_PieChart.txt"
-	  class="list">README</a>. <br>Compatible with <span class="tt">MaBoSS_##n</span>. 
-	</div>
-	
-	<div class="para">
-	  <span class="tt">MBSS_MutBnd.pl</span> and <span class="tt">MBSS_MutBndCfg.pl</span>: <a href="pub/Description_MutBndCfg.pdf" class="list">Description</a> and <a href="pub/README_MutBndCfg.txt" class="list">README</a>. <br>Compatible with <span class="tt">MaBoSS_##n</span>.
+	<!-- HOWTO pyMaBoSS -->
+	<div id="howto_panel_pymaboss" class="tab_panel">
+	  <p>
+	    pyMaBoSS is the Python interface of MaBoSS, and the most common way of using it. It allows to load, modify, simulate and analyse models from Python scripts or Jupyter notebooks, and is part of the <a href="https://colomoto.github.io/colomoto-docker/" class="clean-link">CoLoMoTo Interactive Notebook</a>.
+	  </p>
+	  <p>To install pyMaBoSS, see <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'pymaboss');return false;">Installation</a>.</p>
+	  <h4>Example</h4>
+	  <p>
+	    This example uses the p53/Mdm2 model of the <a href="pub/TutorialMaBoSS_2_0.pdf" class="clean-link">MaBoSS 2.0 tutorial</a>. Download its <a href="pub/example.bnd" class="clean-link">bnd file</a> and <a href="pub/example.cfg" class="clean-link">cfg file</a>, then in Python:
+	  </p>
+<pre>import maboss
+
+# Load the model
+sim = maboss.load("example.bnd", "example.cfg")
+
+# Set the initial condition: p53 and Mdm2 inactive, DNA damage with probability 0.6
+sim.network.set_istate(["p53_b1", "p53_b2"], {(0, 0): 1, (1, 0): 0, (1, 1): 0})
+sim.network.set_istate("Mdm2cyt", [1, 0])
+sim.network.set_istate("Mdm2nuc", [1, 0])
+sim.network.set_istate("DNAdam", [0.4, 0.6])
+
+# Set the simulation parameters
+sim.update_parameters(max_time=4, sample_count=10000)
+
+# Run the simulation
+res = sim.run()</pre>
+	  <p>The probability of each node to be active, as a function of time:</p>
+<pre>res.plot_node_trajectory()</pre>
+	  <figure class="figure">
+	    <a href="files/HowTo/pymaboss_node_trajectory.png"><img src="files/HowTo/pymaboss_node_trajectory.png" alt="Node probabilities"/></a>
+	    <figcaption>Probabilities of the nodes.</figcaption>
+	  </figure>
+	  <p>The probabilities of the network states (each state is the list of its active nodes):</p>
+<pre>res.plot_trajectory()</pre>
+	  <figure class="figure">
+	    <a href="files/HowTo/pymaboss_trajectory.png"><img src="files/HowTo/pymaboss_trajectory.png" alt="State probabilities"/></a>
+	    <figcaption>Probabilities of the network states.</figcaption>
+	  </figure>
+	  <p>The distribution of the states at the last time point:</p>
+<pre>res.plot_piechart()</pre>
+	  <figure class="figure">
+	    <a href="files/HowTo/pymaboss_piechart.png"><img src="files/HowTo/pymaboss_piechart.png" alt="Final states"/></a>
+	    <figcaption>Distribution of the final states.</figcaption>
+	  </figure>
+	  <p>All these results can also be obtained as <a href="https://pandas.pydata.org/" class="clean-link">pandas</a> dataframes, for further analysis:</p>
+<pre>res.get_nodes_probtraj()
+res.get_states_probtraj()</pre>
+	  <p>Mutants are simulated by copying the simulation and forcing a node ON or OFF. Here, when nuclear Mdm2 is always active, p53 is no longer activated:</p>
+<pre>mutant = maboss.copy_and_mutate(sim, ["Mdm2nuc"], "ON")
+mutant_res = mutant.run()
+mutant_res.plot_piechart()</pre>
+	  <figure class="figure">
+	    <a href="files/HowTo/pymaboss_mutant_piechart.png"><img src="files/HowTo/pymaboss_mutant_piechart.png" alt="Final states of the mutant" class="figure_small"/></a>
+	    <figcaption>Distribution of the final states, when Mdm2nuc is always active.</figcaption>
+	  </figure>
+
+	  <p>
+	    Models in SBML-qual format can be loaded with <span class="tt">maboss.loadSBML("model.sbml", "model.cfg")</span>.
+	  </p>
+	  <p>
+	    pyMaBoSS also provides sensitivity analysis, ensemble simulations and <a href="#" class="clean-link" onclick="show('upmaboss');return false;">UPMaBoSS</a>. See the <a href="https://pymaboss.readthedocs.io/" class="clean-link">pyMaBoSS documentation</a> for the full API and more tutorials.
+	  </p>
 	</div>
 
-	<div class="para">
-	  <span class="tt">MBSS_SensitivityAnalysis.pl</span>: <a href="pub/Description_SensitivityAnalysis.pdf"
-	  class="list">Description</a>
-	  and <a href="pub/README_SensitivityAnalysis.txt"
-	  class="list">README</a>. <br>Need to modify produced shell
-	  script if excecutable is <span class="tt">MaBoSS_##n</span>.
+	<!-- HOWTO WebMaBoSS -->
+	<div id="howto_panel_webmaboss" class="tab_panel hidden_panel">
+	  <p>
+	    <a href="https://webmaboss.vincent-noel.fr/" class="clean-link">WebMaBoSS</a> is a web interface to MaBoSS. It requires no installation and no programming, which makes it the best way to discover MaBoSS.
+	  </p>
+	  <ol>
+	    <li class="vspace">Go to <a href="https://webmaboss.vincent-noel.fr/" class="clean-link">WebMaBoSS</a>, log in, and create a project (or open an existing one).</li>
+	    <li class="vspace">In the project, use the <i>Load model</i> interface: give the model a name, choose <i>MaBoSS</i> as the model type, and select the <span class="tt">.bnd</span> and <span class="tt">.cfg</span> files of your model (for instance the <a href="pub/example.bnd" class="clean-link">bnd</a> and <a href="pub/example.cfg" class="clean-link">cfg</a> files of the p53/Mdm2 example). Models in other formats, such as SBML-qual, can also be imported.
+	  <figure class="figure">
+	    <a href="files/ProstateCancer/webmaboss_import.png"><img src="files/ProstateCancer/webmaboss_import.png" alt="Loading a model"/></a>
+	    <figcaption>Loading a model.</figcaption>
+	  </figure>
+	    </li>
+	    <li class="vspace">Click on the model, open the <i>Simulation</i> menu and create a new simulation. You can change the simulation settings, or keep the default ones, and click <i>Submit</i>.
+	  <figure class="figure">
+	    <a href="files/ProstateCancer/webmaboss_simulate.png"><img src="files/ProstateCancer/webmaboss_simulate.png" alt="Creating a simulation"/></a>
+	    <figcaption>Creating a simulation.</figcaption>
+	  </figure>
+	    </li>
+	    <li class="vspace">The results are displayed as soon as the simulation finishes: the distribution of the final states, the trajectories of the state probabilities and of the node probabilities, and the list of fixed points.
+	  <figure class="figure">
+	    <a href="files/ProstateCancer/webmaboss_piechart.png"><img src="files/ProstateCancer/webmaboss_piechart.png" alt="Final states"/></a>
+	    <figcaption>Distribution of the final states.</figcaption>
+	  </figure>
+	  <figure class="figure">
+	    <a href="files/ProstateCancer/webmaboss_nodes_trajectories.png"><img src="files/ProstateCancer/webmaboss_nodes_trajectories.png" alt="Node trajectories"/></a>
+	    <figcaption>Trajectories of the node probabilities.</figcaption>
+	  </figure>
+	    </li>
+	  </ol>
+	  <p class="small_note">The screenshots show the prostate cancer model of the <a href="#" class="clean-link" onclick="show('tutorials');show_tab('tutorials', 'webmaboss');return false;">tutorial</a>.</p>
+	  <p>
+	    More details are available in the <a href="https://doi.org/10.3389/fmolb.2021.754444" class="clean-link">WebMaBoSS article</a>.
+	  </p>
 	</div>
-	
-	<div class="para">
-	  <span class="tt">MBSS_DrugSim.py</span>: <a href="pub/Description_DrugSim.pdf" class="list">Description</a> and <a href="pub/README_DrugSim.txt" class="list">README</a>. <br>Need to modify produced shell
-	  script if excecutable is <span class="tt">MaBoSS_##n</span>.
-	</div>
-	
-	<div class="para">
-	  <span class="tt">MBSS_InitCondFromTrajectory.pl</span>: <a href="pub/Description_InitCondFromTrajectory.pdf" class="list">Description</a> and <a href="pub/README_InitCondFromTrajectory.txt" class="list">README</a>. <br>Compatible with <span class="tt">MaBoSS_##n</span>.
-	</div>
-	
-	<div class="para">
-	  <span class="tt">MBSS_MultipleSim.py</span>: <a href="pub/Description_MultipleSim.pdf"
-	  class="list">Description</a>
-	  and <a href="pub/README_MultipleSim.txt"
-	  class="list">README</a>. <br>Not Compatible with <span class="tt">MaBoSS_##n</span>.
-	</div>
-	
-	<div class="para">
-	  <span class="tt">MBSS_PrepareProjectFile.sh</span>: <a href="pub/Description_PrepareProjectFile.pdf"
-	  class="list">Description</a>
-	  and <a href="pub/README_PrepareProjectFile.txt"
-	  class="list">README</a>. <br>Compatible with <span class="tt">MaBoSS_##n</span>
-	  (excecutable name can be specified in .pmbss file).
-	</div>
-	A <a href="pub/TutorialMaBoSS_2_0.pdf" class="list">MaBoSS 2.0 tutorial</a> is available, based on an example that illustrates all MaBoSS environment functionalites. For this tutorial, the following files are necessary:<br>
-	<a href="pub/example.zginml">Model in GINsim format</a><br>
-<a href="pub/Example_DrugSim.txt">Configuration file for <span class="tt">MBSS_DrugSim.py</span></a><br>
-<a href="pub/ExampleProfile.txt">Profile file for <span class="tt">MBSS_MultipleSim.py</span></a><br>
-<a href="pub/Example.pmbss">File for <span class="tt">MBSS_PrepareProjectFile.sh</span></a><br>
 
-	<h3>How to build a mathematical model from scratch</h3>
-	
-	  If you wish to build your logical model directly, here are
-	  the steps on how to proceed (full environment is not
-	  necessary, only core C++ is needed).
-<ol>
-<!--	  <li>Install MaBoSS on your desktop (we advise to create a directory where the models and the program will be stored)</li> -->
-	  <li class="vspace">Install MaBoSS as described in the <a href="#" class="clean-link" onclick="show('installation');return false;">installation page</a></li>
-	  <li class="vspace">Create the model using MaBoSS language in a file (<span class="tt">myfile.bnd</span> for instance):
-	    <ul>
-	      <li>write the logic for each node</li>
-	      <li>assign parameter values to each transition rate</li>
-	    </ul>
-	  </li>
-	  <li class="vspace">Create the configuration file (<span class="tt">myfile.cfg</span> for instance) to define the simulation parameters</li>
-	  <li class="vspace">Run MaBoSS (the order of the arguments does not matter):
-	    <ul>
-	      <!--	      <li>open a terminal</li> -->
-	      <!-- 	      <li>go to the MaBoSS directory created in 1.</li> -->
-	      <li style="margin-top: 5px;" class="vspace">Type:
-		<br>
-		<span class="tt">MaBoSS -c myfile.cfg -o myfile_out myfile.bnd</span>
-		<br>(we assume that MaBoSS is accessible through you PATH)</li>
-	      <li class="vspace">MaBoSS creates four output files:
-		<ul>
-		  <li><span class="tt">file_out_proptraj.csv</span>
-		    <br>This file contains the network state probabilities on a time window, the entropy, the transition
-		    entropy and the Hamming distance distribution</li>
-		  <li><span class="tt">file_out_statdist.csv</span>
-		    <br>This file contains the stationary distribution characterization</li>
-		  <li><span class="tt">file_out_fp.txt</span>
-		  <br>This file contains the fixed points and their associated probability</li>
-		  <li><span class="tt">file_out_run.txt</span>
-		  <br>This file contains a summary of MaBoSS simulation run</li>
-		</ul>
-	      </li>
-	    </ul>
-	  </li>
-	  <li>Import output files in Excel or R and generate your graphs</li>
-	</ol>
-	You will find more information in <a href="pub/MaBoSS-RefCard.pdf" class="list">MaBoSS Reference Card</a> and in <a href="pub/DescriptionOutputFile.pdf" class="list">Description of MaBoSS output csv files</a>.
+	<!-- HOWTO MaBoSS command line -->
+	<div id="howto_panel_maboss" class="tab_panel hidden_panel">
+	  <p>
+	    MaBoSS is the original command-line tool. It gives direct access to all options, and is well suited for automated pipelines and computing clusters.
+	  </p>
+	  <p>To install MaBoSS, see <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'maboss');return false;">Installation</a>. By default, MaBoSS supports networks of up to 64 nodes: for larger networks, use an executable with a higher limit, such as <span class="tt">MaBoSS_256n</span>.</p>
+
+	  <h4>Building a model</h4>
+	  <ol>
+	    <li class="vspace">Write the model in MaBoSS language in a <span class="tt">.bnd</span> file (<span class="tt">myfile.bnd</span> for instance): for each node, write its logical rule and assign the parameters of its transition rates.</li>
+	    <li class="vspace">Write the configuration file (<span class="tt">myfile.cfg</span> for instance), which defines the initial conditions, the values of the parameters, the output nodes and the simulation parameters.</li>
+	  </ol>
+	  <p>
+	    See the <a href="pub/example.bnd" class="clean-link">bnd</a> and <a href="pub/example.cfg" class="clean-link">cfg</a> files of the p53/Mdm2 example, and the <a href="pub/MaBoSS-RefCard.pdf" class="clean-link">MaBoSS Reference Card</a> for the full description of the language. A model built with <a href="http://ginsim.org" class="clean-link">GINsim</a> can also be exported to MaBoSS format.
+	  </p>
+
+	  <h4>Running a simulation</h4>
+	  <pre>MaBoSS -c myfile.cfg -o myfile_out myfile.bnd</pre>
+	  <p>
+	    The order of the arguments does not matter. Since version 2.4, the <span class="tt">.bnd</span> file can be replaced by an SBML-qual file (<span class="tt">myfile.sbml</span>). With MPI, the simulation can be distributed across several nodes:
+	  </p>
+	  <pre>mpirun -np 2 MaBoSS_256n.MPI -c myfile.cfg -o myfile_out myfile.sbml</pre>
+
+	  <h4>Output files</h4>
+	  <ul>
+	    <li class="vspace"><span class="tt">myfile_out_probtraj.csv</span>: the network state probabilities over time, along with the entropy, the transition entropy and the Hamming distance distribution;</li>
+	    <li class="vspace"><span class="tt">myfile_out_fp.csv</span>: the fixed points and their associated probabilities;</li>
+	    <li class="vspace"><span class="tt">myfile_out_statdist.csv</span>: the characterization of the stationary distribution;</li>
+	    <li class="vspace"><span class="tt">myfile_out_run.txt</span>: a summary of the MaBoSS run.</li>
+	  </ul>
+	  <p>
+	    See the <a href="pub/DescriptionOutputFile.pdf" class="clean-link">description of MaBoSS output files</a>. These files can be analysed with your own scripts (in Python, R...), or with the MaBoSS environment tools below.
+	  </p>
+
+	  <h4>MaBoSS environment tools</h4>
+	  <p>
+	    MaBoSS 2.0 came with a set of Perl and Python scripts to prepare simulations and analyse their results. They are included in the <span class="tt">tools</span> folder of the MaBoSS repository, and are made available by running <span class="tt">source MaBoSS.env</span> from the root of the repository (see <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'maboss');return false;">Installation</a>).
+	  </p>
+	  <div class="para">
+	    <span class="tt">MBSS_FormatTable.pl</span>: <a href="pub/Description_FormatTable.pdf" class="list">Description</a> and <a href="pub/README_FormatTable.txt" class="list">README</a>.
+	  </div>
+	  <div class="para">
+	    <span class="tt">MBSS_TrajectoryFig.py</span>: <a href="pub/Description_TrajectoryFig.pdf" class="list">Description</a> and <a href="pub/README_TrajectoryFig.txt" class="list">README</a>.
+	  </div>
+	  <div class="para">
+	    <span class="tt">MBSS_PieChart.py</span>: <a href="pub/Description_PieChart.pdf" class="list">Description</a> and <a href="pub/README_PieChart.txt" class="list">README</a>.
+	  </div>
+	  <div class="para">
+	    <span class="tt">MBSS_MutBnd.pl</span> and <span class="tt">MBSS_MutBndCfg.pl</span>: <a href="pub/Description_MutBndCfg.pdf" class="list">Description</a> and <a href="pub/README_MutBndCfg.txt" class="list">README</a>.
+	  </div>
+	  <div class="para">
+	    <span class="tt">MBSS_SensitivityAnalysis.pl</span>: <a href="pub/Description_SensitivityAnalysis.pdf" class="list">Description</a> and <a href="pub/README_SensitivityAnalysis.txt" class="list">README</a>.
+	  </div>
+	  <div class="para">
+	    <span class="tt">MBSS_DrugSim.py</span>: <a href="pub/Description_DrugSim.pdf" class="list">Description</a> and <a href="pub/README_DrugSim.txt" class="list">README</a>.
+	  </div>
+	  <div class="para">
+	    <span class="tt">MBSS_InitCondFromTrajectory.pl</span>: <a href="pub/Description_InitCondFromTrajectory.pdf" class="list">Description</a> and <a href="pub/README_InitCondFromTrajectory.txt" class="list">README</a>.
+	  </div>
+	  <div class="para">
+	    <span class="tt">MBSS_MultipleSim.py</span>: <a href="pub/Description_MultipleSim.pdf" class="list">Description</a> and <a href="pub/README_MultipleSim.txt" class="list">README</a>.
+	  </div>
+	  <div class="para">
+	    <span class="tt">MBSS_PrepareProjectFile.sh</span>: <a href="pub/Description_PrepareProjectFile.pdf" class="list">Description</a> and <a href="pub/README_PrepareProjectFile.txt" class="list">README</a>.
+	  </div>
+	  <p>
+	    The <a href="pub/TutorialMaBoSS_2_0.pdf" class="clean-link">MaBoSS 2.0 tutorial</a> illustrates all these tools on the p53/Mdm2 example (see <a href="#" class="clean-link" onclick="show('tutorials');return false;">Tutorials</a> for the necessary files).
+	  </p>
+	</div>
+
+	<p>
+	  The <a href="#" class="clean-link" onclick="show('tutorials');return false;">tutorial</a> shows how to simulate a large (133 nodes) prostate cancer model with each of these three tools.
+	</p>
       </div>
       <!-- HOWTO : END -->
 
       <!-- TOY MODEL : BEGIN -->
       <div id="maboss_model_toy" class="hidden">
 	<h3>Toy Model</h3>
-	<h4>Model Description</h4>
-	<div class="model-text">
-	  The toy model presented here is a simple example consisting of three nodes: A, B and C. A can be activated by C and inhibited by B, B is only activated by A and C is activated by both A and B. This example illustrates the case of a simple loop in the transition graph. We propose to study two cases with two different transition rates for one of the transitions: fast and slow.
-	</div>
-	<h4>Influence Graph</h4>
-	<div class="model-text">
-	  <img src="files/ToyModel/modeltoy_small.png" alt="Toy Model"/>
-	</div>
-	<h4>Transition Graph</h4>
-	<div class="model-text">
-	 <p>Since the model is small enough, we first chose to run it with asynchronous updating strategy in GINsim to visualize the transition graph. 
-	 </p>
-
-<p>The transition graph shows the fixed point [ABC]=[000]. It also shows a possible cycle: [101]=>[111]=>[011]=>[001]. At [001], the system can either continue to cycle or escape the cycle and go to the steady state [000]. We will explore the dynamics in the case that this "escape" rate is slow or fast.</p>
-  
-	  <img src="files/ToyModel/statetoy_small.png" alt="Toy Model"/>
-	</div>
+	<h4>Model description</h4>
+	<p>
+	  This toy model is a simple example consisting of three nodes: A, B and C. A is activated by C and inhibited by B, B is activated by A, and C can only be degraded, when both A and B are inactive. This example illustrates the case of a simple loop in the transition graph. We study two cases, with two different rates for one of the transitions: fast and slow.
+	</p>
+	<h4>Influence graph</h4>
+	<figure class="figure">
+	  <a href="files/ToyModel/modeltoy_small.png"><img src="files/ToyModel/modeltoy_small.png" alt="Toy model influence graph" class="figure_small"/></a>
+	</figure>
+	<h4>Transition graph</h4>
+	<p>
+	  Since the model is small enough, we first ran it with an asynchronous updating strategy in GINsim, to visualize the transition graph. It shows the fixed point [ABC] = [000], and a cycle [101] &rarr; [111] &rarr; [011] &rarr; [001]. At [001], the system can either continue to cycle, or escape the cycle and reach the fixed point [000]. We explore the dynamics when this escape rate is slow or fast.
+	</p>
+	<figure class="figure">
+	  <a href="files/ToyModel/statetoy_small.png"><img src="files/ToyModel/statetoy_small.png" alt="Toy model transition graph" class="figure_small"/></a>
+	</figure>
 	<h4>Model</h4>
-	<div class="model-text">
-
-The model can be written as follows:
-<pre>
-Node A {
-rate_up=(C AND (NOT B))  ? $Au : 0.0;
-rate_down= B ? $Ad : 0.0;
+<pre>Node A {
+  rate_up = (C AND (NOT B)) ? $Au : 0.0;
+  rate_down = B ? $Ad : 0.0;
 }
 
 Node B {
-rate_up= A ? $Au : 0.0;
-rate_down = A ? 0.0 : $Ad ;
+  rate_up = A ? $Au : 0.0;
+  rate_down = A ? 0.0 : $Ad;
 }
 
-Node C{
-rate_up=0.0;
-rate_down=((NOT A) AND (NOT B)) ? $escape : 0.0 ;
-}
-</pre>
-
-In the configuration file, we set the values for the parameters: Au, Bu, Ad, Bd and escape. The parameter "escape" corresponds to the degradation of C. In the fast case, escape=10, and in the slow case, escape=0.00001. Initial values for these simulations are set to 1. 
- 
-<p> BND and configuration files can be found here:</p>
-	  <ul>
-	    <li class="model-list"><a href="files/ToyModel/Four_cycle.bnd" class="model-list">BND file</a></li>
-	    <li class="model-list"><a href="files/ToyModel/Four_cycle_FEscape.cfg" class="model-list">Fast escape rate Configuration file</a></li>
-	    <li class="model-list"><a href="files/ToyModel/Four_cycle_SEscape.cfg" class="model-list">Slow escape rate Configuration file</a></li>
-	    <li class="model-list"><a href="files/ToyModel/Four_cycle_SEscape_long.cfg" class="model-list">Slow escape rate Configuration file, long trajectory</a></li>
-	  </ul>
-<p>Command lines:</p>
-<pre>
-  MaBoSS -c Four_cycle_FEscape.cfg -o Four_cycle_FEscape Four_cycle.bnd
-  MaBoSS -c Four_cycle_SEscape.cfg -o Four_cycle_SEscape Four_cycle.bnd
-  MaBoSS -c Four_cycle_SEscape_long.cfg -o Four_cycle_SEscape_long Four_cycle.bnd
-</pre>
+Node C {
+  rate_up = 0.0;
+  rate_down = ((NOT A) AND (NOT B)) ? $escape : 0.0;
+}</pre>
+	<p>
+	  The parameter <span class="tt">$escape</span> corresponds to the degradation of C: it is set to 10 in the fast case, and to 0.00001 in the slow case. All the nodes are initially active.
+	</p>
+	<ul>
+	  <li><a href="files/ToyModel/Four_cycle.bnd" class="clean-link">BND file</a></li>
+	  <li><a href="files/ToyModel/Four_cycle_FEscape.cfg" class="clean-link">Configuration file, fast escape</a></li>
+	  <li><a href="files/ToyModel/Four_cycle_SEscape.cfg" class="clean-link">Configuration file, slow escape</a></li>
+	  <li><a href="files/ToyModel/Four_cycle_SEscape_long.cfg" class="clean-link">Configuration file, slow escape, long trajectories</a></li>
+	</ul>
+<pre>MaBoSS -c Four_cycle_FEscape.cfg -o Four_cycle_FEscape Four_cycle.bnd
+MaBoSS -c Four_cycle_SEscape.cfg -o Four_cycle_SEscape Four_cycle.bnd
+MaBoSS -c Four_cycle_SEscape_long.cfg -o Four_cycle_SEscape_long Four_cycle.bnd</pre>
+	<div class="notebook_box">
+	  <div class="notebook_title">Jupyter notebook</div>
+	  <p>All the simulations and figures of this page are reproduced in a Jupyter notebook, using <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'pymaboss');return false;">pyMaBoSS</a>. Download the notebook alone, or an archive with the notebook and all the files needed to run it.</p>
+	  <a href="files/ToyModel/ToyModel.ipynb" class="notebook_button" download>Notebook (ToyModel.ipynb)</a> <a href="files/ToyModel/ToyModel.zip" class="notebook_button notebook_button_alt" download>Notebook + model files (zip)</a>
 	</div>
 	<h4>Results</h4>
-	<div class="model-text">
-<p> There are several outputs of the simulations. Two of them present a particular interest for the biological interpretation of these simulations. The first one allows to follow the probabilities of each state and the entropy and transition entropy as a function of time (see probtraj files). The second one describes the asymptotic behaviour of the system, i.e. its possible stationary distributions (statdist files). </p>
-<p> For the case of the fast escape, the probability to reach the stable steady state tends to 1. Both entropy and transition entropy tend to 0 </p>  
-<img src="files/ToyModel/Four_cycle_pdf_FEscape_2box.png" width="500" alt="Fast escape"/>
-
-<p> For the case of the slow escape, if we only look at early response, the probability simulations do not show the presence of the stable steady state but rather the system seems stuck in a limit cycle. It is only after a long time that the system reaches the stable steady state (entropy and transition entropy reach 0). The two simulations show both the transient and the asymptotic behaviours. </p>
-<p> Slow escape, early response:</p>
-<img src="files/ToyModel/Four_cycle_pdf_SEscape_2box.png" width="500" alt="Slow escape short time"/>
-
-<p> Slow escape, late response:</p>
-<img src="files/ToyModel/Four_cycle_pdf_SEscape_long_2box.png" width="500" alt="Slow escape long time"/>
-<p>
-The output files can be found below: </p>
-	  <ul>
-	    <li class="model-list"><a href="files/ToyModel/Four_cycle_FEscape_probtraj.csv" class="model-list">Fast escape rate, probtraj</a></li>
-	    <li class="model-list"><a href="files/ToyModel/Four_cycle_FEscape_statdist.csv" class="model-list">Fast escape rate, statdist</a></li>
-	    <li class="model-list"><a href="files/ToyModel/Four_cycle_SEscape_probtraj.csv" class="model-list">Slow escape rate, probtraj</a></li>
-	    <li class="model-list"><a href="files/ToyModel/Four_cycle_SEscape_statdist.csv" class="model-list">Slow escape rate, statdist</a></li>
-	    <li class="model-list"><a href="files/ToyModel/Four_cycle_SEscape_long_probtraj.csv" class="model-list">Slow escape rate, probtraj, long trajectory</a></li>
-	    <li class="model-list"><a href="files/ToyModel/Four_cycle_SEscape_long_statdist.csv" class="model-list">Fast escape rate, statdist, long trajectory</a></li>
-	    <li class="model-list"><a href="files/ToyModel/Four_cycle_Excel.xlsx" class="model-list">Excel file</a></li>
-	  </ul>   
-	</div>
-      </div> 
+	<p>
+	  We follow the probabilities of the states [1**] (A is active) and [000] (the fixed point), and the entropy and transition entropy, as functions of time.
+	</p>
+	<p>
+	  With a fast escape, the probability to reach the fixed point tends to 1, and both entropies tend to 0.
+	</p>
+	<figure class="figure">
+	  <a href="files/ToyModel/figures/toy_fast_escape.png"><img src="files/ToyModel/figures/toy_fast_escape.png" alt="Fast escape"/></a>
+	</figure>
+	<p>
+	  With a slow escape, the early response does not show the fixed point: the system seems stuck in a limit cycle.
+	</p>
+	<figure class="figure">
+	  <a href="files/ToyModel/figures/toy_slow_escape.png"><img src="files/ToyModel/figures/toy_slow_escape.png" alt="Slow escape, early response"/></a>
+	</figure>
+	<p>
+	  It is only after a long time that the system reaches the fixed point, and that the entropies reach 0. The two simulations show both the transient and the asymptotic behaviours.
+	</p>
+	<figure class="figure">
+	  <a href="files/ToyModel/figures/toy_slow_escape_long.png"><img src="files/ToyModel/figures/toy_slow_escape_long.png" alt="Slow escape, late response"/></a>
+	</figure>
+      </div>
       <!-- TOY MODEL : END -->
 
       <!-- CELL CYCLE : BEGIN -->
       <div id="maboss_model_cell_cycle" class="hidden">
 	<h3>Cell Cycle</h3>
-	<h4>Model Description</h4>
-	<div class="model-text">
-	 The model is based on a published Boolean model of mammalian cell cycle (PMID:16873462), available on <a href="http://gin.univ-mrs.fr/GINsim/model_repository/MAMMALIAN REGULATORY NETWORKS/Cell cycle/Cell_cycle/description.html" class="clean-link">GINsim repository</a>. It describes the signaling network that controls the mammalian cell cycle. 
-	</div>
-	<h4>Influence Graph</h4>
-	<div class="model-text">
-	  <img src="files/CellCycle/CellCycleNet.jpg" alt="Cell Cycle Model"/>
-	</div>
+	<h4>Model description</h4>
+	<p>
+	  The model is based on a published Boolean model of the mammalian cell cycle (<a href="https://doi.org/10.1093/bioinformatics/btl210" class="clean-link">Faur&eacute; et al., 2006</a>). It describes the signaling network that controls the mammalian cell cycle.
+	</p>
+	<h4>Influence graph</h4>
+	<figure class="figure">
+	  <a href="files/CellCycle/CellCycleNet.jpg"><img src="files/CellCycle/CellCycleNet.jpg" alt="Cell cycle influence graph"/></a>
+	</figure>
 	<h4>Model</h4>
-	<div class="model-text">
-<p> The model is described in the bnd file below. In the description of the model, we have included the possibility to simulate mutants. In the rate_down and rate_up terms, the parameters related to each mutant are referred to as $gene_del for deletion. They are set to 0 in the configuration file for the wild type and set to 1 when a mutant is modeled. </p>
-	  <p> The corresponding BND and configuration files can be found below:</p>
-	  <ul>
-	    <li class="model-list"><a href="files/CellCycle/cellcycle.bnd" class="model-list">BND file</a></li>
-	    <li class="model-list"><a href="files/CellCycle/cellcycle_runcfg.cfg" class="model-list">Configuration file, to be tuned for mutant models, initial condition corresponding to cell cycle start</a></li>
-	   <li class="model-list"><a href="files/CellCycle/cellcycle_runcfg_randinit.cfg" class="model-list">Configuration file, to be tuned for mutant models, random initial condition for studying stationary distribution</a></li>
-	  </ul>
-<p>Command lines:</p>
-<pre>
-  MaBoSS -c cellcycle_runcfg.cfg -o cellcycle_runcfg cellcycle.bnd
-  MaBoSS -c cellcycle_runcfg_randinit.cfg -o cellcycle_runcfg_randinit cellcycle.bnd
-</pre>
+	<p>
+	  The model includes the possibility to simulate mutants: in the rates, the parameters <span class="tt">$gene_del</span> are set to 0 for the wild type, and to 1 to simulate a deletion. Two configuration files are provided: one with an initial condition corresponding to the start of the cell cycle, and one with a random initial condition, to study the stationary distributions.
+	</p>
+	<ul>
+	  <li><a href="files/CellCycle/cellcycle.bnd" class="clean-link">BND file</a></li>
+	  <li><a href="files/CellCycle/cellcycle_runcfg.cfg" class="clean-link">Configuration file, start of the cell cycle</a></li>
+	  <li><a href="files/CellCycle/cellcycle_runcfg_randinit.cfg" class="clean-link">Configuration file, random initial condition</a></li>
+	</ul>
+<pre>MaBoSS -c cellcycle_runcfg.cfg -o cellcycle_runcfg cellcycle.bnd
+MaBoSS -c cellcycle_runcfg_randinit.cfg -o cellcycle_runcfg_randinit cellcycle.bnd</pre>
+	<div class="notebook_box">
+	  <div class="notebook_title">Jupyter notebook</div>
+	  <p>All the simulations and figures of this page are reproduced in a Jupyter notebook, using <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'pymaboss');return false;">pyMaBoSS</a>. Download the notebook alone, or an archive with the notebook and all the files needed to run it.</p>
+	  <a href="files/CellCycle/CellCycle.ipynb" class="notebook_button" download>Notebook (CellCycle.ipynb)</a> <a href="files/CellCycle/CellCycle.zip" class="notebook_button notebook_button_alt" download>Notebook + model files (zip)</a>
 	</div>
 	<h4>Results</h4>
-	<div class="model-text">
-	  <p>Damped oscillation can be observed on probablities of active cyclin.</p>
-	  <img src="files/CellCycle/cellcycle_probtraj_HTHCyclins.jpg" width="500" alt="Cell Cycle Model"/>
-	  <p>Modeling with a random inital condition produces two clusters, that represent two indecomposable stationary distributions</p>
-	  <img src="files/CellCycle/cellcycle_runcfg_randinit_probcluster.jpg" width="500" alt="Cell Cycle Model"/>
-	  <p>The first cluster can be interpreted in term of a disynchronized proliferating cell population</p>
-	  <img src="files/CellCycle/cellcycle_statdist_cycle.jpg" width="500" alt="Cell Cycle Model"/>
-	  <p>The second cluster can be interpreted as a fixed point, representing the G1 phase.</p>
-	  <img src="files/CellCycle/cellcycle_statdist_chkpt.jpg" width="500" alt="Cell Cycle Model"/>
-	  <p> The corresponding output files can be found below: </p>
-	  <ul>
-	    <li class="model-list"><a href="files/CellCycle/cellcycle_runcfg_probtraj.csv" class="model-list">probtraj file, initial conditition corresponding to cell cycle start</a></li>
-	    <li class="model-list"><a href="files/CellCycle/cellcycle_runcfg_randinit_statdist.csv" class="model-list">statdist file, random initial conditition</a></li>
-	    <li class="model-list"><a href="files/CellCycle/cellcycle_probtraj_excel.xlsx" class="model-list">excel session file for probability trajectories</a></li>
- <li class="model-list"><a href="files/CellCycle/cellcycle_runcfg_randinit_statdist_table.xlsx" class="model-list">excel session file for stationary distribution</a></li>
-	  </ul>
-	</div>
+	<p>Probabilities of the active cyclins, and entropies, from the start of the cell cycle:</p>
+	<figure class="figure">
+	  <a href="files/CellCycle/figures/cellcycle_cyclins.png"><img src="files/CellCycle/figures/cellcycle_cyclins.png" alt="Cyclins activity"/></a>
+	</figure>
+	<p>From a random initial condition, the simulation produces two clusters, which represent two indecomposable stationary distributions:</p>
+	<figure class="figure">
+	  <a href="files/CellCycle/figures/cellcycle_clusters.png"><img src="files/CellCycle/figures/cellcycle_clusters.png" alt="Clusters of stationary distributions" class="figure_small"/></a>
+	</figure>
+	<p>One cluster can be interpreted as a desynchronized proliferating cell population, and the other one is a fixed point, representing the G1 phase.</p>
+	<figure class="figure">
+	  <a href="files/CellCycle/figures/cellcycle_stationary_distributions.png"><img src="files/CellCycle/figures/cellcycle_stationary_distributions.png" alt="Stationary distributions"/></a>
+	</figure>
       </div>
       <!-- CELL CYCLE : END -->
 
       <!-- CELL FATE : BEGIN -->
       <div id="maboss_model_cell_fate" class="hidden">
 	<h3>Cell Fate</h3>
-	<h4>Model Description</h4>
-	<div class="model-text">
-	  The cell fate decision example is based on a published Boolean model (PMID:20221256). It describes how the cell chooses between three different cell fates (apoptosis, NFkappaB activation and necroptosis) in response to cell death receptor engagement (through Fas and TNFR). 
-	</div>
-
-	<h4>Influence Graph</h4>
-	<div class="model-text">
-<img src="files/CellFate/cellfate.png" width="500" alt="cell fate model"/>
-	</div>
-
+	<h4>Model description</h4>
+	<p>
+	  The cell fate decision example is based on a published Boolean model (<a href="https://doi.org/10.1371/journal.pcbi.1000702" class="clean-link">Calzone et al., 2010</a>). It describes how the cell chooses between three different fates, apoptosis, survival (NF&kappa;B activation) and necroptosis (non-apoptotic cell death, NonACD), in response to the engagement of death receptors (through Fas and TNFR).
+	</p>
+	<h4>Influence graph</h4>
+	<figure class="figure">
+	  <a href="files/CellFate/cellfate.png"><img src="files/CellFate/cellfate.png" alt="Cell fate influence graph"/></a>
+	</figure>
 	<h4>Model</h4>
-	<div class="model-text">
-<p> The model is described in the bnd file below. In the description of the model, we have included the possibility to simulate mutants. In the rate_down and rate_up terms, the parameters related to each mutant are referred to as $gene_del for deletion and $gene_oe for over-expression respectively. They multiply a constant (1000 here) and are set to 0 in the configuration file for the wild type and set to 1 when simulated. </p>
-	  <p> The corresponding BND and configuration files can be found below:</p>
-	  <ul>
-	    <li class="model-list"><a href="files/CellFate/CellFateModel.bnd" class="model-list">BND file, including mutants as external variables</a></li>
-	    <li class="model-list"><a href="files/CellFate/CellFateModel.cfg" class="model-list">Configuration file, to be tuned for mutant models</a></li>	   
-	  </ul>
-<p>Command line:</p>
-<pre>
-  MaBoSS -c CellFateModel.cfg -o CellFateOut_wt CellFateModel.bnd 
-</pre>
+	<p>
+	  The model includes the possibility to simulate mutants: in the rates, the parameters <span class="tt">$gene_del</span> (deletion) and <span class="tt">$gene_oe</span> (over-expression) are set to 0 for the wild type, and to 1 to simulate the mutant.
+	</p>
+	<ul>
+	  <li><a href="files/CellFate/CellFateModel.bnd" class="clean-link">BND file</a></li>
+	  <li><a href="files/CellFate/CellFateModel.cfg" class="clean-link">Configuration file (wild type)</a></li>
+	</ul>
+<pre>MaBoSS -c CellFateModel.cfg -o CellFateOut_wt CellFateModel.bnd</pre>
+	<div class="notebook_box">
+	  <div class="notebook_title">Jupyter notebook</div>
+	  <p>All the simulations and figures of this page are reproduced in a Jupyter notebook, using <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'pymaboss');return false;">pyMaBoSS</a>. Download the notebook alone, or an archive with the notebook and all the files needed to run it.</p>
+	  <a href="files/CellFate/CellFate.ipynb" class="notebook_button" download>Notebook (CellFate.ipynb)</a> <a href="files/CellFate/CellFate.zip" class="notebook_button notebook_button_alt" download>Notebook + model files (zip)</a>
 	</div>
 	<h4>Results</h4>
-	<div class="model-text">
-	  <p> For the wild type case, there are three stable steady states distributed as follows:</p>
-	  <img src="files/CellFate/WT_prob.png" width="500" alt="cell fate model"/>
-	  <p> All the trajectories form three clusters that can be compared to the results of the published model. Qualitatively, the reachable phenotypes are the same. These probabilities are not absolute values as they depend on the computation and the details of the model itself. In the published model, the trajectories were computed over the transition graph. </p>
-	  <p> The published model showed the following phenotypes, where A stands for Apoptosis, N for Necrosis and S for survival:</p>
-	  <img src="files/CellFate/WT_pies_published.png" width="200" alt="cell fate model"/>
-	  <p> The model simulated in MaBoSS shows the same phenotypes with slightly different distributions:</p>
-	  <img src="files/CellFate/WT_pies.png" width="500" alt="cell fate model"/>
-	  <p>Where the clusters correspond to:</p>
-	  <pre>
-[Apoptosis]=[TNF--TNFR--FADD--DISC_TNF--CASP8--CASP3--BAX--ATP--MOMP--SMAC--Cyt_c--apoptosome--Apoptosis]
-[Necrosis]=[TNF--TNFR--FADD--DISC_TNF--CASP8--BAX--MPT--ROS--MOMP--SMAC--Cyt_c--NonACD]
-[Survival]=[TNF--TNFR--FADD--DISC_TNF--RIP1--cIAP--RIP1ub--RIP1K--IKK--NFkB--cFLIP--ATP--XIAP--Survival]
-	  </pre>
-	  <p> The simulation of CASP8 deletion shows the disappearance of one phenotype: apoptosis (in accordance with published experiments):</p>
-	  <img src="files/CellFate/casp8_pies.png" width="500" alt="cell fate model"/>
-
-	  <p> The corresponding output files can be found below: </p>
-	  <ul>
-	    <li class="model-list"><a href="files/CellFate/CellFateOut_wt_probtraj.csv" class="model-list">probtraj of wild type</a></li>
-	    <li class="model-list"><a href="files/CellFate/CellFateOut_wt_statdist.csv" class="model-list">statdist of wild type</a></li>
-	    <li class="model-list"><a href="files/CellFate/CellFateOut_CASP8del_probtraj.csv" class="model-list">probtraj with CASP8 deletion</a></li>
-	    <li class="model-list"><a href="files/CellFate/CellFateOut_CASP8del_statdist.csv" class="model-list">statdist with CASP8 deletion</a></li>
-	    <li class="model-list"><a href="files/CellFate/CellFateOut_XIAPdel_probtraj.csv" class="model-list">probtraj with XIAP deletion</a></li>
-	    <li class="model-list"><a href="files/CellFate/CellFateOut_XIAPdel_statdist.csv" class="model-list">statdist with XIAP deletion</a></li>
-	    <li class="model-list"><a href="files/CellFate/CellFateOut_probtraj_excel.xlsx" class="model-list">excel file with mutant outputs</a></li>
-	  </ul>  
-	</div>	
+	<p>In the wild type, survival is transiently activated, before most of the cells die by apoptosis:</p>
+	<figure class="figure">
+	  <a href="files/CellFate/figures/cellfate_wt_trajectories.png"><img src="files/CellFate/figures/cellfate_wt_trajectories.png" alt="Phenotypes probabilities, wild type"/></a>
+	</figure>
+	<p>
+	  The three phenotypes are reachable, as in the published model, which showed the following phenotypes (A: apoptosis, N: necrosis, S: survival). The probabilities are not absolute values: they depend on the computation and on the details of the model (in the published model, the trajectories were computed over the transition graph).
+	</p>
+	<figure class="figure">
+	  <a href="files/CellFate/WT_pies_published.png"><img src="files/CellFate/WT_pies_published.png" alt="Published phenotypes" class="figure_small"/></a>
+	  <figcaption>Phenotypes of the published model.</figcaption>
+	</figure>
+	<p>The deletion of CASP8 leads to the disappearance of apoptosis, in accordance with published experiments:</p>
+	<figure class="figure">
+	  <a href="files/CellFate/figures/cellfate_mutants.png"><img src="files/CellFate/figures/cellfate_mutants.png" alt="Phenotypes of the wild type and mutants"/></a>
+	</figure>
       </div>
-
-
       <!-- CELL FATE : END -->
 
       <!-- p53 / MDM2 : BEGIN -->
       <div id="maboss_model_p53" class="hidden">
 	<h3>p53 / MDM2</h3>
-	<h4>Model Description:</h4>
-	<div class="model-text">
-	<p>We consider a published model of p53 response to DNA damage (PMID:19233211). p53 interacts with Mdm2, which appears in two
-forms, cytoplasmic and nuclear. On one hand, p53 upregulates the level of cytoplasmic Mdm2 which is
-then transported into the nucleus and inhibits the export of nuclear Mdm2. On the other hand, Mdm2
-facilitates the degradation of p53 through ubiquitination. In the model, stress regulates the level of DNA
-damage, which in turn participates in the degradation process of Mdm2. p53 inhibits the DNA damage
-signal by promoting DNA repair. </p>
-	</div>
-	<h4>Influence Graph</h4>
-	<div class="model-text">
-	  <img src="files/p53Dam/influencegraphKauffmanndam_small.png" alt="p53 DNA damage"/>
-	</div>
-	<h4>Transition Graph</h4>
-	<div class="model-text">
-<p>         The transition graph contains two cycles and a fixed point [p53 Mdm2C Mdm2N Dam] = [0010]
-where nuclear Mdm2 is on and the rest is off.</p>
-	  <img src="files/p53Dam/transitiongraphKauffmann_small.png" alt="p53 DNA damage"/>
-	</div>
+	<h4>Model description</h4>
+	<p>
+	  We consider a published model of the p53 response to DNA damage (<a href="https://doi.org/10.1016/j.jtbi.2009.02.017" class="clean-link">Abou-Jaoud&eacute; et al., 2009</a>). p53 interacts with Mdm2, which appears in two forms, cytoplasmic and nuclear. On one hand, p53 upregulates the level of cytoplasmic Mdm2, which is then transported into the nucleus. On the other hand, nuclear Mdm2 facilitates the degradation of p53. DNA damage participates in the degradation of Mdm2, and p53 inhibits the DNA damage signal by promoting DNA repair. p53 has three levels, encoded with two nodes: <span class="tt">p53</span> (level at least 1) and <span class="tt">p53_h</span> (level 2).
+	</p>
+	<h4>Influence graph</h4>
+	<figure class="figure">
+	  <a href="files/p53Dam/influencegraphKauffmanndam_small.png"><img src="files/p53Dam/influencegraphKauffmanndam_small.png" alt="p53 influence graph" class="figure_small"/></a>
+	</figure>
+	<h4>Transition graph</h4>
+	<p>The transition graph contains two cycles and a fixed point [p53 Mdm2C Mdm2N Dam] = [0 0 1 0], where nuclear Mdm2 is active and the rest is inactive.</p>
+	<figure class="figure">
+	  <a href="files/p53Dam/transitiongraphKauffmann_small.png"><img src="files/p53Dam/transitiongraphKauffmann_small.png" alt="p53 transition graph"/></a>
+	</figure>
 	<h4>Model</h4>
-	<div class="model-text">
-	  <p>BND and configuration files:</p>
-	  <ul>
-	    <li class="model-list"><a href="files/p53Dam/p53_Mdm2.bnd" class="model-list">BND file</a></li>
-	    <li class="model-list"><a href="files/p53Dam/p53_Mdm2_runcfg.cfg" class="model-list">Configuration file</a></li>	   
-	  </ul>
-	  <p>Command line:</p>
-	  <pre>
-MaBoSS -c p53_Mdm2_runcfg.cfg -o p53_Mdm2 p53_Mdm2.bnd
-	  </pre>
+	<ul>
+	  <li><a href="files/p53Dam/p53_Mdm2.bnd" class="clean-link">BND file</a></li>
+	  <li><a href="files/p53Dam/p53_Mdm2_runcfg.cfg" class="clean-link">Configuration file</a></li>
+	</ul>
+<pre>MaBoSS -c p53_Mdm2_runcfg.cfg -o p53_Mdm2 p53_Mdm2.bnd</pre>
+	<div class="notebook_box">
+	  <div class="notebook_title">Jupyter notebook</div>
+	  <p>All the simulations and figures of this page are reproduced in a Jupyter notebook, using <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'pymaboss');return false;">pyMaBoSS</a>. Download the notebook alone, or an archive with the notebook and all the files needed to run it.</p>
+	  <a href="files/p53Dam/p53_Mdm2.ipynb" class="notebook_button" download>Notebook (p53_Mdm2.ipynb)</a> <a href="files/p53Dam/p53_Mdm2.zip" class="notebook_button notebook_button_alt" download>Notebook + model files (zip)</a>
 	</div>
 	<h4>Results</h4>
-	<div class="model-text">
-	  <p>The trajectories of the probabilities of p53 being equal to 1 and
-	    p53 being equal to 2, with the initial condition: [p53 Mdm2C Mdm2N Dam] =
-	    [0*11] are plotted below:</p>
-	  <img src="files/p53Dam/p53_Mdm2_pdf_p53levels.jpg" width="500" alt="p53 DNA damage traj"/>
-	  <p>And the entropies:</p>
-	  <img src="files/p53Dam/p53_Mdm2_pdf_entropies.jpg" width="500" alt="p53 DNA damage traj entr"/>
-	  <p>The corresponding output files can be found below: </p>
-	  <ul>
-	    <li class="model-list"><a href="files/p53Dam/p53_Mdm2_probtraj.csv" class="model-list">probtraj</a></li>
-	    <li class="model-list"><a href="files/p53Dam/p53_Mdm2_statdist.csv" class="model-list">statdist</a></li>
-	    <li class="model-list"><a href="files/p53Dam/p53_Mdm2_probtraj_excel.xlsx" class="model-list">excel file</a></li>
-	  </ul>  
-	</div>
+	<p>Probabilities of the levels 1 and 2 of p53, from the initial condition [p53 Mdm2C Mdm2N Dam] = [0 * 1 1]:</p>
+	<figure class="figure">
+	  <a href="files/p53Dam/figures/p53_levels.png"><img src="files/p53Dam/figures/p53_levels.png" alt="Levels of p53"/></a>
+	</figure>
+	<p>And the entropies:</p>
+	<figure class="figure">
+	  <a href="files/p53Dam/figures/p53_entropies.png"><img src="files/p53Dam/figures/p53_entropies.png" alt="Entropies"/></a>
+	</figure>
       </div>
       <!-- p53 / MDM2 : END -->
 
       <!-- DROSOPHILA PATTERNING : BEGIN -->
       <div id="maboss_model_drosophila" class="hidden">
 	<h3>Drosophila Patterning</h3>
-	<h4>Model Description</h4>
-	<div class="model-text">
-	  The model of segment polarity genes patterning is based on a published model (PMID:12782112). The following analysis is based on another publication (PMID:20655356); in particular, this publication studied the effect of random noise applied to the signaling network of segment polarity genes. The model consists of four identical signaling pathways, that are connected to each other. It represents the last step of drosophila patterning: the expression of the segment polarity genes. More precisely, this last step consists of a finer spatial patterning, driven by a set of genes (the segment polarity genes), whose expression last for a long time (compare to other genes involved in Drosophila segmentation).
-	</div>
+	<h4>Model description</h4>
+	<p>
+	  The model of the segment polarity genes is based on a published model (<a href="https://doi.org/10.1016/s0022-5193(03)00035-3" class="clean-link">S&aacute;nchez and Thieffry, 2003</a>), and the analysis on another publication (<a href="https://doi.org/10.1098/rsif.2008.0132.focus" class="clean-link">Chaves and Albert, 2008</a>), which studied the effect of random noise on this network. It represents the last step of Drosophila segmentation: a finer spatial patterning, driven by the segment polarity genes.
+	</p>
 	<h4>Influence graph</h4>
-	<div class="model-text">
-	  <img src="files/DrosoPattern/DrosoPatterningInfluenceGraph.jpg" width="500" alt="Drosophila patterning"/>
-	</div> 
+	<figure class="figure">
+	  <a href="files/DrosoPattern/DrosoPatterningInfluenceGraph.jpg"><img src="files/DrosoPattern/DrosoPatterningInfluenceGraph.jpg" alt="Drosophila patterning influence graph"/></a>
+	</figure>
 	<h4>Model</h4>
-	<div class="model-text">
-	  <p> Like in the two published papers, the model consists of four signaling pathways, one for each adjacent cell. mRNA and proteins are considered separately. Cell-cell interactions are represented by connections of one cell to the adjacent ones. For example, gene EN is transcriptionally activated by WG through the membrane; this is translated by including the following connections: WG4->en1, WG2->en1, WG1->en2, WG3->en2, WG2->en3, WG4->en3, WG3->en4, WG1->en4. The node en is written in lower case, because it represents the mRNA associated to the protein EN. Note that the model is "periodic", because cell 1 is adjacent to cell 4. SMO and PH are replaced by direct connections.</p>
-	  <p>
-	    The logical model is translated in MaboSS language. Two values of transition rates are considered: one for transcriptional influences ($rate_RNA=1), one for post-transcriptional influences ($rate_protein=10). The effect of random perturbation on every node has been included in the BND file; it can be tuned by the parameter $noise.</p>
-	  <p>
-	    The expected biological patterning is represented by the reference state below; none of the four cells are identical in term of node states. As described in the publications above, the model should produce the expected patterning, starting from a given initial state, when the pair rule gene SLP has the following pattern: SLP1,2=0 and SLP3,4=1. Two cases are considered: no noise ($noise=0) and low noise ($noise=0.01).
-	  </p>
-	  <img src="files/DrosoPattern/DrosoPatterningInitialFinal.jpg" alt="Drosophila patterning initial to final"/>
-	  <p>The corresponding BND and configuration files can be found below:</p>
-	  <ul>
-	    <li class="model-list"><a href="files/DrosoPattern/D_Pattern_ContT.bnd" class="model-list">BND file</a></li>
-	    <li class="model-list"><a href="files/DrosoPattern/D_Pattern_ContT_noIntNode.cfg" class="model-list">Configuration file with no noise</a></li>
-	    <li class="model-list"><a href="files/DrosoPattern/D_Pattern_ContT_noIntNode_noise.cfg" class="model-list">Configuration file with noise</a></li>
-	    <li class="model-list"><a href="files/DrosoPattern/D_Pattern_ContT_noIntNode_noise_4statdist.cfg" class="model-list">Configuration file with noise, tuned for computing stationary distribution</a></li>
-	  </ul>
-	  <p>A specific configuration file for computing stationary distribution is provided for the following reason: it is easy to show that random noise on nodes expression ($noie>0) implies that there is only one indecompsable stationary distribution, with all network states with a non-zero probability (for the given intial condition). Therefore, the clustering algorithm for identifying indecomposable stationary distributions cannot give good results, seprating artificially stationary distribution estimates. In that case, it is more efficient to increase the maximum time, to lower the set of trajectories and to set the threshold for clustering to zero.</p>
-	  <p>Command lines:</p>
-	  <pre>
-MaBoSS -c D_Pattern_ContT_noIntNode.cfg -o D_Pattern_ContT_noIntNode D_Pattern_ContT.bnd
+	<p>
+	  The model consists of four identical signaling pathways, one for each of four adjacent cells. mRNA and proteins are considered separately: for instance, <span class="tt">en</span> is the mRNA of the protein <span class="tt">EN</span>. Cell-cell interactions are represented by connections between adjacent cells: for example, <span class="tt">EN</span> is transcriptionally activated by <span class="tt">WG</span> through the membrane, with the connections WG4&rarr;en1, WG2&rarr;en1, WG1&rarr;en2, WG3&rarr;en2, WG2&rarr;en3, WG4&rarr;en3, WG3&rarr;en4 and WG1&rarr;en4. The model is periodic: cell 1 is adjacent to cell 4.
+	</p>
+	<p>
+	  Two transition rates are used: <span class="tt">$rate_RNA = 1</span> for transcriptional influences, and <span class="tt">$rate_protein = 10</span> for post-transcriptional influences. Random noise on every node is tuned by the parameter <span class="tt">$noise</span>. The model should produce the expected patterning (the reference state, in which none of the four cells are identical) from the initial state below, when the pair rule gene SLP has the pattern SLP1,2 = 0 and SLP3,4 = 1. Two cases are considered: no noise (<span class="tt">$noise = 0</span>) and low noise (<span class="tt">$noise = 0.01</span>).
+	</p>
+	<figure class="figure">
+	  <a href="files/DrosoPattern/figures/droso_initial_reference.png"><img src="files/DrosoPattern/figures/droso_initial_reference.png" alt="Initial state and expected patterning" class="figure_small"/></a>
+	</figure>
+	<ul>
+	  <li><a href="files/DrosoPattern/D_Pattern_ContT.bnd" class="clean-link">BND file</a></li>
+	  <li><a href="files/DrosoPattern/D_Pattern_ContT_noIntNode.cfg" class="clean-link">Configuration file, no noise</a></li>
+	  <li><a href="files/DrosoPattern/D_Pattern_ContT_noIntNode_noise.cfg" class="clean-link">Configuration file, with noise</a></li>
+	  <li><a href="files/DrosoPattern/D_Pattern_ContT_noIntNode_noise_4statdist.cfg" class="clean-link">Configuration file, with noise, for the stationary distribution</a></li>
+	</ul>
+	<p>
+	  With noise, there is only one indecomposable stationary distribution, in which all the network states have a non-zero probability: the clustering of stationary distributions would artificially separate the estimates. A specific configuration file is provided to compute it, with a longer maximum time, fewer trajectories, and a clustering threshold set to 0.
+	</p>
+<pre>MaBoSS -c D_Pattern_ContT_noIntNode.cfg -o D_Pattern_ContT_noIntNode D_Pattern_ContT.bnd
 MaBoSS -c D_Pattern_ContT_noIntNode_noise.cfg -o D_Pattern_ContT_noIntNode_noise D_Pattern_ContT.bnd
-MaBoSS -c D_Pattern_ContT_noIntNode_noise_4statdist.cfg -o D_Pattern_ContT_noIntNode_noise_4statdist D_Pattern_ContT.bnd
-	  </pre>
+MaBoSS -c D_Pattern_ContT_noIntNode_noise_4statdist.cfg -o D_Pattern_ContT_noIntNode_noise_4statdist D_Pattern_ContT.bnd</pre>
+	<div class="notebook_box">
+	  <div class="notebook_title">Jupyter notebook</div>
+	  <p>All the simulations and figures of this page are reproduced in a Jupyter notebook, using <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'pymaboss');return false;">pyMaBoSS</a>. Download the notebook alone, or an archive with the notebook and all the files needed to run it.</p>
+	  <a href="files/DrosoPattern/DrosophilaPatterning.ipynb" class="notebook_button" download>Notebook (DrosophilaPatterning.ipynb)</a> <a href="files/DrosoPattern/DrosophilaPatterning.zip" class="notebook_button notebook_button_alt" download>Notebook + model files (zip)</a>
 	</div>
 	<h4>Results</h4>
-	<div class="model-text">
-	  <p>When there is no noise on nodes, the expected patterning is reached. This can be seen on the time trajectories of the Hamming distance distribution (with expected patterning as the reference state):</p>
-	  <img src="files/DrosoPattern/D_Pattern_ContT_noIntNode_HDtraj.jpg" width="500" alt="HD traj no noise"/>
-	  <p>The asymptotic behavior consists of fixed points. Their respective probabilities are:</p>
-	  <img src="files/DrosoPattern/D_Pattern_ContT_noIntNode_statdist_sect.jpg" width="500" alt="stat dist no noise"/>
-	  <p>The blue fixed point corresponds to the correct patterning.</p>
-	  <p>When there is noise, the expected patterning is no longer stable. This can be seen on the time trajectories of the Hamming distance distribution (with expected patterning as the reference state):</p>
-	  <img src="files/DrosoPattern/D_Pattern_ContT_noIntNode_noise_HD.jpg" width="500" alt="HD traj with noise"/>
-	  <p>In that case, the asymptotic behavior consists of a single indecomposable stationary distribution:</p>
-	  <img src="files/DrosoPattern/D_Pattern_ContT_noIntNode_noise_4statdist_statdist_sect.jpg" width="500" alt="stat dist with noise"/>
-	  <p>The most probable state (in yellow) corresponds to a "broad type" patterning (this state is defined in the publications above): two adjacent cells have identical node states.
-	  <p>The corresponding output files can be found below:</p>
-	  <li class="model-list"><a href="files/DrosoPattern/D_Pattern_ContT_noIntNode_probtraj.csv" class="model-list">probtraj file with no noise</a></li>
-	  <li class="model-list"><a href="files/DrosoPattern/D_Pattern_ContT_noIntNode_statdist.csv" class="model-list">statdist file with no noise</a></li>
-	  <li class="model-list"><a href="files/DrosoPattern/D_Pattern_ContT_noIntNode_noise_probtraj.csv.gz" class="model-list">probtraj file with noise</a></li>
-	  <li class="model-list"><a href="files/DrosoPattern/D_Pattern_ContT_noIntNode_noise_4statdist_statdist.csv" class="model-list">statdist file with noise</a></li>
-	</div>
+	<p>Without noise, the expected patterning is reached, as shown by the trajectories of the Hamming distance distribution (HD), with the expected patterning as the reference state:</p>
+	<figure class="figure">
+	  <a href="files/DrosoPattern/figures/droso_hd_no_noise.png"><img src="files/DrosoPattern/figures/droso_hd_no_noise.png" alt="Hamming distance distribution, no noise"/></a>
+	</figure>
+	<p>The asymptotic behavior consists of fixed points. The most probable one is the expected patterning:</p>
+	<figure class="figure">
+	  <a href="files/DrosoPattern/figures/droso_fixed_points.png"><img src="files/DrosoPattern/figures/droso_fixed_points.png" alt="Fixed points, no noise" class="figure_small"/></a>
+	</figure>
+	<figure class="figure">
+	  <a href="files/DrosoPattern/figures/droso_fixed_points_patterns.png"><img src="files/DrosoPattern/figures/droso_fixed_points_patterns.png" alt="Patterns of the fixed points"/></a>
+	</figure>
+	<p>With noise, the expected patterning is no longer stable:</p>
+	<figure class="figure">
+	  <a href="files/DrosoPattern/figures/droso_hd_noise.png"><img src="files/DrosoPattern/figures/droso_hd_noise.png" alt="Hamming distance distribution, with noise"/></a>
+	</figure>
+	<p>The asymptotic behavior is then a single stationary distribution. Its most probable state corresponds to a "broad type" patterning, as defined in the publications above: two adjacent cells have identical node states.</p>
+	<figure class="figure">
+	  <a href="files/DrosoPattern/figures/droso_stationary_noise.png"><img src="files/DrosoPattern/figures/droso_stationary_noise.png" alt="Stationary distribution, with noise" class="figure_small"/></a>
+	</figure>
+	<figure class="figure">
+	  <a href="files/DrosoPattern/figures/droso_stationary_noise_patterns.png"><img src="files/DrosoPattern/figures/droso_stationary_noise_patterns.png" alt="Most probable states, with noise"/></a>
+	</figure>
       </div>
 	<!-- DROSOPHILA PATTERNING : END -->
 
 	<!-- EGF TNF : BEGIN -->
-	<div id="maboss_model_egftnf" class="hidden">
-	  <h3>EGF-TNF Signaling</h3>
-	  <h4>Model Description</h4>
-	  <div class="model-text">
-	    This model was used as an example for the standard language SBML qual and published in 2013 by Chaouiya et al.
-The model can be found in <a href="https://www.ebi.ac.uk/biomodels-main/">BioModels</a> database with the reference BIOMD0000000562.xls
-	  </div>
-	  <h4>Influence Graph</h4>
-	  <div>
-	    The model can be visualized with GINsim
-	    <img src="files/EGF_TNF/GINsim_snapshot1.png" width="500" alt="HD traj no noise"/>
-	    In GINsim, set egf and tnfa as inputs (tick the bow “Input” in the Modeling Attributes panel)
-	  </div>
-	  <h4>Model</h4>
-	  <div>
-	    <p>The bnd and the cfg files can be exported from GINsim.</p>
-
-	    <a href="files/EGF_TNF/chaouiya_maboss.bnd">Chaouiya_maboss.bnd</a><br>
-	    <a href="files/EGF_TNF/chaouiya_maboss.cfg">Chaouiya_maboss.bnd.cfg</a><br>
-	    <p>You can rename the cfg file into: chaouiya_maboss.cfg</p>
-	    <p>Some default parameters are applied during the export. The cfg file can be slightly modified by setting the appropriate initial conditions (by default all is at 0), and adding internal and external variables:</p>
-	    erk.is_internal=1;<br>
-ikk.is_internal=1;<br>
-gsk3.is_internal=1;<br>
-nfkb.is_internal=1;<br>
-ask1.is_internal=1;<br>
-ras.is_internal=0;<br>
-egf.is_internal=0;<br>
-egfr.is_internal=1;<br>
-traf2.is_internal=1;<br>
-ikb.is_internal=1;<br>
-map3k1.is_internal=1;<br>
-tnfr.is_internal=1;<br>
-ap1.is_internal=1;<br>
-mek.is_internal=1;<br>
-mkk4.is_internal=1;<br>
-ex.is_internal=1;<br>
-tnfa.is_internal=1;<br>
-raf1.is_internal=1;<br>
-map3k7.is_internal=1;<br>
-mkk7.is_internal=1;<br>
-cjun.is_internal=1;<br>
-sos.is_internal=1;<br>
-jnk.is_internal=1;<br>
-pi3k.is_internal=1;<br>
-p38.is_internal=1;<br>
-akt.is_internal=0;<br>
-ph.is_internal=1;<br>
-nik.is_internal=1;<br>
-	    <p>To visualize the fixed points:</p>
-	    <pre>$ MBSS_FormatTable.pl chaouiya_maboss.bnd chaouiya_maboss.cfg</pre>
-	    
-	    <img src="files/EGF_TNF/FixedPointsMBSS.png" width="700" alt="HD traj no noise"/>
-	    
-	    <p>And compare the results to the initial publications</p>
-	    
-	    <img src="files/EGF_TNF/FixedPointsPub.png" width="700" alt="HD traj no noise"/>
-	    <p>To visualize the outputs using a spreadsheet: as the plot of the sum of the three species ERK, AKT and RAS:</p>
-	    <img src="files/EGF_TNF/Traj.png" width="500" alt="HD traj no noise"/>
-	    <p>And compare it to the initial publication:</p>
-	    <img src="files/EGF_TNF/TrajPub.png" width="500" alt="HD traj no noise"/>
-	    <p>A tutorial is available <a href = "pub/SBMLQual_Tutorial.pdf">here</a>.</p>
-	    
-	  </div>
-	  <h4>Reference</h4>
-<div>
-Chaouiya C, B&eacute;renguier D, Keating SM, Naldi A, Van Iersel MP, Rodriguez N, Dr&auml;ger A, B&uuml;chel F, Cokelaer T, Kowal B, et al. SBML qualitative models: a model representation format and infrastructure to foster interactions between qualitative modelling formalisms and tools. BMC Syst Biol. 2013;7(1):135. doi: 10.1186/1752-0509-7-135.
-</div>
+      <div id="maboss_model_egftnf" class="hidden">
+	<h3>EGF-TNF Signaling</h3>
+	<h4>Model description</h4>
+	<p>
+	  This model was used as an example for the SBML-qual standard format, published by <a href="https://doi.org/10.1186/1752-0509-7-135" class="clean-link">Chaouiya et al. (2013)</a>. It can be found in the <a href="https://www.ebi.ac.uk/biomodels/BIOMD0000000562" class="clean-link">BioModels</a> database (BIOMD0000000562).
+	</p>
+	<h4>Influence graph</h4>
+	<p>The model can be visualized with GINsim. In GINsim, set <span class="tt">egf</span> and <span class="tt">tnfa</span> as inputs (tick the box "Input" in the Modeling Attributes panel).</p>
+	<figure class="figure">
+	  <a href="files/EGF_TNF/GINsim_snapshot1.png"><img src="files/EGF_TNF/GINsim_snapshot1.png" alt="EGF-TNF influence graph in GINsim"/></a>
+	</figure>
+	<h4>Model</h4>
+	<p>
+	  The bnd and cfg files were exported from GINsim. In the configuration file, the initial state of every node is random, and <span class="tt">ras</span>, <span class="tt">egf</span> and <span class="tt">akt</span> are the output nodes. The simulations below are done without TNF&alpha; (<span class="tt">tnfa</span> initially inactive), until time 50.
+	</p>
+	<ul>
+	  <li><a href="files/EGF_TNF/chaouiya_maboss.bnd" class="clean-link">BND file</a></li>
+	  <li><a href="files/EGF_TNF/chaouiya_maboss.cfg" class="clean-link">Configuration file</a></li>
+	</ul>
+<pre>MaBoSS -c chaouiya_maboss.cfg -e 'tnfa.istate = 0; max_time = 50; time_tick = 0.1' -o chaouiya chaouiya_maboss.bnd</pre>
+	<p>A tutorial using this model in SBML-qual format is <a href="pub/SBMLQual_Tutorial.pdf" class="clean-link">available here</a>.</p>
+	<div class="notebook_box">
+	  <div class="notebook_title">Jupyter notebook</div>
+	  <p>All the simulations and figures of this page are reproduced in a Jupyter notebook, using <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'pymaboss');return false;">pyMaBoSS</a>. Download the notebook alone, or an archive with the notebook and all the files needed to run it.</p>
+	  <a href="files/EGF_TNF/EGF_TNF.ipynb" class="notebook_button" download>Notebook (EGF_TNF.ipynb)</a> <a href="files/EGF_TNF/EGF_TNF.zip" class="notebook_button notebook_button_alt" download>Notebook + model files (zip)</a>
 	</div>
+	<h4>Results</h4>
+	<p>The simulation reaches three fixed points:</p>
+	<figure class="figure">
+	  <a href="files/EGF_TNF/figures/egf_tnf_fixed_points.png"><img src="files/EGF_TNF/figures/egf_tnf_fixed_points.png" alt="Fixed points"/></a>
+	</figure>
+	<p>They correspond to the stable states of the published model for the wild type:</p>
+	<figure class="figure">
+	  <a href="files/EGF_TNF/FixedPointsPub.png"><img src="files/EGF_TNF/FixedPointsPub.png" alt="Published stable states"/></a>
+	  <figcaption>Stable states of the published model.</figcaption>
+	</figure>
+	<p>The activities of ERK and RAS are transient, while AKT remains active when EGF is present:</p>
+	<figure class="figure">
+	  <a href="files/EGF_TNF/figures/egf_tnf_trajectories.png"><img src="files/EGF_TNF/figures/egf_tnf_trajectories.png" alt="Activity of ERK, AKT and RAS"/></a>
+	</figure>
+	<p>And the corresponding results in the initial publication:</p>
+	<figure class="figure">
+	  <a href="files/EGF_TNF/TrajPub.png"><img src="files/EGF_TNF/TrajPub.png" alt="Published trajectories" class="figure_small"/></a>
+	  <figcaption>Trajectories in the initial publication.</figcaption>
+	</figure>
+	<h4>Reference</h4>
+	<p>
+	  Chaouiya C, B&eacute;renguier D, Keating SM, Naldi A, Van Iersel MP, Rodriguez N, Dr&auml;ger A, B&uuml;chel F, Cokelaer T, Kowal B, et al. SBML qualitative models: a model representation format and infrastructure to foster interactions between qualitative modelling formalisms and tools. <i>BMC Systems Biology</i>. 2013;7:135. <a href="https://doi.org/10.1186/1752-0509-7-135" class="clean-link">doi:10.1186/1752-0509-7-135</a>
+	</p>
+      </div>
 	<!-- EGF TNF : END -->
+
+      <!-- PROSTATE CANCER : BEGIN -->
+      <div id="maboss_model_prostate" class="hidden">
+	<h3>Prostate Cancer</h3>
+	<h4>Model description</h4>
+	<p>
+	  This model, published by <a href="https://doi.org/10.7554/eLife.72626" class="clean-link">Montagud et al. (eLife, 2022)</a>, describes the signaling pathways involved in prostate cancer. Without any mutation, it can be considered as a model of healthy prostate cells. It was then personalized to the data of patients (TCGA) and cell lines, to study their response to treatments.
+	</p>
+	<h4>Influence graph</h4>
+	<figure class="figure">
+	  <a href="files/ProstateCancer/Montagud2022_Prostate_Cancer.png"><img src="files/ProstateCancer/Montagud2022_Prostate_Cancer.png" alt="Prostate cancer influence graph"/></a>
+	  <figcaption>Interaction graph of the model, colored by pathway.</figcaption>
+	</figure>
+	<h4>Model</h4>
+	<p>
+	  With 133 nodes, it is a large model, which requires an executable of MaBoSS supporting more than 128 nodes, such as <span class="tt">MaBoSS_256n</span> (see <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'maboss');return false;">Installation</a>). The model files are provided with the article (<a href="https://github.com/ArnauMontagud/PROFILE_v2" class="clean-link">PROFILE_v2 repository</a>).
+	</p>
+	<ul>
+	  <li><a href="files/ProstateCancer/Montagud2022_Prostate_Cancer.bnd" class="clean-link">BND file</a></li>
+	  <li><a href="files/ProstateCancer/Montagud2022_Prostate_Cancer.cfg" class="clean-link">Configuration file</a></li>
+	  <li><a href="files/ProstateCancer/Montagud2022_Prostate_Cancer.sbml" class="clean-link">SBML-qual file</a></li>
+	  <li>Ten personalized patient models, included in the archive below</li>
+	</ul>
+<pre>MaBoSS_256n -c Montagud2022_Prostate_Cancer.cfg -o results Montagud2022_Prostate_Cancer.bnd</pre>
+	<p>The <a href="#" class="clean-link" onclick="show('tutorials');return false;">tutorial</a> shows how to simulate this model with pyMaBoSS, WebMaBoSS and the command line.</p>
+	<div class="notebook_box">
+	  <div class="notebook_title">Jupyter notebook</div>
+	  <p>All the simulations and figures of this page are reproduced in a Jupyter notebook, using <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'pymaboss');return false;">pyMaBoSS</a>. Download the notebook alone, or an archive with the notebook and all the files needed to run it.</p>
+	  <a href="files/ProstateCancer/ProstateCancer.ipynb" class="notebook_button" download>Notebook (ProstateCancer.ipynb)</a> <a href="files/ProstateCancer/ProstateCancer.zip" class="notebook_button notebook_button_alt" download>Notebook + model files (zip)</a>
+	</div>
+	<h4>Results</h4>
+	<p>With random inputs, the simulation explores all the possible phenotypes:</p>
+	<figure class="figure">
+	  <a href="files/ProstateCancer/figures/prostate_default.png"><img src="files/ProstateCancer/figures/prostate_default.png" alt="Final states with random inputs"/></a>
+	</figure>
+	<p>Healthy cells mostly exhibit quiescence (neither proliferation nor apoptosis) in the absence of any input (Figure 3A of the article):</p>
+	<figure class="figure">
+	  <a href="files/ProstateCancer/figures/prostate_healthy.png"><img src="files/ProstateCancer/figures/prostate_healthy.png" alt="Healthy cells, without inputs"/></a>
+	</figure>
+	<p>When nutrients and growth factors (EGF) are present, proliferation is activated. The inhibition of MYC_MAX blocks it (Appendix 1, figure 34):</p>
+	<figure class="figure">
+	  <a href="files/ProstateCancer/figures/prostate_growth.png"><img src="files/ProstateCancer/figures/prostate_growth.png" alt="Growth condition and MYC_MAX inhibition"/></a>
+	</figure>
+	<p>Among several candidate nodes, the inhibition of AKT, EGFR or MYC_MAX blocks proliferation in the growth condition:</p>
+	<figure class="figure">
+	  <a href="files/ProstateCancer/figures/prostate_mutants.png"><img src="files/ProstateCancer/figures/prostate_mutants.png" alt="Inhibition of candidate nodes"/></a>
+	</figure>
+	<p>The personalized models of patients show very different phenotypes:</p>
+	<figure class="figure">
+	  <a href="files/ProstateCancer/figures/prostate_patients.png"><img src="files/ProstateCancer/figures/prostate_patients.png" alt="Personalized patient models"/></a>
+	</figure>
+	<p>And they respond differently to the inhibition of MYC_MAX, in the growth condition: proliferation is reduced below 10% only for some of them.</p>
+	<figure class="figure">
+	  <a href="files/ProstateCancer/figures/prostate_patients_myc.png"><img src="files/ProstateCancer/figures/prostate_patients_myc.png" alt="Personalized models with MYC_MAX inhibition"/></a>
+	</figure>
+      </div>
+      <!-- PROSTATE CANCER : END -->
+
+      <!-- UPMABOSS CELL FATE : BEGIN -->
+      <div id="maboss_upmaboss" class="hidden">
+	<h3>UPMaBoSS Cell Fate</h3>
+	<h4>Model description</h4>
+	<p>
+	  <a href="https://doi.org/10.3389/fmolb.2022.800152" class="clean-link">UPMaBoSS</a> simulates the dynamics of a population of cells, taking into account both their intracellular and intercellular regulations. The logical model of an individual cell is a MaBoSS model. At regular intervals, the simulation is stopped, and the population is updated according to the nodes representing cell death and division, and to the nodes accounting for signals coming from other cells.
+	</p>
+	<p>
+	  This example is a modified version of the <a href="#" class="clean-link" onclick="show('model_cell_fate');return false;">cell fate model</a>: it accounts for the activation of TNF&alpha; by NF&kappa;B, which acts on the other cells (a paracrine loop), and includes two output nodes, <span class="tt">Division</span> and <span class="tt">Death</span>.
+	</p>
+	<h4>Model</h4>
+	<p>
+	  UPMaBoSS needs three files: the model (bnd), the configuration (cfg), and the update file (upp), which describes the population updates. In the update file, <span class="tt">$TNF_induc</span> is updated at each step with the proportion of living cells in which NF&kappa;B is active, and the population is updated 48 times, every hour.
+	</p>
+	<ul>
+	  <li><a href="UPMaBoSS/CellFateModel_uppmaboss.bnd" class="clean-link">BND file</a></li>
+	  <li><a href="UPMaBoSS/CellFateModel_uppmaboss.cfg" class="clean-link">Configuration file</a></li>
+	  <li><a href="UPMaBoSS/CellFateModel_uppmaboss.upp" class="clean-link">Update file</a></li>
+	</ul>
+<pre>death = Death;
+division = Division;
+$TNF_induc u= $ProdTNF_NFkB*p[(NFkB,Death) = (1,0)];
+steps = 48;</pre>
+	<div class="notebook_box">
+	  <div class="notebook_title">Jupyter notebook</div>
+	  <p>All the simulations and figures of this page are reproduced in a Jupyter notebook, using <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'pymaboss');return false;">pyMaBoSS</a>. Download the notebook alone, or an archive with the notebook and all the files needed to run it.</p>
+	  <a href="UPMaBoSS/CellFateModel_uppmaboss.ipynb" class="notebook_button" download>Notebook (CellFateModel_uppmaboss.ipynb)</a> <a href="UPMaBoSS/TimeStepDependency.ipynb" class="notebook_button" download>Notebook (TimeStepDependency.ipynb)</a> <a href="UPMaBoSS/UPMaBoSS_CellFate.zip" class="notebook_button notebook_button_alt" download>Notebooks + model files (zip)</a>
+	</div>
+	<h4>Results</h4>
+	<p>A MaBoSS simulation of a single cell over 48 hours, after a pulse of TNF, shows the first transient effects during the first hours: updating the population every hour captures them.</p>
+	<figure class="figure">
+	  <a href="UPMaBoSS/figures/upmaboss_maboss_48h.png"><img src="UPMaBoSS/figures/upmaboss_maboss_48h.png" alt="MaBoSS simulation of a single cell"/></a>
+	</figure>
+	<p>The paracrine TNF loop leads to a significant decrease of the population size:</p>
+	<figure class="figure">
+	  <a href="UPMaBoSS/figures/upmaboss_feedback.png"><img src="UPMaBoSS/figures/upmaboss_feedback.png" alt="With and without the paracrine feedback"/></a>
+	</figure>
+	<p>With two successive treatments, the population that received an initial pulse of TNF is resistant to the second, constant TNF treatment: its size does not decrease, while the population that did not receive the pulse is strongly reduced:</p>
+	<figure class="figure">
+	  <a href="UPMaBoSS/figures/upmaboss_treatments.png"><img src="UPMaBoSS/figures/upmaboss_treatments.png" alt="Successive TNF treatments"/></a>
+	</figure>
+	<p>Simulating the deletion of each internal node shows which mutations abolish this resistance. The relative change is the population ratio with the second TNF treatment, divided by the one without it: the treatment has an effect when it is below 1 (in blue).</p>
+	<figure class="figure">
+	  <a href="UPMaBoSS/figures/upmaboss_mutants_effect.png"><img src="UPMaBoSS/figures/upmaboss_mutants_effect.png" alt="Effect of the TNF treatment on the mutants" class="figure_small"/></a>
+	</figure>
+	<p>
+	  For some mutants (the deletions of IKK, NF&kappa;B, cIAP or RIP1ub), the TNF treatment reduces the population size, whether the cells received a pulse of TNF or not: there is no resistance. For others, including the wild type (and for instance the BCL2 or XIAP deletions), this effect disappears when the cells received a pulse of TNF. The deletion of TNFR leads to insensitive cells.
+	</p>
+	<h4>Sensitivity to the update time</h4>
+	<p>The population dynamics are robust to the update time: updating the population every hour or every 15 minutes gives almost identical results.</p>
+	<figure class="figure">
+	  <a href="UPMaBoSS/figures/upmaboss_timestep.png"><img src="UPMaBoSS/figures/upmaboss_timestep.png" alt="Sensitivity to the update time"/></a>
+	</figure>
+      </div>
+      <!-- UPMABOSS CELL FATE : END -->
 
       <!-- PUBLICATION : BEGIN -->
       <div id="maboss_publication" class="hidden">
 	<h3>Publications</h3>
 	<div class="para">
-	  <ul> 
-	   <!-- <li class="list"><a href="http://arxiv.org/abs/1204.0997">BKMC/MaBoSS former version of submitted article</a></li> -->
-	   <!--  <li class="list"><a href="pub/form_article.pdf">BKMC/MaBoSS former version of submitted article</a></li>  -->
-	   Stoll G, Viara E, Barillot E, Calzone L. Continuous time Boolean modeling for biological signaling: application of Gillespie algorithm. 
-BMC Syst Biol. 2012 Aug 29;6:116. doi: 10.1186/1752-0509-6-116.
-
-	   <li class="list"><a href="http://www.biomedcentral.com/1752-0509/6/116/abstract">Published version in BMC</a></li>
-	   <li class="list"><a href="pub/Supplmentary.pdf">BKMC/MaBoSS
-	       supplementary material for the article</a></li>
-	   <br>
-	   Stoll G, Caron B, Viara E, Dugourd A, Zinovyev A, Naldi A,
-	   Kroemer G, Barillot E, Calzone L.  MaBoSS 2.0: an
-	   environment for stochastic Boolean modeling. Bioinformatics
-	   btx123. 2017 Mar. DOI:
-	   https://doi.org/10.1093/bioinformatics/btx123
-	   
-	   <li class="list"><a href="https://academic.oup.com/bioinformatics/article/3059141/MaBoSS-2-0-an-environment-for-stochastic-Boolean">Published version in Bioinformatics</a></li>
+	  <h4>MaBoSS original publications</h4>
+	  <ul class="pub-list">
+	     <li class="list">Stoll G, Caron B, Viara E, Dugourd A, Zinovyev A, Naldi A, Kroemer G, Barillot E, Calzone L. MaBoSS 2.0: an environment for stochastic Boolean modeling. <i>Bioinformatics</i>. 2017;33(14):2226-2228. <a href="https://doi.org/10.1093/bioinformatics/btx123" class="list">doi:10.1093/bioinformatics/btx123</a></li>
+	    <li class="list">Stoll G, Viara E, Barillot E, Calzone L. Continuous time Boolean modeling for biological signaling: application of Gillespie algorithm. <i>BMC Systems Biology</i>. 2012;6:116. <a href="https://doi.org/10.1186/1752-0509-6-116" class="list">doi:10.1186/1752-0509-6-116</a> &ndash; <a href="pub/Supplmentary.pdf" class="list">Supplementary material</a></li>
 	  </ul>
+
+	  <h4>MaBoSS model personalisation</h4>
+	  <ul class="pub-list">
+	    <li class="list">Montagud A, Béal J, Tobalina L, Traynard P, Subramanian V, Szalai B, Alföldi R, Puskás L, Valencia A, Barillot E, Saez-Rodriguez J, Calzone L. Patient-specific Boolean models of signalling networks guide personalised treatments. <i>eLife</i>. 2022;11:e72626. <a href="https://doi.org/10.7554/eLife.72626" class="list">doi:10.7554/eLife.72626</a></li>
+	    <li class="list">Béal J, Pantolini L, Noël V, Barillot E, Calzone L. Personalized logical models to investigate cancer response to BRAF treatments in melanomas and colorectal cancers. <i>PLOS Computational Biology</i>. 2021;17(1):e1007900. <a href="https://doi.org/10.1371/journal.pcbi.1007900" class="list">doi:10.1371/journal.pcbi.1007900</a></li>
+	    <li class="list">Béal J, Montagud A, Traynard P, Barillot E, Calzone L. Personalization of Logical Models With Multi-Omics Data Allows Clinical Stratification of Patients. <i>Frontiers in Physiology</i>. 2019;9:1965. <a href="https://doi.org/10.3389/fphys.2018.01965" class="list">doi:10.3389/fphys.2018.01965</a></li>
+
+	  </ul>
+
+	  <h4>PhysiBoSS</h4>
+ 	  <ul class="pub-list">
+	    <li class="list">Ruscone M, Checcoli A, Heiland R, Barillot E, Macklin P, Calzone L, Noël V. Building multiscale models with PhysiBoSS, an agent-based modeling tool. <i>Briefings in Bioinformatics</i>. 2024;25(6):bbae509. <a href="https://doi.org/10.1093/bib/bbae509" class="list">doi:10.1093/bib/bbae509</a></li>
+	    <li class="list">Ponce-de-Leon M, Montagud A, Noël V, Meert A, Pradas G, Barillot E, Calzone L, Valencia A. PhysiBoSS 2.0: a sustainable integration of stochastic Boolean and agent-based modelling frameworks. <i>npj Systems Biology and Applications</i>. 2023;9:54. <a href="https://doi.org/10.1038/s41540-023-00314-4" class="list">doi:10.1038/s41540-023-00314-4</a></li>
+		<li class="list">Ruscone M, Montagud A, Chavrier P, Destaing O, Bonnet I, Zinovyev A, Barillot E, Noël V, Calzone L. Multiscale model of the different modes of cancer cell invasion. <i>Bioinformatics</i>. 2023;39(6):btad374. <a href="https://doi.org/10.1093/bioinformatics/btad374" class="list">doi:10.1093/bioinformatics/btad374</a></li>
+		<li class="list">Letort G, Montagud A, Stoll G, Heiland R, Barillot E, Macklin P, Zinovyev A, Calzone L. PhysiBoSS: a multi-scale agent-based modelling framework integrating physical dimension and cell signalling. <i>Bioinformatics</i>. 2019;35(7):1188-1196. <a href="https://doi.org/10.1093/bioinformatics/bty766" class="list">doi:10.1093/bioinformatics/bty766</a></li>
+	  </ul>
+	  
+	  
+	  <h4>UPMaBoSS</h4>
+	  <ul class="pub-list">
+	    <li class="list">Stoll G, Naldi A, Noël V, Viara E, Barillot E, Kroemer G, Thieffry D, Calzone L. UPMaBoSS: A Novel Framework for Dynamic Cell Population Modeling. <i>Frontiers in Molecular Biosciences</i>. 2022;9:800152. <a href="https://doi.org/10.3389/fmolb.2022.800152" class="list">doi:10.3389/fmolb.2022.800152</a></li>
+		<li class="list">Checcoli A, Pol JG, Naldi A, Noël V, Barillot E, Kroemer G, Thieffry D, Calzone L, Stoll G. Dynamical Boolean Modeling of Immunogenic Cell Death. <i>Frontiers in Physiology</i>. 2020;11:590479. <a href="https://doi.org/10.3389/fphys.2020.590479" class="list">doi:10.3389/fphys.2020.590479</a></li>
+
+	  </ul>
+	  <h4>MaBoSS ecosystem</h4>
+	  <ul class="pub-list">
+	    <li class="list">Pankaew S, Noël V, Paulevé L, Thieffry D, Barillot E, Calzone L. AstroLogics: a simulation-based framework for the analysis of Boolean model ensembles. <i>Bioinformatics</i>. 2026;42(8):btag555. <a href="https://doi.org/10.1093/bioinformatics/btag555" class="list">doi:10.1093/bioinformatics/btag555</a></li>
+	    <li class="list">Noël V, Naldi A, Calzone L, Paulevé L, Thieffry D. Reproducible Boolean model analyses and simulations with the CoLoMoTo software suite: a tutorial. <i>Interface Focus</i>. 2025;15(3):20250002. <a href="https://doi.org/10.1098/rsfs.2025.0002" class="list">doi:10.1098/rsfs.2025.0002</a></li>
+	    <li class="list">Šmelko A, Kratochvíl M, Barillot E, Noël V. MaBoSS for HPC environments: implementations of the continuous time Boolean model simulator for large CPU clusters and GPU accelerators. <i>BMC Bioinformatics</i>. 2024;25:199. <a href="https://doi.org/10.1186/s12859-024-05815-5" class="list">doi:10.1186/s12859-024-05815-5</a></li>
+	    <li class="list">Calzone L, Noël V, Barillot E, Kroemer G, Stoll G. Modeling signaling pathways in biology with MaBoSS: From one single cell to a dynamic population of heterogeneous interacting cells. <i>Computational and Structural Biotechnology Journal</i>. 2022;20:5661-5671. <a href="https://doi.org/10.1016/j.csbj.2022.10.003" class="list">doi:10.1016/j.csbj.2022.10.003</a></li>
+	    <li class="list">Noël V, Ruscone M, Stoll G, Viara E, Zinovyev A, Barillot E, Calzone L. WebMaBoSS: A Web Interface for Simulating Boolean Models Stochastically. <i>Frontiers in Molecular Biosciences</i>. 2021;8:754444. <a href="https://doi.org/10.3389/fmolb.2021.754444" class="list">doi:10.3389/fmolb.2021.754444</a></li>
+	    <li class="list">Koltai M, Noël V, Zinovyev A, Calzone L, Barillot E. Exact solving and sensitivity analysis of stochastic continuous time Boolean models. <i>BMC Bioinformatics</i>. 2020;21:241. <a href="https://doi.org/10.1186/s12859-020-03548-9" class="list">doi:10.1186/s12859-020-03548-9</a></li>
+	    <li class="list">Chevalier S, Noël V, Calzone L, Zinovyev A, Paulevé L. Synthesis and Simulation of Ensembles of Boolean Networks for Cell Fate Decision. <i>Computational Methods in Systems Biology (CMSB 2020)</i>, LNCS 12314:193-209. <a href="https://doi.org/10.1007/978-3-030-60327-4_11" class="list">doi:10.1007/978-3-030-60327-4_11</a></li>
+	    <li class="list">Naldi A, Hernandez C, Levy N, Stoll G, Monteiro PT, Chaouiya C, Helikar T, Zinovyev A, Calzone L, Cohen-Boulakia S, Thieffry D, Paulevé L. The CoLoMoTo Interactive Notebook: Accessible and Reproducible Computational Analyses for Qualitative Biological Networks. <i>Frontiers in Physiology</i>. 2018;9:680. <a href="https://doi.org/10.3389/fphys.2018.00680" class="list">doi:10.3389/fphys.2018.00680</a></li>
+	  </ul>
+
 	</div>
       </div>
       <!-- PUBLICATION : END -->
@@ -734,93 +844,417 @@ BMC Syst Biol. 2012 Aug 29;6:116. doi: 10.1186/1752-0509-6-116.
       <!-- DOCUMENTATION : BEGIN -->
       <div id="maboss_documentation" class="hidden">
 	<h3>Documentation</h3>
-	<div class="para">
-	  <span class="tt">MaBoSS</span>: <a href="pub/MaBoSS-RefCard.pdf" class="list">Reference Card for version 2.0</a>
-	</div>
 
-	<div class="para">
-	  <span class="tt">MBSS_FormatTable.pl</span>: <a href="pub/Description_FormatTable.pdf" class="list">Description</a> and <a href="pub/README_FormatTable.txt" class="list">README</a>. 
-	</div>
-	
-	<div class="para">
-	  <span class="tt">MBSS_TrajectoryFig.py</span>: <a href="pub/Description_TrajectoryFig.pdf" class="list">Description</a> and <a href="pub/README_TrajectoryFig.txt" class="list">README</a>. 
-	</div>
-
-	<div class="para">
-	  <span class="tt">MBSS_PieChart.py</span>: <a href="pub/Description_PieChart.pdf" class="list">Description</a> and <a href="pub/README_PieChart.txt" class="list">README</a>. 
-	</div>
-	
-	<div class="para">
-	  <span class="tt">MBSS_MutBnd.pl</span> and <span class="tt">MBSS_MutBndCfg.pl</span>: <a href="pub/Description_MutBndCfg.pdf" class="list">Description</a> and <a href="pub/README_MutBndCfg.txt" class="list">README</a>. 
-	</div>
-
-	<div class="para">
-	  <span class="tt">MBSS_SensitivityAnalysis.pl</span>: <a href="pub/Description_SensitivityAnalysis.pdf" class="list">Description</a> and <a href="pub/README_SensitivityAnalysis.txt" class="list">README</a>. 
-	</div>
-	
-	<div class="para">
-	  <span class="tt">MBSS_DrugSim.py</span>: <a href="pub/Description_DrugSim.pdf" class="list">Description</a> and <a href="pub/README_DrugSim.txt" class="list">README</a>. 
-	</div>
-	
-	<div class="para">
-	  <span class="tt">MBSS_InitCondFromTrajectory.pl</span>: <a href="pub/Description_InitCondFromTrajectory.pdf" class="list">Description</a> and <a href="pub/README_InitCondFromTrajectory.txt" class="list">README</a>. 
-	</div>
-	
-	<div class="para">
-	  <span class="tt">MBSS_MultipleSim.py</span>: <a href="pub/Description_MultipleSim.pdf" class="list">Description</a> and <a href="pub/README_MultipleSim.txt" class="list">README</a>.
-	</div>
-	
-	<div class="para">
-	  <span class="tt">MBSS_PrepareProjectFile.sh</span>: <a href="pub/Description_PrepareProjectFile.pdf" class="list">Description</a> and <a href="pub/README_PrepareProjectFile.txt" class="list">README</a>. 
-	</div>
-	
-	<div class="para">
-	  <a href="pub/maboss-refcard_1.3.8.pdf" class="list">MaBoSS Reference Card for version 1.3.8</a>
-	</div>
-
-	<div class="para">
-	  <a href="pub/MaBoSS-RefCard.pdf" class="list">MaBoSS Reference Card for version 1.2.2</a>
-	</div>
-	
-	<div class="para">
-
-	  <a href="pub/DescriptionOutputFile.pdf" class="list">Description of MaBoSS output csv files</a>
-	</div>
-
-	<div class="para">
-	  <a href="pub/TutorialMaBoSS_2_0.pdf" class="list">MaBoSS 2.0 tutorial</a> is available, based on an example that illustrates all MaBoSS environment functionalites. For this tutorial, the following files are necessary:<br>
-	  <a href="pub/example.zginml">Model in GINsim format</a><br>
-	  Model in MaBoSS format: <a href="pub/example.bnd">bnd file</a> and <a href="pub/example.cfg">cfg file</a><br>
-	  <a href="pub/Example_DrugSim.txt">Configuration file for <span class="tt">MBSS_DrugSim.py</span></a><br>
-	  <a href="pub/ExampleProfile.txt">Profile file for <span class="tt">MBSS_MultipleSim.py</span></a><br>
-	  <a href="pub/Example.pmbss">File for <span class="tt">MBSS_PrepareProjectFile.sh</span></a><br>
+	<div class="doc_cards">
+	  <div class="doc_card">
+	    <div class="doc_card_title">pyMaBoSS</div>
+	    <p>Python interface of MaBoSS.</p>
+	    <ul>
+	      <li><a href="https://pymaboss.readthedocs.io/" class="clean-link">Documentation</a></li>
+	      <li><a href="https://pymaboss.readthedocs.io/en/latest/notebooks/tutorials.html" class="clean-link">Tutorials (notebooks)</a></li>
+	      <li><a href="https://pymaboss.readthedocs.io/en/latest/api/index.html" class="clean-link">API reference</a></li>
+	    </ul>
 	  </div>
-
-	  <div class="para">
-
-	  <a href="pub/SBMLQual_Tutorial.pdf" class="list">SBML-Qual model tutorial</a>: this tutorial provides an example of the use of MaBoSS with an SBML-Qual model downloaded from <a href="https://www.ebi.ac.uk/biomodels-main/">BioModels</a> database.
+	  <div class="doc_card">
+	    <div class="doc_card_title">WebMaBoSS</div>
+	    <p>Web interface of MaBoSS.</p>
+	    <ul>
+	      <li><a href="https://webmaboss.vincent-noel.fr/tutorials/" class="clean-link">Tutorials</a>: <a href="https://webmaboss.vincent-noel.fr/tutorials/cohen/" class="clean-link">tumor invasion</a> and <a href="https://webmaboss.vincent-noel.fr/tutorials/corral/" class="clean-link">TH cells differentiation</a></li>
+	      <li><a href="https://doi.org/10.3389/fmolb.2021.754444" class="clean-link">Article</a></li>
+	    </ul>
+	  </div>
+	  <div class="doc_card">
+	    <div class="doc_card_title">MaBoSS</div>
+	    <p>Simulation engine and command-line tool.</p>
+	    <ul>
+	      <li><a href="#doc_bnd" class="clean-link">Network file (.bnd)</a></li>
+	      <li><a href="#doc_cfg" class="clean-link">Configuration file (.cfg)</a></li>
+	      <li><a href="#doc_cli" class="clean-link">Command line</a></li>
+	      <li><a href="#doc_output" class="clean-link">Output files</a></li>
+	    </ul>
+	  </div>
 	</div>
 
-	
+	<p>
+	  The rest of this page describes MaBoSS itself. The model files and the results are the same whichever way MaBoSS is used, so this information is also useful with pyMaBoSS and WebMaBoSS.
+	</p>
 
+	<!-- ===== Network file ===== -->
+	<h4 id="doc_bnd">Network file (.bnd)</h4>
+	<p>
+	  The network file describes the nodes of the network, their logic and their transition rates. Each node is described as follows:
+	</p>
+<pre>node NODE_NAME {
+  node_var1 = expr1;
+  node_var2 = expr2;
+  ...
+}</pre>
+	<p>
+	  Comments are written as in C++ or Java (<span class="tt">//</span> or <span class="tt">/* */</span>). An expression is an arithmetic and logical combination of node names (denoting the node states), external variables (defined in the configuration file), node variables, and integer or double literals.
+	</p>
+
+	<h5>Node variables</h5>
+	<p>Any node variable can be defined and used, but three of them have a special meaning:</p>
+	<table class="doc_table">
+	  <tr><th>Variable</th><th>Description</th></tr>
+	  <tr><td><span class="tt">rate_up</span></td><td>transition rate to flip the node from 0 to 1</td></tr>
+	  <tr><td><span class="tt">rate_down</span></td><td>transition rate to flip the node from 1 to 0</td></tr>
+	  <tr><td><span class="tt">logic</span></td><td>logical rule of the node. If <span class="tt">rate_up</span> and/or <span class="tt">rate_down</span> are not specified, they default to:<br><span class="tt">rate_up = @logic ? 1.0 : 0.0;</span><br><span class="tt">rate_down = @logic ? 0.0 : 1.0;</span></td></tr>
+	</table>
+
+	<h5>Lexical units</h5>
+	<table class="doc_table">
+	  <tr><th>Unit</th><th>Syntax</th><th>Examples</th></tr>
+	  <tr><td>node name</td><td>letters, digits and <span class="tt">_</span>, starting with a letter or <span class="tt">_</span></td><td><span class="tt">MyNode</span>, <span class="tt">p53</span></td></tr>
+	  <tr><td>node variable</td><td>prefixed by <span class="tt">@</span> when used in an expression</td><td><span class="tt">@logic</span>, <span class="tt">@rate_up</span></td></tr>
+	  <tr><td>external variable</td><td>letters, digits and <span class="tt">_</span>, prefixed by <span class="tt">$</span></td><td><span class="tt">$myvar</span></td></tr>
+	  <tr><td>integer and double literals</td><td>as in C, C++ and Java, including scientific notation</td><td><span class="tt">10</span>, <span class="tt">1.23</span>, <span class="tt">1.2e+12</span></td></tr>
+	</table>
+
+	<h5>Operators</h5>
+	<p>In decreasing order of priority (same precedence as in C, C++ and Java):</p>
+	<table class="doc_table">
+	  <tr><th>Operator</th><th>Aliases</th><th>Description</th></tr>
+	  <tr><td><span class="tt">( )</span></td><td></td><td>parentheses</td></tr>
+	  <tr><td><span class="tt">!</span></td><td><span class="tt">NOT</span></td><td>logical not</td></tr>
+	  <tr><td><span class="tt">+ -</span></td><td></td><td>unary plus and minus</td></tr>
+	  <tr><td><span class="tt">* /</span></td><td></td><td>multiplication and division</td></tr>
+	  <tr><td><span class="tt">+ -</span></td><td></td><td>addition and subtraction</td></tr>
+	  <tr><td><span class="tt">&lt; &lt;= &gt; &gt;=</span></td><td></td><td>comparisons</td></tr>
+	  <tr><td><span class="tt">== !=</span></td><td></td><td>equal to, not equal to</td></tr>
+	  <tr><td><span class="tt">&amp;&amp;</span></td><td><span class="tt">&amp;</span>, <span class="tt">AND</span></td><td>logical and</td></tr>
+	  <tr><td><span class="tt">||</span></td><td><span class="tt">|</span>, <span class="tt">OR</span></td><td>logical or</td></tr>
+	  <tr><td><span class="tt">^</span></td><td><span class="tt">XOR</span></td><td>logical exclusive or</td></tr>
+	  <tr><td><span class="tt">? :</span></td><td></td><td>ternary conditional</td></tr>
+	</table>
+	<p>
+	  The built-in functions <span class="tt">exp(value[, base])</span> and <span class="tt">log(value[, base])</span> can also be used in expressions.
+	</p>
+
+	<h5>Example</h5>
+<pre>// Basic network example
+
+node A {
+  rate_up = 1.1;
+  rate_down = $A_rate_down * 10.2;
+  // $A_rate_down must be defined in the configuration file
+}
+
+node B {
+  // tmp is a node variable introduced for convenience,
+  // to define rate_up and rate_down without code duplication
+  tmp = NOT A OR C;
+  rate_up = @tmp;
+  rate_down = NOT @tmp ? $B_var * 12. : 0.;
+}
+
+node C {
+  rate_up = $var2 &lt; 10 ? NOT B : A OR B;
+  rate_down = A AND B;
+}
+
+node D {
+  logic = A OR (NOT B XOR C);
+}</pre>
+	<p>
+	  Since version 2.4, MaBoSS can also read networks in the <a href="https://sbml.org/documents/specifications/level-3/version-1/qual/" class="clean-link">SBML-qual</a> format: the SBML file is then given instead of the <span class="tt">.bnd</span> file.
+	</p>
+
+	<!-- ===== Configuration file ===== -->
+	<h4 id="doc_cfg">Configuration file (.cfg)</h4>
+	<p>
+	  The configuration file defines the initial conditions, the values of the external variables, the output nodes and the simulation parameters. Each parameter is assigned as follows:
+	</p>
+	<pre>parameter = value;</pre>
+	<p>
+	  where <span class="tt">value</span> may be a boolean (<span class="tt">TRUE</span> or <span class="tt">FALSE</span>), an integer, a double, or an expression. Comments are written as in C++ or Java.
+	</p>
+
+	<h5>Node parameters</h5>
+	<table class="doc_table">
+	  <tr><th>Parameter</th><th>Description</th><th>Default</th></tr>
+	  <tr><td><span class="tt">NODE.istate</span></td><td>initial state of the node: <span class="tt">1</span> (active), <span class="tt">0</span> (inactive) or <span class="tt">-1</span> (random)</td><td>random</td></tr>
+	  <tr><td><span class="tt">[NODES].istate</span></td><td>joint initial distribution of a list of nodes, given as weights and states: <span class="tt">P1 [STATE1], P2 [STATE2], ...</span>. Each state is chosen with probability <span class="tt">Pi / (P1 + P2 + ...)</span>. For instance <span class="tt">[A].istate = 0.3 [0], 0.7 [1];</span></td><td></td></tr>
+	  <tr><td><span class="tt">NODE.is_internal</span></td><td>if <span class="tt">TRUE</span>, the node is internal: it is simulated, but not shown in the results</td><td><span class="tt">FALSE</span></td></tr>
+	  <tr><td><span class="tt">NODE.refstate</span></td><td>reference state of the node, used to compute the Hamming distance distribution</td><td>not used</td></tr>
+	  <tr><td><span class="tt">$VARIABLE</span></td><td>value of an external variable used in the network file (or in the configuration file)</td><td>error if used but undefined</td></tr>
+	</table>
+
+	<h5>Simulation parameters</h5>
+	<table class="doc_table">
+	  <tr><th>Parameter</th><th>Description</th><th>Default</th></tr>
+	  <tr><td><span class="tt">time_tick</span></td><td>time window used to compute the probabilities</td><td><span class="tt">0.5</span></td></tr>
+	  <tr><td><span class="tt">max_time</span></td><td>maximum time of a trajectory</td><td><span class="tt">1000</span></td></tr>
+	  <tr><td><span class="tt">sample_count</span></td><td>number of trajectories</td><td><span class="tt">10000</span></td></tr>
+	  <tr><td><span class="tt">discrete_time</span></td><td>if <span class="tt">TRUE</span>, discrete time is used (jump process) instead of continuous time</td><td><span class="tt">FALSE</span></td></tr>
+	  <tr><td><span class="tt">use_physrandgen</span></td><td>if <span class="tt">TRUE</span>, the physical random generator (<span class="tt">/dev/urandom</span>) is used instead of a pseudo-random generator (slower, especially with several threads)</td><td><span class="tt">FALSE</span></td></tr>
+	  <tr><td><span class="tt">seed_pseudorandom</span></td><td>seed of the pseudo-random generator</td><td><span class="tt">0</span></td></tr>
+	  <tr><td><span class="tt">display_traj</span></td><td>if <span class="tt">TRUE</span>, the trajectories are written to a file</td><td><span class="tt">FALSE</span></td></tr>
+	  <tr><td><span class="tt">statdist_traj_count</span></td><td>number of trajectories used to estimate the stationary distributions</td><td><span class="tt">0</span></td></tr>
+	  <tr><td><span class="tt">statdist_cluster_threshold</span></td><td>threshold used to cluster the stationary distributions</td><td><span class="tt">1</span></td></tr>
+	  <tr><td><span class="tt">statdist_similarity_cache_max_size</span></td><td>a cache is used when the number of clustered trajectories is at most this value</td><td><span class="tt">20000</span></td></tr>
+	  <tr><td><span class="tt">thread_count</span></td><td>number of threads</td><td><span class="tt">1</span></td></tr>
+	</table>
+
+	<h5>Example</h5>
+<pre>// External variables used in the network file
+$A_rate_down = 0.1;
+$B_var = 2;
+$var2 = 23;
+
+// Initial conditions
+A.istate = 0;
+$p0 = 1;
+$p1 = 2;
+$p2 = 1;
+$p3 = 4;
+[B, C].istate = $p0 [0, 0], $p1 [0, 1], $p2 [1, 0], $p3 [1, 1];
+[D].istate = $p0 [0], ($p1*2) [1];
+
+// Outputs
+B.is_internal = 1;
+C.is_internal = 1;
+C.refstate = 1;
+
+// Simulation parameters
+sample_count = 1000;
+max_time = 100;
+time_tick = 0.5;
+discrete_time = 0;
+use_physrandgen = FALSE;
+seed_pseudorandom = 100;
+statdist_traj_count = 100;
+thread_count = 4;</pre>
+
+	<!-- ===== Command line ===== -->
+	<h4 id="doc_cli">Command line</h4>
+	<h5>Running a simulation</h5>
+<pre>MaBoSS -c CONFIG_FILE -o OUTPUT_PREFIX NETWORK_FILE</pre>
+	<p>
+	  The network file can be a <span class="tt">.bnd</span> file or an SBML-qual file. The <span class="tt">-c</span> option can be given several times: the configuration files are then read in the given order.
+	</p>
+	<h5>Main options</h5>
+	<table class="doc_table">
+	  <tr><th>Option</th><th>Description</th></tr>
+	  <tr><td><span class="tt">-c</span>, <span class="tt">--config FILE</span></td><td>uses <span class="tt">FILE</span> as a configuration file</td></tr>
+	  <tr><td><span class="tt">-e</span>, <span class="tt">--config-expr EXPR</span></td><td>evaluates a configuration expression (several expressions can be separated by semicolons)</td></tr>
+	  <tr><td><span class="tt">-v</span>, <span class="tt">--config-vars VAR=VALUE[,...]</span></td><td>sets the values of external variables; always overrides the values given in configuration files and expressions</td></tr>
+	  <tr><td><span class="tt">-o</span>, <span class="tt">--output PREFIX</span></td><td>runs the simulation, using <span class="tt">PREFIX</span> for the output files</td></tr>
+	  <tr><td><span class="tt">--format csv|json</span></td><td>format of the output files (default: <span class="tt">csv</span>)</td></tr>
+	  <tr><td><span class="tt">--final</span></td><td>only writes the final probabilities</td></tr>
+	  <tr><td><span class="tt">-t</span>, <span class="tt">--generate-config-template</span></td><td>prints a template configuration file for the network, with all its parameters and their default values</td></tr>
+	  <tr><td><span class="tt">-d</span>, <span class="tt">--dump-config</span></td><td>prints the complete configuration, after combining all configuration files, expressions and variables with the defaults</td></tr>
+	  <tr><td><span class="tt">-l</span>, <span class="tt">--generate-logical-expressions</span></td><td>prints the logical rule of each node</td></tr>
+	  <tr><td><span class="tt">--check</span></td><td>checks the network and configuration files</td></tr>
+	  <tr><td><span class="tt">-x</span>, <span class="tt">--export-sbml FILE</span></td><td>exports the model to SBML-qual</td></tr>
+	  <tr><td><span class="tt">-q</span>, <span class="tt">--quiet</span></td><td>does not display notices and warnings</td></tr>
+	  <tr><td><span class="tt">-V</span>, <span class="tt">--version</span></td><td>displays the version of MaBoSS</td></tr>
+	  <tr><td><span class="tt">-h</span>, <span class="tt">--help</span></td><td>displays the full list of options</td></tr>
+	</table>
+	<p>
+	  For instance, to run a simulation with a modified parameter and variable, without editing the configuration file:
+	</p>
+<pre>MaBoSS -c model.cfg -e 'max_time = 50' -v '$var2=5' -o results model.bnd</pre>
+	<p>
+	  To start a new model, generate a configuration template from the network file, then edit it:
+	</p>
+<pre>MaBoSS -t model.bnd &gt; model.cfg</pre>
+	<p>
+	  The executable <span class="tt">MaBoSS</span> supports networks of up to 64 nodes. For larger networks, use an executable built for more nodes, such as <span class="tt">MaBoSS_128n</span> or <span class="tt">MaBoSS_256n</span> (see <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'maboss');return false;">Installation</a>).
+	</p>
+
+	<!-- ===== Output files ===== -->
+	<h4 id="doc_output">Output files</h4>
+	<p>
+	  The output files are tab-separated tables (or JSON files with <span class="tt">--format json</span>), named after the output prefix:
+	</p>
+	<table class="doc_table">
+	  <tr><th>File</th><th>Description</th></tr>
+	  <tr><td><span class="tt">PREFIX_probtraj.csv</span></td><td>time evolution of the probabilities. Each line is a time window, with: the time, the transition entropy (<span class="tt">TH</span>) and its error (<span class="tt">ErrorTH</span>), the entropy (<span class="tt">H</span>), the Hamming distance distribution (one <span class="tt">HD=n</span> column per value), then, for each network state with a non-zero probability, three columns: the state, its probability and its error. A state is written as the list of its active (non-internal) nodes, separated by <span class="tt">--</span>; <span class="tt">&lt;nil&gt;</span> is the state where all nodes are inactive.</td></tr>
+	  <tr><td><span class="tt">PREFIX_fp.csv</span></td><td>fixed points reached by the trajectories, with their probabilities and the state of each node</td></tr>
+	  <tr><td><span class="tt">PREFIX_statdist.csv</span></td><td>stationary distributions, if <span class="tt">statdist_traj_count</span> is greater than 0: the estimation for each trajectory, the clustering of these estimations, and the estimated stationary distribution of each cluster</td></tr>
+	  <tr><td><span class="tt">PREFIX_run.txt</span></td><td>summary of the run: MaBoSS version, start and end times, parameters, and the network</td></tr>
+	  <tr><td><span class="tt">PREFIX_traj.txt</span></td><td>all the trajectories, if <span class="tt">display_traj</span> is <span class="tt">TRUE</span></td></tr>
+	  <tr><td><span class="tt">PREFIX_finalprob.csv</span></td><td>final probabilities of the states, with the <span class="tt">--final</span> option (written instead of the other result files)</td></tr>
+	</table>
+	<p>
+	  These files can be analysed with pyMaBoSS, with your own scripts, or with the MaBoSS environment tools (see <a href="#" class="clean-link" onclick="show('howto');show_tab('howto', 'maboss');return false;">How To</a>).
+	</p>
+
+	<h4>Reference cards</h4>
+	<p>
+	  PDF versions of this documentation: <a href="pub/MaBoSS-RefCard.pdf" class="clean-link">MaBoSS 2.0 reference card</a>, <a href="pub/DescriptionOutputFile.pdf" class="clean-link">description of the output files</a>, <a href="pub/maboss-refcard_1.3.8.pdf" class="clean-link">MaBoSS 1.3.8 reference card</a>.
+	</p>
       </div>
       <!-- DOCUMENTATION : END -->
 
       <!-- TUTORIALS : BEGIN -->
       <div id="maboss_tutorials" class="hidden">
 	<h3>Tutorials</h3>
-	<div class="para">
-	  <p>
-	  > <a href="pub/TutorialMaBoSS_2_0.pdf" class="list">MaBoSS 2.0 tutorial</a> is available, based on an example that illustrates all MaBoSS environment functionalites. For this tutorial, the following files are necessary:<br>
-	  <a href="pub/example.zginml">Model in GINsim format</a><br>
-	  Model in MaBoSS format: <a href="pub/example.bnd">bnd file</a> and <a href="pub/example.cfg">cfg file</a><br>
-	  <a href="pub/Example_DrugSim.txt">Configuration file for <span class="tt">MBSS_DrugSim.py</span></a><br>
-	  <a href="pub/ExampleProfile.txt">Profile file for <span class="tt">MBSS_MultipleSim.py</span></a><br>
-	  <a href="pub/Example.pmbss">File for <span class="tt">MBSS_PrepareProjectFile.sh</span></a><br>
+
+	<h4>Simulating a prostate cancer model</h4>
+	<p>
+	  This tutorial, written for MaBoSS 2.5.0, shows how to simulate a published model with each of the three ways of using MaBoSS. The model, by <a href="https://doi.org/10.7554/eLife.72626" class="clean-link">Montagud et al. (eLife, 2022)</a>, describes the pathways involved in prostate cancer. With 133 nodes, it is a large model. More analyses of this model are available in the <a href="#" class="clean-link" onclick="show('model_prostate');return false;">repository of models</a>.
 	</p>
+	<figure class="figure">
+	  <a href="files/ProstateCancer/Montagud2022_Prostate_Cancer.png"><img src="files/ProstateCancer/Montagud2022_Prostate_Cancer.png" alt="Interaction graph of the prostate cancer model"/></a>
+	  <figcaption>Interaction graph of the Montagud et al. prostate cancer Boolean model, colored by pathway.</figcaption>
+	</figure>
+	<p>
+	  Download the model files, provided with the article (<a href="https://github.com/ArnauMontagud/PROFILE_v2" class="clean-link">PROFILE_v2 repository</a>):
+	  <a href="files/ProstateCancer/Montagud2022_Prostate_Cancer.bnd" class="clean-link">bnd file</a>,
+	  <a href="files/ProstateCancer/Montagud2022_Prostate_Cancer.cfg" class="clean-link">cfg file</a> and
+	  <a href="files/ProstateCancer/Montagud2022_Prostate_Cancer.sbml" class="clean-link">SBML-qual file</a>.
+	</p>
+
+	<div class="tabs">
+	  <a href="#" id="tutorials_tab_pymaboss" class="tab tab_active" onclick="show_tab('tutorials', 'pymaboss');return false;">pyMaBoSS</a>
+	  <a href="#" id="tutorials_tab_webmaboss" class="tab" onclick="show_tab('tutorials', 'webmaboss');return false;">WebMaBoSS</a>
+	  <a href="#" id="tutorials_tab_maboss" class="tab" onclick="show_tab('tutorials', 'maboss');return false;">MaBoSS (command line)</a>
+	</div>
+
+	<!-- TUTORIAL pyMaBoSS -->
+	<div id="tutorials_panel_pymaboss" class="tab_panel">
 	  <p>
-	  > <a href="pub/SBMLQual_Tutorial.pdf" class="list">SBML-Qual model tutorial</a>: this tutorial provides an example of the use of MaBoSS with an SBML-Qual model downloaded from <a href="https://www.ebi.ac.uk/biomodels-main/">BioModels</a> database.
+	    First, <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'pymaboss');return false;">install pyMaBoSS</a>. Then, in Python, import <span class="tt">maboss</span> and load the model:
 	  </p>
+<pre>import maboss
+
+model = maboss.load("Montagud2022_Prostate_Cancer.bnd", "Montagud2022_Prostate_Cancer.cfg")</pre>
+	  <p>The model can also be loaded from its SBML-qual file:</p>
+<pre>model = maboss.loadSBML("Montagud2022_Prostate_Cancer.sbml", "Montagud2022_Prostate_Cancer.cfg")</pre>
+	  <p>Once loaded, the model is simulated with:</p>
+<pre>result = model.run()</pre>
+	  <p>
+	    We can then plot the distribution of the final states (the last time point of the probability trajectories). Only the output nodes, i.e. the nodes that are not declared as internal, appear in the states.
+	  </p>
+<pre>result.plot_piechart()</pre>
+	  <figure class="figure">
+	    <img src="files/ProstateCancer/pymaboss_piechart.png" alt="Final states distribution" class="figure_small"/>
+	    <figcaption>Distribution of the final states of the prostate cancer model, with default conditions.</figcaption>
+	  </figure>
+	  <p>We can also plot the complete trajectories:</p>
+<pre>result.plot_trajectory()</pre>
+	  <figure class="figure">
+	    <img src="files/ProstateCancer/pymaboss_probtraj.png" alt="Probability trajectories"/>
+	    <figcaption>Trajectories of the state probabilities, with default conditions.</figcaption>
+	  </figure>
+	  <p>
+	    Finally, the probability trajectories can be obtained as a <a href="https://pandas.pydata.org/" class="clean-link">pandas</a> dataframe, for further analysis:
+	  </p>
+<pre>data = result.get_states_probtraj()</pre>
+	  <figure class="figure">
+	    <a href="files/ProstateCancer/pymaboss_df.png"><img src="files/ProstateCancer/pymaboss_df.png" alt="Probability trajectories as a dataframe"/></a>
+	    <figcaption>First lines of the probability trajectories, as a pandas dataframe.</figcaption>
+	  </figure>
+	  <p>
+	    pyMaBoSS offers many more possibilities (mutants, parameter changes, sensitivity analysis...): see the <a href="https://pymaboss.readthedocs.io/" class="clean-link">pyMaBoSS documentation</a>, and the <a href="https://pymaboss.readthedocs.io/en/latest/notebooks/Reproducing_Prostate_Montagud.html" class="clean-link">notebook reproducing the results of the article</a>.
+	  </p>
+	</div>
+
+	<!-- TUTORIAL WebMaBoSS -->
+	<div id="tutorials_panel_webmaboss" class="tab_panel hidden_panel">
+	  <p>
+	    Open <a href="https://webmaboss.vincent-noel.fr/" class="clean-link">WebMaBoSS</a>, and create a new project or use an existing one. In the project, open the <i>Load model</i> interface: give the model a name, choose <i>MaBoSS</i> as the model type, select the bnd and cfg files of the model, and load it into the project.
+	  </p>
+	  <figure class="figure">
+	    <a href="files/ProstateCancer/webmaboss_import.png"><img src="files/ProstateCancer/webmaboss_import.png" alt="Loading the model into WebMaBoSS"/></a>
+	    <figcaption>Loading the model into WebMaBoSS.</figcaption>
+	  </figure>
+	  <p>
+	    Once loaded, click on the model, open the <i>Simulation</i> menu and create a new simulation. The simulation settings can be changed, or the default ones kept: click <i>Submit</i> to run the simulation.
+	  </p>
+	  <figure class="figure">
+	    <a href="files/ProstateCancer/webmaboss_simulate.png"><img src="files/ProstateCancer/webmaboss_simulate.png" alt="Creating a new simulation"/></a>
+	    <figcaption>Creating a new simulation.</figcaption>
+	  </figure>
+	  <p>
+	    The results are displayed as soon as the simulation finishes. The first view shows the distribution of the final states:
+	  </p>
+	  <figure class="figure">
+	    <a href="files/ProstateCancer/webmaboss_piechart.png"><img src="files/ProstateCancer/webmaboss_piechart.png" alt="Final states distribution"/></a>
+	    <figcaption>Distribution of the final states.</figcaption>
+	  </figure>
+	  <p>Dedicated tabs show the trajectories of the state probabilities, the trajectories of the node probabilities, and the fixed points:</p>
+	  <figure class="figure">
+	    <a href="files/ProstateCancer/webmaboss_trajectories.png"><img src="files/ProstateCancer/webmaboss_trajectories.png" alt="State probability trajectories"/></a>
+	    <figcaption>Trajectories of the state probabilities.</figcaption>
+	  </figure>
+	  <figure class="figure">
+	    <a href="files/ProstateCancer/webmaboss_nodes_trajectories.png"><img src="files/ProstateCancer/webmaboss_nodes_trajectories.png" alt="Node probability trajectories"/></a>
+	    <figcaption>Trajectories of the node probabilities.</figcaption>
+	  </figure>
+	  <figure class="figure">
+	    <a href="files/ProstateCancer/webmaboss_fp.png"><img src="files/ProstateCancer/webmaboss_fp.png" alt="Fixed points"/></a>
+	    <figcaption>Fixed points.</figcaption>
+	  </figure>
+	</div>
+
+	<!-- TUTORIAL MaBoSS command line -->
+	<div id="tutorials_panel_maboss" class="tab_panel hidden_panel">
+	  <p>
+	    First, <a href="#" class="clean-link" onclick="show('installation');show_tab('installation', 'maboss');return false;">install MaBoSS</a>. As the model has 133 nodes, we need an executable supporting at least 133 nodes, such as <span class="tt">MaBoSS_256n</span>, provided by the conda package or compiled from source with <span class="tt">make MAXNODES=256 install</span>.
+	  </p>
+	  <p>Then, simulate the model:</p>
+<pre>MaBoSS_256n -c Montagud2022_Prostate_Cancer.cfg -o results Montagud2022_Prostate_Cancer.bnd</pre>
+	  <p>The SBML-qual file can also be used instead of the bnd file:</p>
+<pre>MaBoSS_256n -c Montagud2022_Prostate_Cancer.cfg -o results Montagud2022_Prostate_Cancer.sbml</pre>
+	  <p>With MaBoSS compiled with MPI, the simulation can be distributed, for instance on two MPI nodes:</p>
+<pre>mpirun -np 2 MaBoSS_256n.MPI -c Montagud2022_Prostate_Cancer.cfg -o results Montagud2022_Prostate_Cancer.sbml</pre>
+
+	  <h5>Result files</h5>
+	  <p>
+	    The simulation produces several result files (see <a href="#" class="clean-link" onclick="show('documentation');return false;">Documentation</a>). The first one, <span class="tt">results_fp.csv</span>, lists the fixed points reached during the simulation. This model has a very large number of them (1758). The file starts with the number of fixed points, then lists each fixed point with its probability, the full description of its state, and the value of each node.
+	  </p>
+	  <figure class="figure">
+	    <a href="files/ProstateCancer/screenshot_fp.png"><img src="files/ProstateCancer/screenshot_fp.png" alt="Fixed points file"/></a>
+	    <figcaption>First lines and columns of <span class="tt">results_fp.csv</span>.</figcaption>
+	  </figure>
+	  <p>
+	    The second file, <span class="tt">results_probtraj.csv</span>, contains the probability trajectories. As most nodes of this model are declared as internal, the states are only made of a few output nodes. Each line contains the time, the transition entropy and its error, the entropy, and the Hamming distance distribution, followed by the probability and error of each state reached at this time.
+	  </p>
+	  <figure class="figure">
+	    <a href="files/ProstateCancer/screenshot_probtraj.png"><img src="files/ProstateCancer/screenshot_probtraj.png" alt="Probability trajectories file"/></a>
+	    <figcaption>First lines and columns of <span class="tt">results_probtraj.csv</span>.</figcaption>
+	  </figure>
+	  <p>
+	    These raw files can be analysed with your own scripts. A simpler solution is to use pyMaBoSS, which runs the simulations and makes it easy to visualize the results.
+	  </p>
+	</div>
+
+	<p class="small_note">
+	  Source: <a href="https://github.com/sysbio-curie/MaBoSS/tree/master/tutorial/Montagud_2022_Prostate_Cancer" class="clean-link">MaBoSS 2.5.0 tutorial</a> on GitHub.
+	</p>
+
+	<h4>More tutorials</h4>
+	<div class="doc_cards">
+	  <div class="doc_card">
+	    <div class="doc_card_title">pyMaBoSS</div>
+	    <p>Jupyter notebooks:</p>
+	    <ul>
+	      <li><a href="https://pymaboss.readthedocs.io/en/latest/notebooks/Tutorial.html" class="clean-link">pyMaBoSS basics</a></li>
+	      <li><a href="https://pymaboss.readthedocs.io/en/latest/notebooks/Reproducing_Prostate_Montagud.html" class="clean-link">Reproducing the prostate cancer model</a></li>
+	      <li><a href="https://pymaboss.readthedocs.io/en/latest/notebooks/CellFateModel_uppmaboss.html" class="clean-link">UPMaBoSS cell fate model</a></li>
+	      <li><a href="https://pymaboss.readthedocs.io/en/latest/notebooks/Ensemble_MaBoSS_simulations.html" class="clean-link">Ensemble simulations</a></li>
+	      <li><a href="https://pymaboss.readthedocs.io/en/latest/notebooks/tutorials.html" class="clean-link">All tutorials</a></li>
+	    </ul>
+	  </div>
+	  <div class="doc_card">
+	    <div class="doc_card_title">WebMaBoSS</div>
+	    <p>Step-by-step tutorials:</p>
+	    <ul>
+	      <li><a href="https://webmaboss.vincent-noel.fr/tutorials/cohen/" class="clean-link">Tumor cell invasion and migration</a> (Cohen et al.)</li>
+	      <li><a href="https://webmaboss.vincent-noel.fr/tutorials/corral/" class="clean-link">TH cells differentiation</a> (Corral et al.)</li>
+	    </ul>
+	  </div>
+	  <div class="doc_card">
+	    <div class="doc_card_title">MaBoSS</div>
+	    <p>Older tutorials:</p>
+	    <ul>
+	      <li><a href="pub/TutorialMaBoSS_2_0.pdf" class="clean-link">MaBoSS 2.0 tutorial</a>, using the MaBoSS environment tools. Files: <a href="pub/example.zginml" class="clean-link">GINsim model</a>, <a href="pub/example.bnd" class="clean-link">bnd</a>, <a href="pub/example.cfg" class="clean-link">cfg</a>, <a href="pub/Example_DrugSim.txt" class="clean-link">DrugSim</a>, <a href="pub/ExampleProfile.txt" class="clean-link">MultipleSim</a>, <a href="pub/Example.pmbss" class="clean-link">PrepareProjectFile</a></li>
+	      <li><a href="pub/SBMLQual_Tutorial.pdf" class="clean-link">SBML-qual tutorial</a>, with a model from <a href="https://www.ebi.ac.uk/biomodels/" class="clean-link">BioModels</a></li>
+	    </ul>
+	  </div>
 	</div>
       </div>
       <!-- TUTORIALS : END -->
@@ -828,53 +1262,68 @@ BMC Syst Biol. 2012 Aug 29;6:116. doi: 10.1186/1752-0509-6-116.
 	  <!-- TEAM : BEGIN -->
       <div id="maboss_team" class="hidden">
 	<h3>The Team</h3>
-	<div class="para">
-	  <table class="para"  cellspacing="10" cellpadding="10" border="0">
-	    <tr>
-	      <td>Gautier Stoll</td><td><img src="images/gautier.stoll.jpg"/></td>
-	      <td style="font-size: 10px;">The BoSS of MaBoSS</td>
-	    </tr>
-	    <tr>
-	      <td>Eric Viara</td><td><img src="images/eric.viara.jpg"/></td>
-	      <td style="font-size: 10px;">MaBoSS Old Bearbed</td>
-	    </tr>
-	    <tr>
-	      <td>Laurence Calzone</td><td><img src="images/laurence.calzone.jpg"/></td>
-	      <td style="font-size: 10px;">MaBoSS Muse</td>
-	    </tr>
-	  </table>
+	<p>
+	  MaBoSS is developed by the <a href="https://institut-curie.org/team/barillot" class="clean-link">Computational Systems Biology of Cancer</a> group at <a href="https://curie.fr/en" class="clean-link">Institut Curie</a>.
+	</p>
+	<div class="team_grid">
+	  <div class="team_card">
+	    <img src="images/gautier.stoll.jpg" alt="Gautier Stoll" class="team_photo"/>
+	    <div class="team_name">Gautier Stoll</div>
+	    <div class="team_tagline">The BoSS of MaBoSS</div>
+	  </div>
+	  <div class="team_card">
+	    <img src="images/laurence.calzone.jpg" alt="Laurence Calzone" class="team_photo" style="object-position: 60% 30%;"/>
+	    <div class="team_name">Laurence Calzone</div>
+	    <div class="team_tagline">MaBoSS Muse</div>
+	  </div>
+	  <div class="team_card">
+	    <img src="images/eric.viara.jpg" alt="Eric Viara" class="team_photo"/>
+	    <div class="team_name">Eric Viara</div>
+	    <div class="team_tagline">MaBoSS Old Bearbed</div>
+	  </div>
+	  <div class="team_card">
+	    <img src="images/vincent.noel.jpg" alt="Vincent Noël" class="team_photo"/>
+	    <div class="team_name">Vincent Noël</div>
+	    <div class="team_tagline">MaBoSS Magic</div>
+	  </div>
 	</div>
       </div>
       <!-- TEAM : END -->
 
-	  <!-- EXTENSIONS : BEGIN -->
+	  <!-- UPMABOSS / ENSEMBLEMABOSS : BEGIN -->
 
-		<div id="maboss_upmaboss" class="hidden">
-		</div>
 		<div id="maboss_ensemblemaboss" class="hidden">
 		</div>
 
-	  <!-- EXTENSIONS : END -->
+	  <!-- UPMABOSS / ENSEMBLEMABOSS : END -->
 	  
-	  <!-- PYMABOSS : BEGIN -->
-
-		<div id="maboss_pymaboss" class="hidden">
-		</div>
-	
-	  <!-- PYMABOSS : END -->
 	  
       <!-- CONTACT : BEGIN -->
       <div id="maboss_contact" class="hidden">
 	<h3>Contact</h3>
-	<div class="para">
-	 maboss.bkmc(at)gmail.com
-	</div>
+	<h4>Email</h4>
+	<p>
+	  For any question about MaBoSS, write to <a href="mailto:maboss.bkmc@gmail.com" class="clean-link">maboss.bkmc@gmail.com</a>.
+	</p>
+	<h4>Bug reports and feature requests</h4>
+	<p>
+	  To report a bug or suggest a new feature, please open an issue on GitHub, in the repository of the corresponding tool:
+	</p>
+	<ul>
+	  <li><a href="https://github.com/sysbio-curie/MaBoSS/issues" class="clean-link">MaBoSS</a> (simulation engine and command-line tool);</li>
+	  <li><a href="https://github.com/colomoto/pyMaBoSS/issues" class="clean-link">pyMaBoSS</a> (Python interface);</li>
+	  <li><a href="https://github.com/sysbio-curie/WebMaBoSS/issues" class="clean-link">WebMaBoSS</a> (web interface).</li>
+	</ul>
       </div>
       <!-- CONTACT : END -->
 	
-    </td>
-  </tr>
-</table>
-<script type="text/javascript">load_externals();</script>
+  </main>
+</div>
+
+<footer class="site_footer">
+  MaBoSS is developed by the <a href="https://institut-curie.org/team/barillot">Computational Systems Biology of Cancer</a> group at <a href="https://curie.fr/en">Institut Curie</a>.
+  Open source (BSD 3-Clause) on <a href="https://github.com/sysbio-curie/MaBoSS">GitHub</a>.
+</footer>
+<script type="text/javascript">load_externals(); show_from_hash();</script>
 </body>
 </html>

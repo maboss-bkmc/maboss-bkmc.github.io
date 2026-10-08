@@ -37,9 +37,9 @@ node Mdm2N
 // if this is not true, then 7 exclusive cases are possible (8 cases total): 
 // (1) if p53 is active and Mdm2C is active in the absence of DNA damage, Mdm2N can activate OR
 // (2) if p53 is active and not Mdm2C in the presence of DNA damage, Mdm2N cannot activate (KMn_pD=0) OR 
-// É
+// ...
 // (4) if Mdm2C is active and not p53 in the presence of DNA damage, Mdm2N can activate (KMn_MCD=1) OR
-// É
+// ...
 // (7) if p53 is inactive and Mdm2C is inactive in the absence of DNA damage, Mdm2N cannot activate (KMn=0 no spontaneous activation)
 
   rate_down = (((@logic_p53 AND Mdm2C AND Dam) ? (1-$KMn_pMCD) : 0.0) +
