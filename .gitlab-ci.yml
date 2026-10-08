@@ -1,15 +1,15 @@
-image: docker:latest
-
-services:
-  - docker:dind
+stages:
+  - build
 
 before_script:
-  - docker info
- 
-build-prod:
+  - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+
+build:
   stage: build
   script:
-    - docker build -t registrygitlab.curie.fr/vnoel/maboss.curie.fr:1.0.0 .
-    - docker login -u vnoel -p $token_registry registrygitlab.curie.fr
-    - docker push registrygitlab.curie.fr/vnoel/maboss.curie.fr:1.0.0
-
+    -  docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME" .
+    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME"
+  only:
+    - tags
+  except:
+    - branches
