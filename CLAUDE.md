@@ -93,6 +93,10 @@ Running them:
   `~/.local/share/mamba/envs/profile` (pyMaBoSS 0.8.16, MaBoSS 2.6.6, MaBoSS_256n, pygraphviz), strips the
   "ipylab module is not installed" output, refreshes the zip, and deletes the UPMaBoSS run folders.
   The system Python lacks MaBoSS_256n and pygraphviz.
+- Machine limits (see `~/.claude/CLAUDE.md`): run under a memory cap, e.g.
+  `systemd-run --user --scope -q -p MemoryMax=8G -p MemorySwapMax=0 python3 tools/run_notebooks.py ...`, and keep
+  to 10 cores: one batch of notebooks at a time (MaBoSS runs use `thread_count` 4 in Cell Cycle and Sizek, and the
+  cfg values elsewhere). Peak memory of the notebooks has not been measured yet: pilot with `/usr/bin/time -v` first.
 - UPMaBoSS reuses existing run folders (`WT/`, `NoFB/`, `WT_R1/`...): delete stale ones before a run.
   `CellFateModel_uppmaboss.ipynb` (mutant screen) takes 30-60 min; Drosophila ~4 min; others < 3 min.
 - How To and Tutorials figures (`files/HowTo/pymaboss_*.png`, `files/ProstateCancer/pymaboss_{piechart,probtraj}.png`):
@@ -112,4 +116,10 @@ Model-specific notes:
 - Ecosystem pages: PROFILE, PhysiBoSS (figure `images/ecosystem/physicell_3.png` from the talks), UPMaBoSS,
   EnsembleMaBoSS, ExaStoLog (MATLAB toolbox, pyExaStoLog on PyPI, GPU version paraExaStoLog by A. Šmelko).
 - Team page: Gautier Stoll, Laurence Calzone, Eric Viara, Vincent Noël. Proposed additions (from the publications)
-  are pending a decision of the team.
+  are pending a decision of the team: Emmanuel Barillot, Andrei Zinovyev, Arnau Montagud, Marco Ruscone,
+  Adam Šmelko, Jonas Béal (runners-up: Aurélien Naldi, Gaëlle Letort, Mihály Koltai, Saran Pankaew).
+
+## Open items
+
+- `WebMaBoSS/index.html` and `webmaboss/index.html` have the `<title>` "UPMaBoSS" (copied from the UPMaBoSS stub).
+- `images/ecosystem/physiboss_spheroid.png` is no longer used (replaced by `physicell_3.png`).
