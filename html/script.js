@@ -23,9 +23,19 @@ function show(id) {
     document.getElementById('maboss_'+id).style.display = 'block';
     forall('mi_', 'deactivate');
     document.getElementById('mi_'+id).classList.add('active');
+    set_menu_open(false);
     window.scrollTo(0, 0);
     // Keep the current page in the URL, so that it can be linked to
     history.replaceState(null, '', id == 'home' ? location.pathname : '#' + id);
+}
+
+function set_menu_open(open) {
+    document.getElementById('menu').classList.toggle('menu_open', open);
+    document.getElementById('menu_toggle').setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+function toggle_menu() {
+    set_menu_open(!document.getElementById('menu').classList.contains('menu_open'));
 }
 
 function show_from_hash() {

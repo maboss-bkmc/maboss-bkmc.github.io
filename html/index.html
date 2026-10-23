@@ -20,6 +20,9 @@
     <span class="subtitle">Markovian Boolean Stochastic Simulator</span>
   </div>
   <a href="https://curie.fr/en" class="header_curie"><img src="images/curie-logo.svg" alt="Institut Curie"/></a>
+  <button type="button" id="menu_toggle" class="menu_toggle" aria-label="Menu" aria-controls="menu" aria-expanded="false" onclick="toggle_menu();">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
 <div class="layout">
@@ -97,6 +100,10 @@
 	  <li><a href="#" class="clean-link" onclick="show('eco_exastolog');return false;">ExaStoLog</a>: exact computation of the stationary probabilities of small stochastic logical models;</li>
 	  <li>MaBoSS.MPI and MaBoSS.GPU: high-performance implementations for large CPU clusters and GPU accelerators.</li>
 	</ul>
+	<figure class="figure">
+	  <a href="images/ecosystem/maboss_ecosystem.png"><img src="images/ecosystem/maboss_ecosystem.png" alt="The MaBoSS ecosystem"/></a>
+	  <figcaption>From a model of an individual cell to ensembles of models of non-interacting cells (EnsembleMaBoSS), dynamic populations of interacting cells (UPMaBoSS), and spatial organization of populations (PhysiBoSS).</figcaption>
+	</figure>
 	<p>
 	MaBoSS is developed by the <a href="https://institut-curie.org/team/barillot" class="clean-link">Computational Systems Biology of Cancer</a> team at Institut Curie. See the <a href="#" class="clean-link" onclick="show('publication');return false;">Publications</a> page for the articles describing these tools and their applications.
 	</p>
@@ -422,26 +429,41 @@ MaBoSS -c Four_cycle_SEscape_long.cfg -o Four_cycle_SEscape_long Four_cycle.bnd<
 	</div>
 	<h4>Results</h4>
 	<p>
-	  We follow the probabilities of the states [1**] (A is active) and [000] (the fixed point), and the entropy and transition entropy, as functions of time.
+	  We follow the probabilities of the network states, and the entropy (H) and transition entropy (TH), as functions of time. <span class="tt">&lt;nil&gt;</span> is the state where all the nodes are inactive: the fixed point [000].
 	</p>
 	<p>
 	  With a fast escape, the probability to reach the fixed point tends to 1, and both entropies tend to 0.
 	</p>
-	<figure class="figure">
-	  <a href="files/ToyModel/figures/toy_fast_escape.png"><img src="files/ToyModel/figures/toy_fast_escape.png" alt="Fast escape"/></a>
-	</figure>
+	<div class="figure_grid">
+		<figure class="figure">
+		  <a href="files/ToyModel/figures/toy_fast_escape.png"><img src="files/ToyModel/figures/toy_fast_escape.png" alt="Fast escape, states probabilities"/></a>
+		</figure>
+		<figure class="figure">
+		  <a href="files/ToyModel/figures/toy_fast_escape_entropy.png"><img src="files/ToyModel/figures/toy_fast_escape_entropy.png" alt="Fast escape, entropies"/></a>
+		</figure>
+	</div>
 	<p>
 	  With a slow escape, the early response does not show the fixed point: the system seems stuck in a limit cycle.
 	</p>
-	<figure class="figure">
-	  <a href="files/ToyModel/figures/toy_slow_escape.png"><img src="files/ToyModel/figures/toy_slow_escape.png" alt="Slow escape, early response"/></a>
-	</figure>
+	<div class="figure_grid">
+		<figure class="figure">
+		  <a href="files/ToyModel/figures/toy_slow_escape.png"><img src="files/ToyModel/figures/toy_slow_escape.png" alt="Slow escape, early response, states probabilities"/></a>
+		</figure>
+		<figure class="figure">
+		  <a href="files/ToyModel/figures/toy_slow_escape_entropy.png"><img src="files/ToyModel/figures/toy_slow_escape_entropy.png" alt="Slow escape, early response, entropies"/></a>
+		</figure>
+	</div>
 	<p>
 	  It is only after a long time that the system reaches the fixed point, and that the entropies reach 0. The two simulations show both the transient and the asymptotic behaviours.
 	</p>
-	<figure class="figure">
-	  <a href="files/ToyModel/figures/toy_slow_escape_long.png"><img src="files/ToyModel/figures/toy_slow_escape_long.png" alt="Slow escape, late response"/></a>
-	</figure>
+	<div class="figure_grid">
+		<figure class="figure">
+		  <a href="files/ToyModel/figures/toy_slow_escape_long.png"><img src="files/ToyModel/figures/toy_slow_escape_long.png" alt="Slow escape, late response, states probabilities"/></a>
+		</figure>
+		<figure class="figure">
+		  <a href="files/ToyModel/figures/toy_slow_escape_long_entropy.png"><img src="files/ToyModel/figures/toy_slow_escape_long_entropy.png" alt="Slow escape, late response, entropies"/></a>
+		</figure>
+	</div>
       </div>
       <!-- TOY MODEL : END -->
 
@@ -473,17 +495,18 @@ MaBoSS -c cellcycle_runcfg_randinit.cfg -o cellcycle_runcfg_randinit cellcycle.b
 	  <a href="files/CellCycle/CellCycle.ipynb" class="notebook_button" download>Notebook (CellCycle.ipynb)</a> <a href="files/CellCycle/CellCycle.zip" class="notebook_button notebook_button_alt" download>Notebook + model files (zip)</a>
 	</div>
 	<h4>Results</h4>
-	<p>Probabilities of the active cyclins, and entropies, from the start of the cell cycle:</p>
+	<p>Probabilities of the cyclins, and entropies, from the start of the cell cycle:</p>
+	<div class="figure_grid">
+		<figure class="figure">
+		  <a href="files/CellCycle/figures/cellcycle_cyclins.png"><img src="files/CellCycle/figures/cellcycle_cyclins.png" alt="Cyclins activity"/></a>
+		</figure>
+		<figure class="figure">
+		  <a href="files/CellCycle/figures/cellcycle_entropies.png"><img src="files/CellCycle/figures/cellcycle_entropies.png" alt="Entropies"/></a>
+		</figure>
+	</div>
+	<p>From a random initial condition, about half of the cells end in the state where no cyclin is active (<span class="tt">&lt;nil&gt;</span>): a fixed point, representing the G1 phase. In the other half, CycD is active and the other cyclins keep cycling: a desynchronized proliferating cell population.</p>
 	<figure class="figure">
-	  <a href="files/CellCycle/figures/cellcycle_cyclins.png"><img src="files/CellCycle/figures/cellcycle_cyclins.png" alt="Cyclins activity"/></a>
-	</figure>
-	<p>From a random initial condition, the simulation produces two clusters, which represent two indecomposable stationary distributions:</p>
-	<figure class="figure">
-	  <a href="files/CellCycle/figures/cellcycle_clusters.png"><img src="files/CellCycle/figures/cellcycle_clusters.png" alt="Clusters of stationary distributions" class="figure_small"/></a>
-	</figure>
-	<p>One cluster can be interpreted as a desynchronized proliferating cell population, and the other one is a fixed point, representing the G1 phase.</p>
-	<figure class="figure">
-	  <a href="files/CellCycle/figures/cellcycle_stationary_distributions.png"><img src="files/CellCycle/figures/cellcycle_stationary_distributions.png" alt="Stationary distributions"/></a>
+	  <a href="files/CellCycle/figures/cellcycle_final_states.png"><img src="files/CellCycle/figures/cellcycle_final_states.png" alt="Final states from a random initial condition" class="figure_small"/></a>
 	</figure>
       </div>
       <!-- CELL CYCLE : END -->
@@ -525,10 +548,18 @@ MaBoSS -c cellcycle_runcfg_randinit.cfg -o cellcycle_runcfg_randinit cellcycle.b
 	  <a href="files/CellFate/WT_pies_published.png"><img src="files/CellFate/WT_pies_published.png" alt="Published phenotypes" class="figure_small"/></a>
 	  <figcaption>Phenotypes of the published model.</figcaption>
 	</figure>
-	<p>The deletion of CASP8 leads to the disappearance of apoptosis, in accordance with published experiments:</p>
-	<figure class="figure">
-	  <a href="files/CellFate/figures/cellfate_mutants.png"><img src="files/CellFate/figures/cellfate_mutants.png" alt="Phenotypes of the wild type and mutants"/></a>
-	</figure>
+	<p>The final phenotypes of the wild type, and of two mutants. The deletion of CASP8 leads to the disappearance of apoptosis, in accordance with published experiments:</p>
+	<div class="figure_grid">
+		<figure class="figure">
+		  <a href="files/CellFate/figures/cellfate_wt.png"><img src="files/CellFate/figures/cellfate_wt.png" alt="Final phenotypes, wild type"/></a>
+		</figure>
+		<figure class="figure">
+		  <a href="files/CellFate/figures/cellfate_casp8_del.png"><img src="files/CellFate/figures/cellfate_casp8_del.png" alt="Final phenotypes, CASP8 deletion"/></a>
+		</figure>
+		<figure class="figure">
+		  <a href="files/CellFate/figures/cellfate_xiap_del.png"><img src="files/CellFate/figures/cellfate_xiap_del.png" alt="Final phenotypes, XIAP deletion"/></a>
+		</figure>
+	</div>
       </div>
       <!-- CELL FATE : END -->
 
@@ -560,14 +591,15 @@ MaBoSS -c cellcycle_runcfg_randinit.cfg -o cellcycle_runcfg_randinit cellcycle.b
 	  <a href="files/p53Dam/p53_Mdm2.ipynb" class="notebook_button" download>Notebook (p53_Mdm2.ipynb)</a> <a href="files/p53Dam/p53_Mdm2.zip" class="notebook_button notebook_button_alt" download>Notebook + model files (zip)</a>
 	</div>
 	<h4>Results</h4>
-	<p>Probabilities of the levels 1 and 2 of p53, from the initial condition [p53 Mdm2C Mdm2N Dam] = [0 * 1 1]:</p>
-	<figure class="figure">
-	  <a href="files/p53Dam/figures/p53_levels.png"><img src="files/p53Dam/figures/p53_levels.png" alt="Levels of p53"/></a>
-	</figure>
-	<p>And the entropies:</p>
-	<figure class="figure">
-	  <a href="files/p53Dam/figures/p53_entropies.png"><img src="files/p53Dam/figures/p53_entropies.png" alt="Entropies"/></a>
-	</figure>
+	<p>Probabilities of the nodes, from the initial condition [p53 Mdm2C Mdm2N Dam] = [0 * 1 1]: the probability of <span class="tt">p53</span> is the probability that the level of p53 is at least 1, and the probability of <span class="tt">p53_h</span> that it is 2. And the entropies:</p>
+	<div class="figure_grid">
+		<figure class="figure">
+		  <a href="files/p53Dam/figures/p53_nodes.png"><img src="files/p53Dam/figures/p53_nodes.png" alt="Node probabilities"/></a>
+		</figure>
+		<figure class="figure">
+		  <a href="files/p53Dam/figures/p53_entropies.png"><img src="files/p53Dam/figures/p53_entropies.png" alt="Entropies"/></a>
+		</figure>
+	</div>
       </div>
       <!-- p53 / MDM2 : END -->
 
@@ -589,9 +621,14 @@ MaBoSS -c cellcycle_runcfg_randinit.cfg -o cellcycle_runcfg_randinit cellcycle.b
 	<p>
 	  Two transition rates are used: <span class="tt">$rate_RNA = 1</span> for transcriptional influences, and <span class="tt">$rate_protein = 10</span> for post-transcriptional influences. Random noise on every node is tuned by the parameter <span class="tt">$noise</span>. The model should produce the expected patterning (the reference state, in which none of the four cells are identical) from the initial state below, when the pair rule gene SLP has the pattern SLP1,2 = 0 and SLP3,4 = 1. Two cases are considered: no noise (<span class="tt">$noise = 0</span>) and low noise (<span class="tt">$noise = 0.01</span>).
 	</p>
-	<figure class="figure">
-	  <a href="files/DrosoPattern/figures/droso_initial_reference.png"><img src="files/DrosoPattern/figures/droso_initial_reference.png" alt="Initial state and expected patterning" class="figure_small"/></a>
-	</figure>
+	<div class="figure_grid figure_grid_narrow figure_grid_small">
+		<figure class="figure">
+		  <a href="files/DrosoPattern/figures/droso_initial.png"><img src="files/DrosoPattern/figures/droso_initial.png" alt="Initial state"/></a>
+		</figure>
+		<figure class="figure">
+		  <a href="files/DrosoPattern/figures/droso_reference.png"><img src="files/DrosoPattern/figures/droso_reference.png" alt="Expected patterning"/></a>
+		</figure>
+	</div>
 	<ul>
 	  <li><a href="files/DrosoPattern/D_Pattern_ContT.bnd" class="clean-link">BND file</a></li>
 	  <li><a href="files/DrosoPattern/D_Pattern_ContT_noIntNode.cfg" class="clean-link">Configuration file, no noise</a></li>
@@ -614,24 +651,43 @@ MaBoSS -c D_Pattern_ContT_noIntNode_noise_4statdist.cfg -o D_Pattern_ContT_noInt
 	<figure class="figure">
 	  <a href="files/DrosoPattern/figures/droso_hd_no_noise.png"><img src="files/DrosoPattern/figures/droso_hd_no_noise.png" alt="Hamming distance distribution, no noise"/></a>
 	</figure>
-	<p>The asymptotic behavior consists of fixed points. The most probable one is the expected patterning:</p>
+	<p>The asymptotic behavior consists of fixed points. The most probable one (FP 6) is the expected patterning:</p>
 	<figure class="figure">
 	  <a href="files/DrosoPattern/figures/droso_fixed_points.png"><img src="files/DrosoPattern/figures/droso_fixed_points.png" alt="Fixed points, no noise" class="figure_small"/></a>
 	</figure>
-	<figure class="figure">
-	  <a href="files/DrosoPattern/figures/droso_fixed_points_patterns.png"><img src="files/DrosoPattern/figures/droso_fixed_points_patterns.png" alt="Patterns of the fixed points"/></a>
-	</figure>
+	<div class="figure_grid figure_grid_narrow">
+		<figure class="figure">
+		  <a href="files/DrosoPattern/figures/droso_fp1.png"><img src="files/DrosoPattern/figures/droso_fp1.png" alt="Pattern of the fixed point 1"/></a>
+		</figure>
+		<figure class="figure">
+		  <a href="files/DrosoPattern/figures/droso_fp2.png"><img src="files/DrosoPattern/figures/droso_fp2.png" alt="Pattern of the fixed point 2"/></a>
+		</figure>
+		<figure class="figure">
+		  <a href="files/DrosoPattern/figures/droso_fp3.png"><img src="files/DrosoPattern/figures/droso_fp3.png" alt="Pattern of the fixed point 3"/></a>
+		</figure>
+		<figure class="figure">
+		  <a href="files/DrosoPattern/figures/droso_fp4.png"><img src="files/DrosoPattern/figures/droso_fp4.png" alt="Pattern of the fixed point 4"/></a>
+		</figure>
+	</div>
 	<p>With noise, the expected patterning is no longer stable:</p>
 	<figure class="figure">
 	  <a href="files/DrosoPattern/figures/droso_hd_noise.png"><img src="files/DrosoPattern/figures/droso_hd_noise.png" alt="Hamming distance distribution, with noise"/></a>
 	</figure>
-	<p>The asymptotic behavior is then a single stationary distribution. Its most probable state corresponds to a "broad type" patterning, as defined in the publications above: two adjacent cells have identical node states.</p>
-	<figure class="figure">
-	  <a href="files/DrosoPattern/figures/droso_stationary_noise.png"><img src="files/DrosoPattern/figures/droso_stationary_noise.png" alt="Stationary distribution, with noise" class="figure_small"/></a>
-	</figure>
-	<figure class="figure">
-	  <a href="files/DrosoPattern/figures/droso_stationary_noise_patterns.png"><img src="files/DrosoPattern/figures/droso_stationary_noise_patterns.png" alt="Most probable states, with noise"/></a>
-	</figure>
+	<p>The asymptotic behavior is then a single stationary distribution. Its four most probable states are shown below, with their probabilities. The most probable one corresponds to a "broad type" patterning, as defined in the publications above: two adjacent cells have identical node states.</p>
+	<div class="figure_grid figure_grid_narrow">
+		<figure class="figure">
+		  <a href="files/DrosoPattern/figures/droso_stationary1.png"><img src="files/DrosoPattern/figures/droso_stationary1.png" alt="Most probable state 1, with noise"/></a>
+		</figure>
+		<figure class="figure">
+		  <a href="files/DrosoPattern/figures/droso_stationary2.png"><img src="files/DrosoPattern/figures/droso_stationary2.png" alt="Most probable state 2, with noise"/></a>
+		</figure>
+		<figure class="figure">
+		  <a href="files/DrosoPattern/figures/droso_stationary3.png"><img src="files/DrosoPattern/figures/droso_stationary3.png" alt="Most probable state 3, with noise"/></a>
+		</figure>
+		<figure class="figure">
+		  <a href="files/DrosoPattern/figures/droso_stationary4.png"><img src="files/DrosoPattern/figures/droso_stationary4.png" alt="Most probable state 4, with noise"/></a>
+		</figure>
+	</div>
       </div>
 	<!-- DROSOPHILA PATTERNING : END -->
 
@@ -649,7 +705,7 @@ MaBoSS -c D_Pattern_ContT_noIntNode_noise_4statdist.cfg -o D_Pattern_ContT_noInt
 	</figure>
 	<h4>Model</h4>
 	<p>
-	  The bnd and cfg files were exported from GINsim. In the configuration file, the initial state of every node is random, and <span class="tt">ras</span>, <span class="tt">egf</span> and <span class="tt">akt</span> are the output nodes. The simulations below are done without TNF&alpha; (<span class="tt">tnfa</span> initially inactive), until time 50.
+	  The bnd and cfg files were exported from GINsim. In the configuration file, the initial state of every node is random, and <span class="tt">ras</span>, <span class="tt">egf</span> and <span class="tt">akt</span> are the output nodes. To reproduce the figures of the publication, the simulations below start with all the nodes inactive, except EGF, which is present in half of the cells (no TNF&alpha;), until time 50.
 	</p>
 	<ul>
 	  <li><a href="files/EGF_TNF/chaouiya_maboss.bnd" class="clean-link">BND file</a></li>
@@ -663,16 +719,20 @@ MaBoSS -c D_Pattern_ContT_noIntNode_noise_4statdist.cfg -o D_Pattern_ContT_noInt
 	  <a href="files/EGF_TNF/EGF_TNF.ipynb" class="notebook_button" download>Notebook (EGF_TNF.ipynb)</a> <a href="files/EGF_TNF/EGF_TNF.zip" class="notebook_button notebook_button_alt" download>Notebook + model files (zip)</a>
 	</div>
 	<h4>Results</h4>
-	<p>The simulation reaches three fixed points:</p>
+	<p>The simulation reaches two fixed points:</p>
 	<figure class="figure">
-	  <a href="files/EGF_TNF/figures/egf_tnf_fixed_points.png"><img src="files/EGF_TNF/figures/egf_tnf_fixed_points.png" alt="Fixed points"/></a>
+	  <a href="files/EGF_TNF/figures/egf_tnf_fixed_points.png"><img src="files/EGF_TNF/figures/egf_tnf_fixed_points.png" alt="Fixed points" class="figure_small"/></a>
+	</figure>
+	<figure class="figure">
+	  <div class="df_wrapper"><table class="df_table"><tr><th>FP</th><th>Proba</th><th>State (active nodes)</th></tr><tr><th>FP 1</th><td>0.5000</td><td>akt -- ikb -- egf -- egfr -- ph -- pi3k</td></tr><tr><th>FP 2</th><td>0.5000</td><td>gsk3 -- ikb</td></tr></table></div>
+	  <figcaption>The fixed points, from <span class="tt">result.get_fptable()</span>.</figcaption>
 	</figure>
 	<p>They correspond to the stable states of the published model for the wild type:</p>
 	<figure class="figure">
 	  <a href="files/EGF_TNF/FixedPointsPub.png"><img src="files/EGF_TNF/FixedPointsPub.png" alt="Published stable states"/></a>
 	  <figcaption>Stable states of the published model.</figcaption>
 	</figure>
-	<p>The activities of ERK and RAS are transient, while AKT remains active when EGF is present:</p>
+	<p>As in the publication, RAS is activated first, then ERK: their activities are transient, while AKT remains active when EGF is present:</p>
 	<figure class="figure">
 	  <a href="files/EGF_TNF/figures/egf_tnf_trajectories.png"><img src="files/EGF_TNF/figures/egf_tnf_trajectories.png" alt="Activity of ERK, AKT and RAS"/></a>
 	</figure>
@@ -720,13 +780,13 @@ MaBoSS -c D_Pattern_ContT_noIntNode_noise_4statdist.cfg -o D_Pattern_ContT_noInt
 	<h4>Results</h4>
 	<p>With random inputs, the simulation explores all the possible phenotypes:</p>
 	<figure class="figure">
-	  <a href="files/ProstateCancer/figures/prostate_default.png"><img src="files/ProstateCancer/figures/prostate_default.png" alt="Final states with random inputs"/></a>
+	  <a href="files/ProstateCancer/figures/prostate_default.png"><img src="files/ProstateCancer/figures/prostate_default.png" alt="Final states with random inputs" class="figure_small"/></a>
 	</figure>
 	<p>Healthy cells mostly exhibit quiescence (neither proliferation nor apoptosis) in the absence of any input (Figure 3A of the article):</p>
 	<figure class="figure">
 	  <a href="files/ProstateCancer/figures/prostate_healthy.png"><img src="files/ProstateCancer/figures/prostate_healthy.png" alt="Healthy cells, without inputs"/></a>
 	</figure>
-	<p>When nutrients and growth factors (EGF) are present, proliferation is activated. The inhibition of MYC_MAX blocks it (Appendix 1, figure 34):</p>
+	<p>To compare several simulations, we plot the final probability of each phenotype. When nutrients and growth factors (EGF) are present, proliferation is activated. The inhibition of MYC_MAX blocks it (Appendix 1, figure 34):</p>
 	<figure class="figure">
 	  <a href="files/ProstateCancer/figures/prostate_growth.png"><img src="files/ProstateCancer/figures/prostate_growth.png" alt="Growth condition and MYC_MAX inhibition"/></a>
 	</figure>
@@ -778,13 +838,27 @@ MaBoSS -c D_Pattern_ContT_noIntNode_noise_4statdist.cfg -o D_Pattern_ContT_noInt
 	<p>
 	  The simulations start from the initial state defined by Sizek et al. (their figure 6), with 5000 trajectories up to time 200. In the wild type, a transient cyclic-like behaviour is eventually lost due to the spontaneous activation of Casp3: the apoptotic stable state progressively dominates. The entropy rises abruptly then slowly decreases, while the transition entropy stays close to zero after a small peak, suggesting a transient periodic behaviour.
 	</p>
+	<div class="figure_grid">
+		<figure class="figure">
+		  <a href="files/SizekCellCycle/figures/sizek_wt_nodes.png"><img src="files/SizekCellCycle/figures/sizek_wt_nodes.png" alt="Wild type, node probabilities"/></a>
+		</figure>
+		<figure class="figure">
+		  <a href="files/SizekCellCycle/figures/sizek_wt_entropies.png"><img src="files/SizekCellCycle/figures/sizek_wt_entropies.png" alt="Wild type, entropies"/></a>
+		</figure>
+	</div>
+	<p>The final states of the wild type:</p>
 	<figure class="figure">
-	  <a href="files/SizekCellCycle/figures/sizek_wt.png"><img src="files/SizekCellCycle/figures/sizek_wt.png" alt="Wild type simulation"/></a>
+	  <a href="files/SizekCellCycle/figures/sizek_wt_final_states.png"><img src="files/SizekCellCycle/figures/sizek_wt_final_states.png" alt="Wild type, final states" class="figure_small"/></a>
 	</figure>
 	<p>With the death signal TRAIL active at the initial state, Casp3, and thus apoptosis, rise much faster, and the system reaches a stable state:</p>
-	<figure class="figure">
-	  <a href="files/SizekCellCycle/figures/sizek_trail.png"><img src="files/SizekCellCycle/figures/sizek_trail.png" alt="Simulation with TRAIL"/></a>
-	</figure>
+	<div class="figure_grid">
+		<figure class="figure">
+		  <a href="files/SizekCellCycle/figures/sizek_trail_nodes.png"><img src="files/SizekCellCycle/figures/sizek_trail_nodes.png" alt="With TRAIL, node probabilities"/></a>
+		</figure>
+		<figure class="figure">
+		  <a href="files/SizekCellCycle/figures/sizek_trail_entropies.png"><img src="files/SizekCellCycle/figures/sizek_trail_entropies.png" alt="With TRAIL, entropies"/></a>
+		</figure>
+	</div>
 	<p>The ectopic activity of Casp8 drives the cells into apoptosis faster. When Casp8 is knocked down, Casp3 is still ultimately activated, as in the wild type: in this model, apoptosis can occur even without Casp8.</p>
 	<figure class="figure">
 	  <a href="files/SizekCellCycle/figures/sizek_casp8.png"><img src="files/SizekCellCycle/figures/sizek_casp8.png" alt="Casp8 mutants"/></a>
@@ -794,9 +868,14 @@ MaBoSS -c D_Pattern_ContT_noIntNode_noise_4statdist.cfg -o D_Pattern_ContT_noInt
 	  <a href="files/SizekCellCycle/figures/sizek_mutants.png"><img src="files/SizekCellCycle/figures/sizek_mutants.png" alt="Final states of the mutants"/></a>
 	</figure>
 	<p>Both the sustained activations of p110 and FoxO3 turn off Casp3 while maintaining the cell cycle:</p>
-	<figure class="figure">
-	  <a href="files/SizekCellCycle/figures/sizek_mutants_selected.png"><img src="files/SizekCellCycle/figures/sizek_mutants_selected.png" alt="Selected mutants"/></a>
-	</figure>
+	<div class="figure_grid">
+		<figure class="figure">
+		  <a href="files/SizekCellCycle/figures/sizek_mutant_p110_H_ON.png"><img src="files/SizekCellCycle/figures/sizek_mutant_p110_H_ON.png" alt="p110_H ectopic activity"/></a>
+		</figure>
+		<figure class="figure">
+		  <a href="files/SizekCellCycle/figures/sizek_mutant_FoxO3_ON.png"><img src="files/SizekCellCycle/figures/sizek_mutant_FoxO3_ON.png" alt="FoxO3 ectopic activity"/></a>
+		</figure>
+	</div>
 	<p>In the wild type, the cyclins show the expected sequence of peaks: CyclinE, then CyclinA, then CyclinB. As MaBoSS reports mean probabilities over many trajectories, these oscillations are rapidly damped.</p>
 	<figure class="figure">
 	  <a href="files/SizekCellCycle/figures/sizek_cyclins.png"><img src="files/SizekCellCycle/figures/sizek_cyclins.png" alt="Cyclins, wild type"/></a>
@@ -857,7 +936,7 @@ steps = 48;</pre>
 	<figure class="figure">
 	  <a href="UPMaBoSS/figures/upmaboss_treatments.png"><img src="UPMaBoSS/figures/upmaboss_treatments.png" alt="Successive TNF treatments"/></a>
 	</figure>
-	<p>Simulating the deletion of each internal node shows which mutations abolish this resistance. The relative change is the population ratio with the second TNF treatment, divided by the one without it: the treatment has an effect when it is below 1 (in blue).</p>
+	<p>Simulating the deletion of each internal node shows which mutations abolish this resistance. The relative change is the population ratio with the second TNF treatment, divided by the one without it: the treatment has an effect when it is below 1.</p>
 	<figure class="figure">
 	  <a href="UPMaBoSS/figures/upmaboss_mutants_effect.png"><img src="UPMaBoSS/figures/upmaboss_mutants_effect.png" alt="Effect of the TNF treatment on the mutants" class="figure_small"/></a>
 	</figure>
@@ -866,9 +945,14 @@ steps = 48;</pre>
 	</p>
 	<h4>Sensitivity to the update time</h4>
 	<p>The population dynamics are robust to the update time: updating the population every hour or every 15 minutes gives almost identical results.</p>
-	<figure class="figure">
-	  <a href="UPMaBoSS/figures/upmaboss_timestep.png"><img src="UPMaBoSS/figures/upmaboss_timestep.png" alt="Sensitivity to the update time"/></a>
-	</figure>
+	<div class="figure_grid">
+		<figure class="figure">
+		  <a href="UPMaBoSS/figures/upmaboss_timestep_tnf.png"><img src="UPMaBoSS/figures/upmaboss_timestep_tnf.png" alt="Sensitivity to the update time, with a pulse of TNF"/></a>
+		</figure>
+		<figure class="figure">
+		  <a href="UPMaBoSS/figures/upmaboss_timestep_notnf.png"><img src="UPMaBoSS/figures/upmaboss_timestep_notnf.png" alt="Sensitivity to the update time, without TNF"/></a>
+		</figure>
+	</div>
       </div>
       <!-- UPMABOSS CELL FATE : END -->
 
@@ -878,6 +962,10 @@ steps = 48;</pre>
 	<p>
 	  PROFILE is a methodology to personalize logical models with the omics data of patients or cell lines (mutations, copy number alterations, RNA and protein levels), and to simulate the personalized models with MaBoSS. The data are mapped on the nodes of a generic model, which is then personalized either by fixing the activity of nodes (for instance for mutations), or by tuning their initial states and transition rates according to continuous data. The simulations of the personalized models can then be compared to the clinical features of the patients, or to the response of cell lines to drugs.
 	</p>
+	<figure class="figure">
+	  <a href="images/ecosystem/profile_schema.png"><img src="images/ecosystem/profile_schema.png" alt="PROFILE pipeline" class="figure_small"/></a>
+	  <figcaption>The PROFILE pipeline: omics data are processed into patient profiles, used to personalize a generic logical model into patient-specific models, which are then validated against clinical data or used to predict drug responses.</figcaption>
+	</figure>
 	<p>
 	  PROFILE was used to stratify breast cancer patients (<a href="https://doi.org/10.3389/fphys.2018.01965" class="clean-link">B&eacute;al et al., 2019</a>), to study the response of melanoma and colorectal cancer cell lines to BRAF inhibitors (<a href="https://doi.org/10.1371/journal.pcbi.1007900" class="clean-link">B&eacute;al et al., 2021</a>), and to build patient-specific models of prostate cancer that guide personalized treatments (<a href="https://doi.org/10.7554/eLife.72626" class="clean-link">Montagud et al., 2022</a>). Some of these personalized models are simulated in the <a href="#" class="clean-link" onclick="show('model_prostate');return false;">prostate cancer</a> example of the repository of models.
 	</p>
@@ -904,9 +992,14 @@ steps = 48;</pre>
       </div>
       <div id="maboss_eco_physiboss" class="hidden">
 	<h3>PhysiBoSS</h3>
+	<img src="images/ecosystem/physiboss_logo.png" alt="PhysiBoSS logo" class="eco_logo"/>
 	<p>
 	  PhysiBoSS is a multiscale modelling framework, which integrates the intracellular Boolean models simulated by MaBoSS into the agent-based framework <a href="https://physicell.org" class="clean-link">PhysiCell</a>. Each cell of the simulation is an agent with its own MaBoSS model, whose nodes are connected to the behaviour of the cell (division, death, migration, secretion...) and to its environment (substrates, contacts with other cells). PhysiBoSS thus allows to study how intracellular signaling shapes the behaviour of a whole population of cells in its physical environment.
 	</p>
+	<figure class="figure">
+	  <a href="images/ecosystem/physicell_3.png"><img src="images/ecosystem/physicell_3.png" alt="3D spheroid simulated with PhysiBoSS, with the Boolean models of two of its cells"/></a>
+	  <figcaption>A 3D spheroid simulated with PhysiBoSS: each cell carries its own Boolean model (BM), simulated by MaBoSS and connected to the microenvironment.</figcaption>
+	</figure>
 	<p>
 	  PhysiBoSS 2.0 is a redesign of the original PhysiBoSS as an add-on of PhysiCell, keeping a decoupled, maintainable and model-agnostic design. It is developed by Institut Curie and the Barcelona Supercomputing Center, and is open source (BSD 3-Clause license). A step-by-step tutorial shows how to build multiscale models with PhysiBoSS.
 	</p>
@@ -937,6 +1030,10 @@ steps = 48;</pre>
 	<p>
 	  UPMaBoSS (Update Population MaBoSS) simulates the dynamics of a population of interacting cells. The behaviour of each cell is described by a MaBoSS model. At regular intervals, the simulation is stopped, and the population is updated according to the nodes representing cell death and cell division, and to the nodes accounting for signals coming from other cells. The simulation then continues with the updated conditions. UPMaBoSS requires only moderate computational power, and is easy to use with an existing MaBoSS model.
 	</p>
+	<figure class="figure">
+	  <a href="images/ecosystem/upmaboss_sketch.png"><img src="images/ecosystem/upmaboss_sketch.png" alt="Interacting cells" class="figure_small"/></a>
+	  <figcaption>UPMaBoSS simulates populations of cells, each described by a MaBoSS model, which communicate with each other.</figcaption>
+	</figure>
 	<p>
 	  UPMaBoSS is part of <a href="#" class="clean-link" onclick="show('howto');show_tab('howto', 'pymaboss');return false;">pyMaBoSS</a>. Besides the model (bnd) and configuration (cfg) files, it uses an update file (upp), which describes the population updates:
 	</p>
@@ -974,6 +1071,10 @@ result.get_population_ratios()</pre>
 	<p>
 	  The available data are often not sufficient to determine a single logical model: tools such as <a href="https://bnediction.github.io/bonesis/" class="clean-link">BoNesis</a> can instead synthesize an ensemble of models, all compatible with the data. EnsembleMaBoSS simulates such ensembles of models with MaBoSS: it computes the probability trajectories over the whole ensemble, and can also keep the results of each individual model, to compare them or to cluster the models according to their behaviour.
 	</p>
+	<figure class="figure">
+	  <a href="images/ecosystem/ensemble_pipeline.png"><img src="images/ecosystem/ensemble_pipeline.png" alt="Simulation of an ensemble of models"/></a>
+	  <figcaption>Each model of the ensemble is simulated, and the results are aggregated into the trajectories of the ensemble.</figcaption>
+	</figure>
 	<p>With the MaBoSS command line, the models of the ensemble are simulated with a common configuration file:</p>
 <pre>MaBoSS --ensemble -c ensemble.cfg -o results model_1.bnet model_2.bnet ...</pre>
 	<p>
@@ -985,6 +1086,10 @@ ensemble = maboss.Ensemble("models", sample_count=10000, max_time=50)
 result = ensemble.run()
 result.plot_piechart()</pre>
 	<p class="small_note">The BoolNet files must not contain the optional header line <span class="tt">targets, factors</span>.</p>
+	<figure class="figure">
+	  <a href="images/ecosystem/ensemble_clusters.png"><img src="images/ecosystem/ensemble_clusters.png" alt="Clusters of models in an ensemble"/></a>
+	  <figcaption>Simulation of an ensemble of models of cell invasion: principal component analysis of the results of the individual models, which form four clusters with different phenotypes.</figcaption>
+	</figure>
 	<p>
 	  <a href="https://github.com/sysbio-curie/AstroLogics" class="clean-link">AstroLogics</a> builds on these simulations to cluster the models of an ensemble according to their dynamics, and to identify the logical rules that differentiate them.
 	</p>
@@ -1014,7 +1119,15 @@ result.plot_piechart()</pre>
 	  MaBoSS estimates the probabilities of the states of a model by simulating many stochastic trajectories. For small models, ExaStoLog (EXAct solving of STOchastic LOGical models) computes instead the exact stationary probabilities of the continuous-time Markov chain defined by the model, without sampling. Being fast and exact, it allows to perform parameter sensitivity analyses, and to fit the transition rates of a model to data.
 	</p>
 	<p>
-	  ExaStoLog is a MATLAB toolbox (MATLAB 2015b or later), developed in the Computational Systems Biology of Cancer group at Institut Curie. Models are given in the BoolNet format, or as logical formulas written in MATLAB. As the exact method requires exploring the state space, it is currently limited to models of up to about twenty nodes.
+	  ExaStoLog was developed in the Computational Systems Biology of Cancer group at Institut Curie, and exists in three versions:
+	</p>
+	<ul>
+	  <li>the original MATLAB toolbox (MATLAB 2015b or later), where models are given in the BoolNet format, or as logical formulas written in MATLAB;</li>
+	  <li>a Python library, pyExaStoLog, available on PyPI (<span class="tt">pip install exastolog</span>), which reads models in the BoolNet format;</li>
+	  <li>a parallel implementation in C++/CUDA, paraExaStoLog, which runs on NVIDIA GPUs, using the cuSPARSE and cuSOLVER libraries.</li>
+	</ul>
+	<p>
+	  As the exact method requires exploring the state space, the MATLAB toolbox is limited to models of up to about twenty nodes.
 	</p>
 	<div class="doc_cards">
 	  <div class="doc_card">
@@ -1030,6 +1143,14 @@ result.plot_piechart()</pre>
 	    <ul>
 	    <li><a href="https://github.com/mbkoltai/ExaStoLog" class="clean-link">ExaStoLog repository</a></li>
 	    <li><a href="https://github.com/mbkoltai/exact-stoch-log-mod/tree/master/doc" class="clean-link">Tutorial</a></li>
+	    </ul>
+	  </div>
+	  <div class="doc_card">
+	    <div class="doc_card_title">Python and GPU versions</div>
+	    <p>Python library and CUDA implementation</p>
+	    <ul>
+	    <li><a href="https://github.com/sysbio-curie/pyExaStoLog" class="clean-link">pyExaStoLog repository</a> (<a href="https://pypi.org/project/exastolog/" class="clean-link">PyPI</a>)</li>
+	    <li><a href="https://github.com/asmelko/paraExaStoLog" class="clean-link">paraExaStoLog repository</a> (GPU)</li>
 	    </ul>
 	  </div>
 	</div>

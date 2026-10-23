@@ -71,6 +71,31 @@ body {
     width: auto;
 }
 
+.menu_toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.menu_toggle span {
+    display: block;
+    height: 3px;
+    background: var(--text);
+    border-radius: 2px;
+}
+
+.menu_toggle[aria-expanded="true"] {
+    border-color: var(--orange);
+}
+
 /* ---------- Layout ---------- */
 
 .layout {
@@ -356,8 +381,25 @@ ul, ol {
     }
     .layout {
         flex-direction: column;
+        align-items: stretch;
+    }
+    .site_header {
+        position: relative;
+    }
+    /* Just below the orange line of the header, on the right */
+    .menu_toggle {
+        display: flex;
+        position: absolute;
+        top: calc(100% + 12px);
+        right: 16px;
+        z-index: 10;
+        background: #ffffff;
+    }
+    #content h3 {
+        padding-right: 52px;
     }
     #menu {
+        display: none;
         position: static;
         width: 100%;
         flex: none;
@@ -366,6 +408,9 @@ ul, ol {
         padding: 8px 0;
         border-right: none;
         border-bottom: 1px solid var(--border);
+    }
+    #menu.menu_open {
+        display: block;
     }
     .menu {
         display: flex;
@@ -384,7 +429,9 @@ ul, ol {
         border-bottom-color: var(--orange);
     }
     #content {
+        width: 100%;
         padding: 8px 16px 32px 16px;
+        overflow-wrap: anywhere;
     }
 }
 
@@ -468,6 +515,22 @@ h4[id^="doc_"] {
 
 .figure_small {
     max-width: 420px;
+}
+/* Related figures side by side, stacked on narrow screens */
+.figure_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+    margin: 12px 0 20px 0;
+}
+.figure_grid .figure {
+    margin: 0;
+}
+.figure_grid_narrow {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+.figure_grid_small {
+    max-width: 380px;
 }
 
 figcaption {
@@ -558,4 +621,19 @@ figcaption {
 
 .df_table tr:nth-child(even) td {
     background: var(--bg-soft);
+}
+
+/* ---------- Ecosystem ---------- */
+
+.eco_logo {
+    float: right;
+    width: 130px;
+    height: auto;
+    margin: 0 0 12px 24px;
+}
+
+@media (max-width: 760px) {
+    .eco_logo {
+        width: 90px;
+    }
 }
